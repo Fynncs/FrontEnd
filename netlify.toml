@@ -1,0 +1,9 @@
+[build]
+  command = "ng build --configuration=production"
+  publish = "dist/fynnc/browser"
+
+[[redirects]]
+  from = "/*"
+  to = "/login"
+  status = 200
+
