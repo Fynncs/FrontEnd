@@ -1,6 +1,6 @@
 [build]
   command = "ng build --configuration=production"
-  publish = "dist/fynnc"
+  publish = "dist/fynnc/browser"
 
 [[redirects]]
   from = "/*"
