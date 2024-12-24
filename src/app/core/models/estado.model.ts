@@ -46,21 +46,24 @@ export class ModeloEstado<T extends Record<string, any>> implements IModeloEstad
    */
   private _criarProxy(obj: T): T {
     return new Proxy(obj, {
-      set: (target, propriedade, valor) => {
-        if (typeof propriedade === 'string' && propriedade in target) {
-          if (target[propriedade as keyof T] !== valor) {
-            this._atributosModificados.add(propriedade as keyof T);
-            target[propriedade as keyof T] = valor;
-
-            if (this._estado === Estado.ORIGINAL) {
-              this.marcarComoModificado();
+        set: (target, propriedade, valor) => {
+            if (typeof propriedade === 'string' && propriedade in target) {
+                const key = propriedade as keyof T;
+                if (typeof valor === 'object' && valor !== null && !(valor instanceof Date)) {
+                    valor = this._criarProxy(valor); 
+                }
+                if (target[key] !== valor) {
+                    this._atributosModificados.add(key);
+                    target[key] = valor;
+                    if (this._estado === Estado.ORIGINAL) {
+                        this.marcarComoModificado();
+                    }
+                }
             }
-          }
+            return true;
         }
-        return true;
-      }
     });
-  }
+}
 
   /**
    * Obtém os dados do modelo através do Proxy.
