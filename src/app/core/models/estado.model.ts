@@ -1,5 +1,6 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Estado } from '../enum/estado.enum';
+import { IModeloEstado } from './i-estado.model';
 
 /**
  * Classe genérica para gerenciar o estado de um modelo.
@@ -7,7 +8,7 @@ import { Estado } from '../enum/estado.enum';
  *
  * @template T Tipo do modelo representado pela classe.
  */
-export class ModeloEstado<T extends Record<string, any>> {
+export class ModeloEstado<T extends Record<string, any>> implements IModeloEstado<T> {
   /** Dados originais do modelo. */
   private _dados: T;
 
