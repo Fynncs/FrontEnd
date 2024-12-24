@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
-import { FormlyConfigModule } from '../core/config/formly.config'
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { IUser, User } from '@fynnc.models';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,15 +11,10 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  imports: [FormlyConfigModule, ReactiveFormsModule, FormlyModule, FormlyBootstrapModule,CommonModule]
+  imports: [ReactiveFormsModule, FormlyModule, FormlyBootstrapModule,CommonModule]
 })
 export class LoginComponent {
   form = new FormGroup({});
-  // model: Partial<IUser> = {
-  //   email: '',
-  //   name: '',
-  //   phone: ''
-  // };
   model: User = new User();
   fields: FormlyFieldConfig[] = [
     {
