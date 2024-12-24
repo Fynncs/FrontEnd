@@ -15,7 +15,7 @@ export class User extends ModelState<IUser> implements IUser {
   private _username?: string;
   private _password?: string;
 
-  constructor(user: IUser) {
+  constructor(user: IUser = {} as IUser) {
     super(user);
     this._id = user.id;
     this._name = user.name;
