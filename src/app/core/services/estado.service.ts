@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Estado } from '../enum/estado.enum';
+import { Estado } from '../enum/state.enum';
 
 @Injectable({
   providedIn: 'root'

@@ -1,7 +1,7 @@
 
-export * from './estado.model';
-export * from './i-estado.model';
+export * from './state.model';
+export * from './i-state.model';
 
 
-export * from './usuario.model';
-export * from './i-usuario.model';
+export * from './user.model';
+export * from './i-user.model';
