@@ -9,12 +9,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
-  span {
-    font-size: 6em;
-    background-image: linear-gradient(to right, #6a82fb, #fc5c7d);
-    -webkit-background-clip: text;
-    color: transparent;
+.logo span {
+  font-size: 6em;
+  background-image: linear-gradient(to right, #6a82fb, #fc5c7d);
+  -webkit-background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: escrever 2s linear forwards;
+}
+
+@keyframes escrever {
+  0% {
+      clip-path: inset(0 100% 0 0);
+  }
+  100% {
+      clip-path: inset(0 0 0 0);
   }
 }
 .form {
