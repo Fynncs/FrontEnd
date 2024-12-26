@@ -1,68 +1,43 @@
-import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
-import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
-import { IUser, User } from '@fynnc.models';
-import { ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-
 @Component({
   selector: 'app-login',
   standalone: true,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  imports: [ReactiveFormsModule, FormlyModule, FormlyBootstrapModule,CommonModule]
+  imports: [
+    CommonModule,
+    MatFormFieldModule, 
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule, 
+    ReactiveFormsModule,
+  ],
 })
-export class LoginComponent {
-  form = new FormGroup({});
-  model: User = new User();
-  fields: FormlyFieldConfig[] = [
-    {
-      key: 'email',
-      type: 'input',
-      props: {
-        label: 'Email Address',
-        placeholder: 'Enter email',
-        required: true,
-        appearance: 'outline',
-        hint: 'We will never share your email',
-        attributes: {
-          autocomplete: 'off',
-        }
-      },
-      id: 'custom-input',
-      className: 'custom-input', // ou use ngClass
-    },
-    {
-      key: 'name',
-      type: 'input',
-      props: {
-        label: 'Full Name',
-        placeholder: 'Enter your full name',
-        required: true,
-        appearance: 'outline'
-      },
-      className: 'custom-input custom-name-field'
-    },
-    {
-      key: 'phone',
-      type: 'input',
-      props: {
-        label: 'Phone',
-        placeholder: 'Enter your phone number',
-        required: false,
-        type: 'tel',
-        appearance: 'outline'
-      },
-      className: 'custom-input'
-    }
-  ];
-  
-  onSubmit(model: Partial<IUser>) {
+export class LoginComponent implements OnInit {
+  form!: FormGroup;
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit() {
+    this.form = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      name: ['', Validators.required],
+      phone: ['', Validators.pattern('^\\+?[1-9]\\d{1,14}$')] // Validação para número de telefone internacional
+    });
+  }
+
+  onSubmit() {
     if (this.form.valid) {
-      console.log('Form Submitted:', model);
+      console.log('Form submitted:', this.form.value);
     } else {
-      console.warn('Form is invalid');
+      console.log('Form is invalid');
+      this.form.markAllAsTouched(); // Marca todos os campos como tocados para exibir erros
     }
   }
 }
