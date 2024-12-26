@@ -4,13 +4,14 @@
   </div>
   <div class="form">
     <div class="welcome-text">
-      <span>Bem Vindo</span>
+      <span>Olá, seja bem-vindo!</span>
     </div>
 
     <div class="login-options"> <div class="login">
-        <button class="google-button">
-          Entrar com o Google
-        </button>
+      <button class="google-button">
+        <img  src="assets/imagens/google.png" alt="Google Icon" class="google-icon">
+        Entrar com o Google
+      </button>
       </div>
       <div class="or-separator"><span>ou</span></div>
       <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
@@ -26,7 +27,7 @@
           <mat-error *ngIf="form.get('password')?.hasError('required')">Password is required</mat-error>
           <mat-error *ngIf="form.get('password')?.hasError('minlength')">Password must be at least 6 characters</mat-error>
         </mat-form-field>
-        <div style="margin-top: 10px; font-size: small; text-align: center;">
+        <div style="margin-top: 10px; font-size: small;">
           <span style="color: gray;">Não tem uma conta?</span>
           </div>
             <!-- chamar component de criar conta --> 
