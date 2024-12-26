@@ -1,10 +1,13 @@
 <div class="container">
+  <div class="logo">
+    <span>FYNNC</span>
+  </div>
   <div class="form">
     <div class="welcome-text">
-      <span>Bem Vindo ao </span> 
+      <span>Bem Vindo ao </span>
       <span class="typing-animation">Próximo Capítulo</span>
     </div>
-    
+
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
       <mat-form-field appearance="outline" class="custom-input">
         <mat-label>Email Address</mat-label>

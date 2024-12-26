@@ -1,7 +1,18 @@
 .container {
   display: flex;
-  justify-content: flex-end;
   height: 100vh;
+  justify-content: space-between;
+}
+
+.logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+
+  span {
+    font-size: 2em;
+    color: white;
+  }
 }
 
 .form {
@@ -11,6 +22,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: white;
+  height: 100vh;
 }
 
 .form-container {
@@ -53,19 +65,18 @@
   align-items: center;
   color: white;
   margin-bottom: 20px;
-}
 
+  span {
+    font-size: 2em;
 
-.welcome-text span {
-  font-size: 2em;
-}
+    &:first-child {
+      color: white;
+    }
+  }
 
-.welcome-text .typing-animation {
-  background-image: linear-gradient(to right, #6a82fb, #fc5c7d);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.welcome-text span:first-child {
-  color: white;
+  .typing-animation {
+    background-image: linear-gradient(to right, #6a82fb, #fc5c7d);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 }
