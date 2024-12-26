@@ -5,33 +5,29 @@
   <div class="form">
     <div class="welcome-text">
       <span>Bem Vindo</span>
-      <!-- <span class="typing-animation">Próximo Capítulo</span> -->
     </div>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
-      <mat-form-field appearance="outline" class="custom-input">
-        <mat-label>Email Address</mat-label>
-        <input matInput formControlName="email" placeholder="Enter email" autocomplete="off" id="custom-input">
-        <mat-hint>We will never share your email</mat-hint>
-        <mat-error *ngIf="form.get('email')?.hasError('required')">Email is required</mat-error>
-        <mat-error *ngIf="form.get('email')?.hasError('email')">Enter a valid email</mat-error>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" class="custom-input custom-name-field">
-        <mat-label>Full Name</mat-label>
-        <input matInput formControlName="name" placeholder="Enter your full name">
-        <mat-error *ngIf="form.get('name')?.hasError('required')">Name is required</mat-error>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" class="custom-input">
-        <mat-label>Phone</mat-label>
-        <input matInput formControlName="phone" placeholder="Enter your phone number" type="tel">
-        <mat-error *ngIf="form.get('phone')?.hasError('pattern')">Enter a valid phone number</mat-error>
-      </mat-form-field>
-
-      <button type="submit">
-        Submit
-      </button>
-    </form>
+    <div class="login-options"> <div class="login">
+        <button class="google-button">
+          Entrar com o Google
+        </button>
+      </div>
+      <div class="or-separator"><span>ou</span></div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+        <mat-form-field appearance="outline" class="custom-input">
+          <mat-label>Email:</mat-label>
+          <input matInput formControlName="email" placeholder="Enter email" autocomplete="off">
+          <mat-error *ngIf="form.get('email')?.hasError('required')">Email is required</mat-error>
+          <mat-error *ngIf="form.get('email')?.hasError('email')">Enter a valid email</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="custom-input">
+          <mat-label>Senha:</mat-label>
+          <input matInput formControlName="password" type="password" placeholder="Enter password">
+          <mat-error *ngIf="form.get('password')?.hasError('required')">Password is required</mat-error>
+          <mat-error *ngIf="form.get('password')?.hasError('minlength')">Password must be at least 6 characters</mat-error>
+        </mat-form-field>
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
   </div>
 </div>

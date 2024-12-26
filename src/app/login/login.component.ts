@@ -27,17 +27,17 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      name: ['', Validators.required],
-      phone: ['', Validators.pattern('^\\+?[1-9]\\d{1,14}$')] // Validação para número de telefone internacional
+      password: ['', [Validators.required, Validators.minLength(6)]] 
     });
   }
 
   onSubmit() {
-    if (this.form.valid) {
-      console.log('Form submitted:', this.form.value);
+    if (!this.form.valid) {
+      this.form.markAllAsTouched(); 
+      return;
     } else {
       console.log('Form is invalid');
-      this.form.markAllAsTouched(); // Marca todos os campos como tocados para exibir erros
+      this.form.markAllAsTouched(); 
     }
   }
 }

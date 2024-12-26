@@ -1,7 +1,7 @@
 .container {
   display: flex;
   height: 100vh;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .logo {
@@ -17,9 +17,8 @@
     color: transparent;
   }
 }
-
 .form {
-  width: 400px;
+  width: 390px;
   background-color: #19202b;
   padding: 20px;
   border-radius: 8px;
@@ -38,7 +37,7 @@
 
   .custom-input {
     width: 100%;
-    color: hsl(0, 0%, 100%);
+    color: white
   }
 
   .custom-name-field {
@@ -48,6 +47,7 @@
 
   button {
     margin-top: 16px;
+    width: 100%;
     align-self: flex-end;
     color: #fff;
     background-color: #4e5c6e;
@@ -82,4 +82,54 @@
     -webkit-background-clip: text;
     color: transparent;
   }
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  margin-bottom: 20px;
+}
+.google-button {
+  color: rgb(0, 0, 0);
+  margin: 20px;
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.google-button:hover {
+  background-color: #f0f0f0;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.or-separator {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.or-separator span {
+  padding: 0 10px;
+  z-index: 1;
+  position: relative;
+}
+
+.or-separator::before,
+.or-separator::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background-color: #ccc;
 }
