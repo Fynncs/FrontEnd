@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-sign-up-form-component',
   templateUrl: './sign-up-form-component.component.html',
-  styleUrl: './sign-up-form-component.component.scss',
+  styleUrls: ['./sign-up-form-component.component.scss'],
   imports: [
         CommonModule,
         MatFormFieldModule, 

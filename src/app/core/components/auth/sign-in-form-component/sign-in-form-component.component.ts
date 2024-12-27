@@ -13,8 +13,7 @@ import { IUser } from '@fynnc.models';
 @Component({
   selector: 'app-sign-in-form-component',
   templateUrl: './sign-in-form-component.component.html',
-  providers: [AuthService],
-  styleUrl: './sign-in-form-component.component.scss',
+  styleUrls: ['./sign-in-form-component.component.scss'],  // Corrigido aqui
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -27,10 +26,11 @@ import { IUser } from '@fynnc.models';
 export class SignInFormComponentComponent {
   @Output() goBackToLogin = new EventEmitter<void>();
   form!: FormGroup;
-  errorMessage: string | undefined
+  errorMessage: string | undefined;
   tentativasFalhas: number = 0;
   maxTentativas: number = 3;
   isLoading: boolean = false;
+
   constructor(
     private readonly fb: FormBuilder,
     private readonly authService: AuthService,
@@ -43,9 +43,11 @@ export class SignInFormComponentComponent {
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
+
   changeToSingUp() {
     this.goBackToLogin.emit();
   }
+
   onSubmit(): void {
     if (!this.form.valid) {
       this.form.markAllAsTouched();
