@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
 })
 export class SignUpFormComponentComponent {
   form!: FormGroup;
+  @Output() goBackToLogin = new EventEmitter<void>();
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
@@ -44,6 +45,9 @@ export class SignUpFormComponentComponent {
     const password = group.get('password')?.value;
     const confirmPassword = group.get('confirmPassword')?.value;
     return password === confirmPassword ? null : { mismatch: true };
+  }
+  changeToSingIn() {
+    this.goBackToLogin.emit(); 
   }
   onSubmit() {
     if (this.form.valid) {

@@ -3,28 +3,7 @@
     <span>FYNNC</span>
   </div>
   <div class="form" [ngClass]="{'expanded': singUp}">
-    <button mat-icon-button class="back-button" *ngIf="singUp">
-      <mat-icon>arrow_back</mat-icon>
-  </button>
-    <div class="welcome-text" *ngIf="!singUp">
-      <span>Olá, seja bem-vindo!</span>
-    </div>
-    <div class="welcome-text" *ngIf="singUp">
-      <span>Quase lá! Complete seu cadastro.</span>
-    </div>
-    <div class="login-options" *ngIf="singIn">
-      <div class="login">
-        <button class="google-button">
-          <img
-            src="assets/imagens/google.png"
-            alt="Google Icon"
-            class="google-icon"/>
-          Entrar com o Google
-        </button>
-      </div>
-      <div class="or-separator"><span>ou</span></div>
-      <app-sign-in-form-component (goBackToLogin)="singUpForm()"></app-sign-in-form-component>
-    </div>
-    <app-sign-up-form-component *ngIf="singUp"></app-sign-up-form-component>
+    <app-sign-in-form-component *ngIf="singIn"(goBackToLogin)="singUpForm()"></app-sign-in-form-component>
+    <app-sign-up-form-component *ngIf="singUp" (goBackToLogin)="singInForm()"></app-sign-up-form-component>
   </div>
 </div>

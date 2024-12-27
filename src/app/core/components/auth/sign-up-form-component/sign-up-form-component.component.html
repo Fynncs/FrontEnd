@@ -1,7 +1,11 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
 
     <div class="form-fields">
-    
+
+        <div class="welcome-text">
+            <span>Quase lá! Complete seu cadastro.</span>
+          </div>
+          
         <mat-form-field appearance="outline" class="custom-input">
             <mat-label>Nome Completo</mat-label>
             <input matInput id="fullName" formControlName="fullName" type="text" required />
@@ -25,18 +29,19 @@
 
     <mat-form-field appearance="outline" class="custom-input">
         <mat-label>Senha</mat-label>
-        <input matInput id="password" formControlName="password" type="password" required />
+        <input matInput id="password" formControlName="password" type="password" required style="color: white;"/>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="custom-input">
         <mat-label>Confirmar Senha</mat-label>
-        <input matInput id="confirmPassword" formControlName="confirmPassword" type="password" required />
+        <input matInput id="confirmPassword" formControlName="confirmPassword" type="password" required style="color: white;"/>
         <div *ngIf="form.get('confirmPassword')?.touched && form.get('confirmPassword')?.invalid">
             <small class="text-danger">As senhas não são iguais.</small>
         </div>
     </mat-form-field>
 
-    <div class="form-group">
-        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Enviar</button>
-    </div>
+    <div class="button-container">
+        <button class="btn-secondary" (click)="changeToSingIn()">Voltar</button>
+        <button type="submit" class="btn-primary">Finalizar Cadastro</button>
+      </div>
 </form>

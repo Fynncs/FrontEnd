@@ -51,7 +51,10 @@ export class LoginComponent implements OnInit {
     });
   }
   singInForm() {
-    this.singIn = true
+    this.singUp = false
+    setTimeout(() => {     
+      this.singIn = true
+    }, 100);
     if (this.form.valid) {
       return;
     } else {
