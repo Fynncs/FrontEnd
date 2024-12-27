@@ -21,7 +21,9 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent implements OnInit {
   form!: FormGroup;
-
+  tentativasFalhas: number = 0;
+  maxTentativas: number = 3;
+  isLoading: boolean = false;
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
@@ -32,11 +34,11 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    if (!this.form.valid) {
-      this.form.markAllAsTouched(); 
+    if (this.form.valid) {
       return;
     } else {
       console.log('Form is invalid');
+      this.tentativasFalhas++;
       this.form.markAllAsTouched(); 
     }
   }
