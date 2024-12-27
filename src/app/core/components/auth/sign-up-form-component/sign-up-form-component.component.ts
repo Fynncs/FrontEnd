@@ -22,7 +22,7 @@ import { CommonModule } from '@angular/common';
 export class SignUpFormComponentComponent {
   form!: FormGroup;
   hidePassword: boolean = true;
-hideConfirmPassword: boolean = true;
+  hideConfirmPassword: boolean = true;
 
   @Output() goBackToLogin = new EventEmitter<void>();
   constructor(private fb: FormBuilder) {}

@@ -32,9 +32,9 @@ export class SignInFormComponentComponent {
   maxTentativas: number = 3;
   isLoading: boolean = false;
   constructor(
-    private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router
+    private readonly fb: FormBuilder,
+    private readonly authService: AuthService,
+    private readonly router: Router
   ) { }
 
   ngOnInit() {
