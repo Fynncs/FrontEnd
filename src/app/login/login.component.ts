@@ -5,12 +5,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { MatDialog } from '@angular/material/dialog';
 import { SignInFormComponentComponent } from "../core/components/auth/sign-in-form-component/sign-in-form-component.component";
 import { SignUpFormComponentComponent } from "../core/components/auth/sign-up-form-component/sign-up-form-component.component";
 @Component({
   selector: 'app-login',
-  standalone: true,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   imports: [
@@ -33,7 +31,7 @@ export class LoginComponent implements OnInit {
   singIn: boolean = true
   constructor(
     private fb: FormBuilder,
-    public dialog: MatDialog) {}
+  ) {}
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -44,11 +42,6 @@ export class LoginComponent implements OnInit {
   singUpForm(){
     this.singUp = true
     this.singIn = false
-  }
-  openSignUpDialog(): void {
-    this.dialog.open(SignUpFormComponentComponent, {
-      width: '500px',  // Você pode ajustar a largura do dialog conforme necessário
-    });
   }
   singInForm() {
     this.singUp = false
