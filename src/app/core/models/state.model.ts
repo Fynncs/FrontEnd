@@ -27,9 +27,9 @@ export class ModelState<T extends Record<string, any>> implements IModelState<T>
   /**
    * Creates an instance of ModelState.
    * @param {T} data - Initial data of the model.
-   * @param {State} [state=State.ORIGINAL] - Initial state of the model.
+   * @param {State} [state=State.NEW] - Initial state of the model.
    */
-  constructor(data: T, state: State = State.ORIGINAL) {
+  constructor(data: T, state: State = State.NEW) {
     this._data = { ...data };
     this._state = state;
     this._stateSubject = new BehaviorSubject<State>(this._state);
