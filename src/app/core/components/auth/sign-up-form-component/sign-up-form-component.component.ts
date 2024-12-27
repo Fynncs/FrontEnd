@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-sign-up-form-component',
+  templateUrl: './sign-up-form-component.component.html',
+  styleUrl: './sign-up-form-component.component.scss',
   imports: [
         CommonModule,
         MatFormFieldModule, 
@@ -16,8 +18,6 @@ import { CommonModule } from '@angular/common';
         MatIconModule, 
         ReactiveFormsModule,
   ],
-  templateUrl: './sign-up-form-component.component.html',
-  styleUrl: './sign-up-form-component.component.scss'
 })
 export class SignUpFormComponentComponent {
   form!: FormGroup;

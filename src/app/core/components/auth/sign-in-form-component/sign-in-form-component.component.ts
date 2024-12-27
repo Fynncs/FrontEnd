@@ -13,7 +13,7 @@ import { IUser } from '@fynnc.models';
 @Component({
   selector: 'app-sign-in-form-component',
   templateUrl: './sign-in-form-component.component.html',
-  standalone: true,
+  providers: [AuthService],
   styleUrl: './sign-in-form-component.component.scss',
   imports: [
     CommonModule,
