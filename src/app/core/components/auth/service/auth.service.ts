@@ -17,7 +17,7 @@ export class AuthService {
    * @param password - User's password.
    * @returns Observable with the backend response.
    */
-  login(email: string, password: string): Observable<any> {
+  login(email?: string, password?: string): Observable<any> {
     const body = { email, password };
     return this.http.post(this.apiUrl, body);
   }
