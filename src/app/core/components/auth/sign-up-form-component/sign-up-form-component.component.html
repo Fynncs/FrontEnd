@@ -1,1 +1,42 @@
-<p>sign-up-form-component works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+    <div class="form-fields">
+    
+        <mat-form-field appearance="outline" class="custom-input">
+            <mat-label>Nome Completo</mat-label>
+            <input matInput id="fullName" formControlName="fullName" type="text" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="custom-input">
+            <mat-label>Email</mat-label>
+            <input matInput id="email" formControlName="email" type="email" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="custom-input half-width">
+            <mat-label>Telefone</mat-label>
+            <input matInput id="phone" formControlName="phone" type="text" required />
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline" class="custom-input half-width">
+            <mat-label>Data de Nascimento</mat-label>
+            <input matInput id="birthDate" formControlName="birthDate" type="date" required />
+        </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="custom-input">
+        <mat-label>Senha</mat-label>
+        <input matInput id="password" formControlName="password" type="password" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="custom-input">
+        <mat-label>Confirmar Senha</mat-label>
+        <input matInput id="confirmPassword" formControlName="confirmPassword" type="password" required />
+        <div *ngIf="form.get('confirmPassword')?.touched && form.get('confirmPassword')?.invalid">
+            <small class="text-danger">As senhas não são iguais.</small>
+        </div>
+    </mat-form-field>
+
+    <div class="form-group">
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Enviar</button>
+    </div>
+</form>

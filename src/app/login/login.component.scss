@@ -37,7 +37,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: white;
   height: 100vh;
+  transition: width 0.3s ease; 
 }
+
+.form.expanded {
+  width: 500px; 
+}
+
 
 .form-container {
   display: flex;
