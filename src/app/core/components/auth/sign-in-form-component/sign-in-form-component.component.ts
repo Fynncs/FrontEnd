@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -13,7 +13,7 @@ import { IUser } from '@fynnc.models';
 @Component({
   selector: 'app-sign-in-form-component',
   templateUrl: './sign-in-form-component.component.html',
-  standalone: true,
+  providers: [AuthService],
   styleUrl: './sign-in-form-component.component.scss',
   imports: [
     CommonModule,
