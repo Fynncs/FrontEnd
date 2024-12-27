@@ -49,6 +49,9 @@ export class SignInFormComponentComponent {
   changeToSingUp() {
     this.goBackToLogin.emit();
   }
+  onSubmit(){
+    
+  }
 
   // onSubmit(): void {
   //   if (!this.form.valid) {
