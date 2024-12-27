@@ -1,0 +1,33 @@
+<div class="welcome-text">
+  <span>Olá, seja bem-vindo!</span>
+</div>
+
+<div class="login-options">
+  <div class="login">
+    <button class="google-button">
+      <img src="assets/imagens/google.png" alt="Google Icon" class="google-icon" />
+      Entrar com o Google
+    </button>
+  </div>
+  <div class="or-separator"><span>ou</span></div> 
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+    <mat-form-field appearance="outline" class="custom-input">
+      <mat-label>Email:</mat-label>
+      <input matInput formControlName="email" placeholder="Enter email" autocomplete="off" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="custom-input">
+      <mat-label>Senha:</mat-label>
+      <input matInput formControlName="password" type="password" placeholder="Enter password" />
+    </mat-form-field>
+    <div class="forget-password">
+      <span *ngIf="tentativasFalhas >= maxTentativas" style="color: rgb(231, 85, 75)">
+        Esqueceu a senha?
+      </span>
+    </div>
+    <div class="button-container">
+      <button type="submit" class="btn-secondary" (click)="changeToSingUp()">Registrar</button>
+      <button type="submit" class="btn-primary">Entrar</button>
+    </div>
+  </form>
+<!-- </div> -->
