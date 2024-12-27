@@ -21,6 +21,9 @@ import { CommonModule } from '@angular/common';
 })
 export class SignUpFormComponentComponent {
   form!: FormGroup;
+  hidePassword: boolean = true;
+hideConfirmPassword: boolean = true;
+
   @Output() goBackToLogin = new EventEmitter<void>();
   constructor(private fb: FormBuilder) {}
 
@@ -44,7 +47,13 @@ export class SignUpFormComponentComponent {
   passwordMatchValidator(group: FormGroup) {
     const password = group.get('password')?.value;
     const confirmPassword = group.get('confirmPassword')?.value;
-    return password === confirmPassword ? null : { mismatch: true };
+    if (password && confirmPassword && password !== confirmPassword) {
+      group.get('confirmPassword')?.setErrors({ mismatch: true });
+      return { mismatch: true };
+    } else {
+      group.get('confirmPassword')?.setErrors(null);
+      return null;
+    }
   }
   changeToSingIn() {
     this.goBackToLogin.emit(); 
