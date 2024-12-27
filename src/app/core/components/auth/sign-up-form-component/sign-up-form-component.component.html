@@ -1,0 +1,78 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+    <div class="form-fields">
+
+        <div class="welcome-text">
+            <span>Quase lá! Complete seu cadastro.</span>
+          </div>
+          
+        <mat-form-field appearance="outline" class="custom-input">
+            <mat-label>Nome Completo</mat-label>
+            <input matInput id="fullName" formControlName="fullName" type="text" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="custom-input">
+            <mat-label>Email</mat-label>
+            <input matInput id="email" formControlName="email" type="email" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="custom-input half-width">
+            <mat-label>Telefone</mat-label>
+            <input matInput id="phone" formControlName="phone" type="text" required />
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline" class="custom-input half-width">
+            <mat-label>Data de Nascimento</mat-label>
+            <input matInput id="birthDate" formControlName="birthDate" type="date" required />
+        </mat-form-field>
+    </div>
+    <mat-form-field appearance="outline" class="custom-input" style="position: relative;">
+        <mat-label>Senha</mat-label>
+        <input matInput 
+               id="password" 
+               formControlName="password" 
+               [type]="hidePassword ? 'password' : 'text'" 
+               required 
+               style="color: white;"/>
+        <button mat-icon-button 
+                matSuffix 
+                (click)="hidePassword = !hidePassword" 
+                [attr.aria-label]="'Toggle password visibility'" 
+                [attr.aria-pressed]="hidePassword"
+                style="margin-right: 8px; display: flex; align-items: center; font-size: 20px; padding: 0; height: 36px; width: 36px;">
+            <mat-icon style="color: rgba(255, 255, 255, 0.7);"> 
+                {{ hidePassword ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+        </button>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline" class="custom-input" style="position: relative;">
+        <mat-label>Confirmar Senha</mat-label>
+        <input matInput 
+               id="confirmPassword" 
+               formControlName="confirmPassword" 
+               [type]="hideConfirmPassword ? 'password' : 'text'" 
+               required 
+               style="color: white;"/>
+        <button mat-icon-button 
+                matSuffix 
+                (click)="hideConfirmPassword = !hideConfirmPassword" 
+                [attr.aria-label]="'Toggle confirm password visibility'" 
+                [attr.aria-pressed]="hideConfirmPassword"
+                style="margin-right: 8px; display: flex; align-items: center; font-size: 20px; padding: 0; height: 36px; width: 36px;">
+            <mat-icon style="color: rgba(255, 255, 255, 0.7);"> 
+                {{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+        </button>
+        <div *ngIf="form.get('confirmPassword')?.touched && form.get('confirmPassword')?.invalid">
+            <small class="text-danger">As senhas não são iguais.</small>
+        </div>
+    </mat-form-field>
+    
+    
+
+    <div class="button-container">
+        <button class="btn-secondary" (click)="changeToSingIn()">Voltar</button>
+        <button type="submit" class="btn-primary">Finalizar Cadastro</button>
+      </div>
+</form>
