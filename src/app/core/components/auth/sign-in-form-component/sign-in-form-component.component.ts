@@ -5,9 +5,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-// import { AuthService } from '../service/auth.service';
+import { AuthService } from '../service/auth.service';
 // import { Router } from '@angular/router';
-// import { HttpErrorResponse } from '@angular/common/http';
+ import { HttpErrorResponse } from '@angular/common/http';
 // import { IUser } from '@fynnc.models';
 
 @Component({
@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
     MatIconModule,
     ReactiveFormsModule
   ],
-  //providers: [AuthService] 
+  providers: [AuthService,] 
 })
 export class SignInFormComponentComponent {
   @Output() goBackToLogin = new EventEmitter<void>();
@@ -35,8 +35,8 @@ export class SignInFormComponentComponent {
 
   constructor(
     private readonly fb: FormBuilder,
-    // private readonly authService: AuthService,
-    // private readonly router: Router
+    private readonly authService: AuthService,
+    //private readonly router: Router
   ) { }
 
   ngOnInit() {
