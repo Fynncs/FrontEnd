@@ -5,6 +5,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { SignUpFormComponentComponent } from "../core/components/auth/sign-up-form-component/sign-up-form-component.component";
+import { SignInFormComponentComponent } from "../core/components/auth/sign-in-form-component/sign-in-form-component.component";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,9 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
-  ],
+    SignUpFormComponentComponent,
+    SignInFormComponentComponent
+],
 })
 export class LoginComponent implements OnInit {
   form!: FormGroup;
