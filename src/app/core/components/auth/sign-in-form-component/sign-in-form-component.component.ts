@@ -22,9 +22,9 @@ import { AuthService } from '../service/auth.service';
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule
-  ],
-  providers: [AuthService,] 
+  ]
 })
+
 export class SignInFormComponentComponent {
   @Output() goBackToLogin = new EventEmitter<void>();
   form!: FormGroup;

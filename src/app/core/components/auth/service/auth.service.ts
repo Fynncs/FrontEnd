@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root' // Garante que o serviço está disponível globalmente
 })
 export class AuthService {
   private apiUrl = 'https://your-backend.com/api/login'; 
