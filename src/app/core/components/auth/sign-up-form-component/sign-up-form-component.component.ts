@@ -11,6 +11,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   selector: 'app-sign-up-form-component',
   templateUrl: './sign-up-form-component.component.html',
   styleUrls: ['./sign-up-form-component.component.scss'],
+  styleUrls: ['./sign-up-form-component.component.scss'],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -23,7 +24,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class SignUpFormComponent implements OnInit {
   form!: FormGroup;
   hidePassword = true;
-  hideConfirmPassword = true;
+    hideConfirmPassword = true;
   sanitizedOutput: SafeHtml = '';
 
   @Output() goBackToLogin = new EventEmitter<void>();
