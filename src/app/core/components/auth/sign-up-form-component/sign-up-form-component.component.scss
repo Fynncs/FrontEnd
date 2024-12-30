@@ -22,7 +22,7 @@
   
     .custom-input {
       width: 100%;
-      color: white; /* Define a cor do texto como branco */
+      color: white;
     }
   
     .custom-name-field {
@@ -54,6 +54,7 @@
   
         &:hover {
           background-color: #3b495e;
+          transform: translateY(-2px);
         }
       }
   
@@ -63,6 +64,7 @@
   
         &:hover {
           background-color: #e2e2e2;
+          transform: translateY(-2px);
         }
       }
     }
@@ -81,7 +83,7 @@
         }
   
         input {
-          color: white; /* Cor do texto no input */
+          color: white;
         }
       }
     }
@@ -177,3 +179,4 @@
     background-color: #ccc;
   }
   
+

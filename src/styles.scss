@@ -7,4 +7,8 @@ body, html {
     overflow: hidden;
     height: 100%;
   }
-  
+
+.custom-backdrop {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px); /* Para o Safari */
+}

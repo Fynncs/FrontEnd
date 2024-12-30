@@ -22,7 +22,7 @@
   
     .custom-input {
       width: 100%;
-      color: white; /* Define a cor do texto como branco */
+      color: white; 
     }
   
     .custom-name-field {
@@ -54,6 +54,7 @@
   
         &:hover {
           background-color: #3b495e;
+          transform: translateY(-2px);
         }
       }
   
@@ -63,6 +64,7 @@
   
         &:hover {
           background-color: #e2e2e2;
+          transform: translateY(-2px);
         }
       }
     }
@@ -81,7 +83,7 @@
         }
   
         input {
-          color: white; /* Cor do texto no input */
+          color: white; 
         }
       }
     }
@@ -148,6 +150,7 @@
   
   .google-button:hover {
     background-color: #f0f0f0;
+    transform: translateY(-2px);
   }
   
   .google-icon {
@@ -168,12 +171,38 @@
     z-index: 1;
     position: relative;
   }
-  
+  .captcha-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .or-separator::before,
   .or-separator::after {
     content: "";
     flex-grow: 1;
     height: 1px;
     background-color: #ccc;
+  }
+  .captcha-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px; // Ajuste conforme necessário
+    text-align: center;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
   
