@@ -9,6 +9,9 @@ import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { IUser } from '@fynnc.models';
+import { MatDialog } from '@angular/material/dialog';
+import { ResetPasswordComponent } from '../reset-password/reset-password.component';
+import { CodePasswordComponent } from '../code-password/code-password.component';
 
 @Component({
   selector: 'app-sign-in-form-component',
@@ -33,7 +36,8 @@ export class SignInFormComponent {
   constructor(
     private readonly fb: FormBuilder,
     private readonly authService: AuthService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -45,8 +49,36 @@ export class SignInFormComponent {
   changeToSingUp() {
     this.goBackToLogin.emit();
   }
+  openForgotPassword() {
+    const dialogRef = this.dialog.open(ResetPasswordComponent, {
+      width: '600px',
+      maxWidth: '90vw',
+    });
+  
+    // Após o fechamento do primeiro diálogo, abrir o segundo
+    dialogRef.afterClosed().subscribe(() => {
+      this.openCodeDialog(); // Abre o segundo componente
+    });
+  }
+  
+  openCodeDialog() {
+    const dialogRef = this.dialog.open(CodePasswordComponent, {
+      width: '600px'
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result?.success) {
+        console.log('Código validado com sucesso!');
+      } else {
+        console.log('Diálogo fechado sem validação.');
+      }
+    });
+  }
+  
+  
   onSubmit(): void {
     if (!this.form.valid) {
+      this.tentativasFalhas += 1
       this.form.markAllAsTouched();
       return;
     } else {

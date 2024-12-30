@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SignInFormComponent } from './sign-in-form-component.component';
+import { CodePasswordComponent } from './code-password.component';
 
-describe('SignInFormComponentComponent', () => {
-  let component: SignInFormComponent;
-  let fixture: ComponentFixture<SignInFormComponent>;
+describe('CodePasswordComponent', () => {
+  let component: CodePasswordComponent;
+  let fixture: ComponentFixture<CodePasswordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SignInFormComponent]
+      imports: [CodePasswordComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SignInFormComponent);
+    fixture = TestBed.createComponent(CodePasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

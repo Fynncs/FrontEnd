@@ -11,7 +11,6 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   selector: 'app-sign-up-form-component',
   templateUrl: './sign-up-form-component.component.html',
   styleUrls: ['./sign-up-form-component.component.scss'],
-  styleUrls: ['./sign-up-form-component.component.scss'],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -76,7 +75,7 @@ export class SignUpFormComponent implements OnInit {
   }
 
 
-  changeToSignIn() {
+  changeToSingIn() {
     this.goBackToLogin.emit();
   }
 

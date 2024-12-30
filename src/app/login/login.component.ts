@@ -31,9 +31,7 @@ export class LoginComponent implements OnInit {
   singUp: boolean = false;
   singIn: boolean = true;
 
-  constructor(private fb: FormBuilder) {}
-  singUp: boolean = false
-  singIn: boolean = true
+
   constructor(
     private fb: FormBuilder,
   ) {}
@@ -43,11 +41,6 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
-  }
-
-  singUpForm() {
-    this.singUp = true;
-    this.singIn = false;
   }
 
   singUpForm(){
