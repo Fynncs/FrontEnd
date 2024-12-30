@@ -24,7 +24,7 @@ import { IUser } from '@fynnc.models';
     ReactiveFormsModule
   ],
 })
-export class SignInFormComponentComponent {
+export class SignInFormComponent {
   @Output() goBackToLogin = new EventEmitter<void>();
   form!: FormGroup;
   errorMessage: string | undefined

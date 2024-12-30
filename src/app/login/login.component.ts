@@ -5,8 +5,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { SignInFormComponentComponent } from "../core/components/auth/sign-in-form-component/sign-in-form-component.component";
-import { SignUpFormComponentComponent } from "../core/components/auth/sign-up-form-component/sign-up-form-component.component";
+import { SignUpFormComponent } from "../core/components/auth/sign-up-form-component/sign-up-form-component.component";
+import { SignInFormComponent } from 'app/core/components/auth/sign-in-form-component/sign-in-form-component.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,8 +18,8 @@ import { SignUpFormComponentComponent } from "../core/components/auth/sign-up-fo
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
-    SignInFormComponentComponent,
-    SignUpFormComponentComponent
+    SignInFormComponent,
+    SignUpFormComponent
 ],
 })
 export class LoginComponent implements OnInit {
