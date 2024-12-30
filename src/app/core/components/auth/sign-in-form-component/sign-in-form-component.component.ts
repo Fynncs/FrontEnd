@@ -61,7 +61,7 @@ export class SignInFormComponent {
       backdropClass: 'custom-backdrop'
     });
     dialogRef.afterClosed().subscribe((sendCode) => {
-      if (!sendCode) return;
+    //  if (!sendCode) return;
       this.openCodeDialog();
     });
   }
