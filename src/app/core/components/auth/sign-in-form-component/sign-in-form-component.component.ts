@@ -87,6 +87,17 @@ export class SignInFormComponent {
       this.form.get('recaptcha')?.updateValueAndValidity();
     }
   }
+mostrarCaptcha: boolean = false;
+mostrarEsqueceuSenha: boolean = false;
+
+verificarTentativas(): void {
+  if (this.tentativasFalhas >= this.maxTentativas) {
+    setTimeout(() => {
+      this.mostrarEsqueceuSenha = true;
+      this.mostrarCaptcha = true;
+    }, 500); // Delay de 500ms
+  }
+}
 
   onSubmit(): void {
     if (this.tentativasFalhas >= this.maxTentativas) {
@@ -115,5 +126,4 @@ export class SignInFormComponent {
       }
     });
   }
-
 }

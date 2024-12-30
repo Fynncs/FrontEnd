@@ -27,15 +27,13 @@
   >
     Esqueceu a senha?
   </span>
-  <div class="captcha-container" *ngIf="tentativasFalhas >= maxTentativas">
+  <div class="captcha-container" *ngIf="tentativasFalhas >= 2">
     <re-captcha
       [siteKey]="'6Lci66kqAAAAABkE3D46-OipIdkezMY1kqsCZf6P'"  
       formControlName="recaptcha"
       (resolved)="onCaptchaResolved($event)">
     </re-captcha>
-    <div *ngIf="form.get('recaptcha')?.hasError('required') && form.get('recaptcha')?.touched">
-      <small class="error-text">O reCAPTCHA é obrigatório.</small>
-    </div>
+
   </div>
   
     <div class="button-container">
