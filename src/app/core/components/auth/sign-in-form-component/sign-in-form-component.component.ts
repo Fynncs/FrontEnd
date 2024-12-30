@@ -12,6 +12,7 @@ import { IUser } from '@fynnc.models';
 import { MatDialog } from '@angular/material/dialog';
 import { ResetPasswordComponent } from '../reset-password/reset-password.component';
 import { CodePasswordComponent } from '../code-password/code-password.component';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-sign-in-form-component',
@@ -23,6 +24,7 @@ import { CodePasswordComponent } from '../code-password/code-password.component'
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    RecaptchaModule,
     ReactiveFormsModule
   ],
 })
@@ -33,6 +35,7 @@ export class SignInFormComponent {
   tentativasFalhas: number = 0;
   maxTentativas: number = 3;
   isLoading: boolean = false;
+  recaptchaResponse: string | undefined
   constructor(
     private readonly fb: FormBuilder,
     private readonly authService: AuthService,
@@ -43,7 +46,8 @@ export class SignInFormComponent {
   ngOnInit() {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      recaptcha: ['', Validators.required]
     });
   }
   changeToSingUp() {
@@ -53,19 +57,20 @@ export class SignInFormComponent {
     const dialogRef = this.dialog.open(ResetPasswordComponent, {
       width: '600px',
       maxWidth: '90vw',
+      backdropClass: 'custom-backdrop'
     });
-  
-    // Após o fechamento do primeiro diálogo, abrir o segundo
-    dialogRef.afterClosed().subscribe(() => {
-      this.openCodeDialog(); // Abre o segundo componente
+    dialogRef.afterClosed().subscribe((sendCode) => {
+      if (!sendCode) return;
+      this.openCodeDialog();
     });
   }
-  
+
   openCodeDialog() {
     const dialogRef = this.dialog.open(CodePasswordComponent, {
-      width: '600px'
+      width: '600px',
+      backdropClass: 'custom-backdrop'
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       if (result?.success) {
         console.log('Código validado com sucesso!');
@@ -74,8 +79,11 @@ export class SignInFormComponent {
       }
     });
   }
-  
-  
+  onCaptchaResolved(captchaResponse: string | null | undefined) {
+    if(captchaResponse)
+    this.recaptchaResponse = captchaResponse;  
+  }
+
   onSubmit(): void {
     if (!this.form.valid) {
       this.tentativasFalhas += 1

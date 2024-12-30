@@ -27,6 +27,13 @@
   >
     Esqueceu a senha?
   </span>
+  <div class="captcha-container">
+    <re-captcha
+      [siteKey]="'6Lci66kqAAAAABkE3D46-OipIdkezMY1kqsCZf6P'"  
+      formControlName="recaptcha"
+      (resolved)="onCaptchaResolved($event)">
+    </re-captcha>
+  </div>
   
     <div class="button-container">
       <button type="submit" class="btn-secondary" (click)="changeToSingUp()">Registrar</button>

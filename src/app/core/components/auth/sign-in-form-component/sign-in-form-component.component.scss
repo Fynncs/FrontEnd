@@ -22,7 +22,7 @@
   
     .custom-input {
       width: 100%;
-      color: white; /* Define a cor do texto como branco */
+      color: white; 
     }
   
     .custom-name-field {
@@ -83,7 +83,7 @@
         }
   
         input {
-          color: white; /* Cor do texto no input */
+          color: white; 
         }
       }
     }
@@ -170,7 +170,11 @@
     z-index: 1;
     position: relative;
   }
-  
+  .-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .or-separator::before,
   .or-separator::after {
     content: "";
@@ -178,4 +182,3 @@
     height: 1px;
     background-color: #ccc;
   }
-  
