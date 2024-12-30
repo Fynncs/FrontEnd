@@ -53,6 +53,7 @@ export class SignInFormComponent {
   changeToSingUp() {
     this.goBackToLogin.emit();
   }
+
   openForgotPassword() {
     const dialogRef = this.dialog.open(ResetPasswordComponent, {
       width: '600px',
@@ -80,28 +81,39 @@ export class SignInFormComponent {
     });
   }
   onCaptchaResolved(captchaResponse: string | null | undefined) {
-    if(captchaResponse)
-    this.recaptchaResponse = captchaResponse;  
+    if (captchaResponse) {
+      this.recaptchaResponse = captchaResponse;
+      this.form.get('recaptcha')?.setValue(captchaResponse);
+      this.form.get('recaptcha')?.updateValueAndValidity();
+    }
   }
 
   onSubmit(): void {
+    if (this.tentativasFalhas >= this.maxTentativas) {
+      this.form.get('recaptcha')?.setValidators([Validators.required]);
+      this.form.get('recaptcha')?.updateValueAndValidity();
+    }
+
     if (!this.form.valid) {
-      this.tentativasFalhas += 1
+      this.tentativasFalhas += 1;
       this.form.markAllAsTouched();
       return;
-    } else {
-      const user: IUser = this.form.value;
-      this.authService.login(user.email, user.password).subscribe({
-        next: (response) => {
-          const token = response.token;
-          this.authService.saveToken(token);
-          this.router.navigate(['/home']);
-        },
-        error: (error: HttpErrorResponse) => {
-          this.errorMessage = 'Login failed. Please check your credentials.';
-          console.error('Login error', error);
-        }
-      });
     }
+
+    const user: IUser = this.form.value;
+    this.authService.login(user.email, user.password).subscribe({
+      next: (response) => {
+        const token = response.token;
+        this.authService.saveToken(token);
+        this.router.navigate(['/home']);
+        this.tentativasFalhas = 0;
+      },
+      error: (error: HttpErrorResponse) => {
+        this.errorMessage = 'Login falhou. Verifique suas credenciais.';
+        console.error('Erro no login:', error);
+        this.tentativasFalhas += 1;
+      }
+    });
   }
+
 }
