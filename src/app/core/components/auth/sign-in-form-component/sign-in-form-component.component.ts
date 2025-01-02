@@ -23,7 +23,6 @@ import { CodePasswordComponent } from '../code-password/code-password.component'
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    RecaptchaModule,
     ReactiveFormsModule
   ],
 })
