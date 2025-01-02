@@ -13,7 +13,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ResetPasswordComponent } from '../reset-password/reset-password.component';
 import { CodePasswordComponent } from '../code-password/code-password.component';
 
-
 @Component({
   selector: 'app-sign-in-form-component',
   templateUrl: './sign-in-form-component.component.html',
@@ -24,6 +23,7 @@ import { CodePasswordComponent } from '../code-password/code-password.component'
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    RecaptchaModule,
     ReactiveFormsModule
   ],
 })
