@@ -12,7 +12,7 @@ import { IUser } from '@fynnc.models';
 import { MatDialog } from '@angular/material/dialog';
 import { ResetPasswordComponent } from '../reset-password/reset-password.component';
 import { CodePasswordComponent } from '../code-password/code-password.component';
-import { RecaptchaModule } from 'ng-recaptcha';
+
 
 @Component({
   selector: 'app-sign-in-form-component',
@@ -24,7 +24,6 @@ import { RecaptchaModule } from 'ng-recaptcha';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    RecaptchaModule,
     ReactiveFormsModule
   ],
 })
