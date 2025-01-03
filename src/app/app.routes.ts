@@ -4,5 +4,5 @@ import { ChartComponentComponent } from './core/components/dashboard/chart-compo
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },  
-    { path: 'login', component: ChartComponentComponent },
+    { path: 'login', component: LoginComponent },
 ];
