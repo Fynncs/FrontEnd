@@ -27,7 +27,7 @@ import {
 })
 export class ChartComponentComponent implements AfterViewInit {
   chart!: Chart;
-  chartType: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut' = 'bar'; // Tipo padrão do gráfico
+  chartType: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut' = 'bar'; 
 
   ngAfterViewInit() {
     if (this.chart) {
@@ -54,12 +54,12 @@ export class ChartComponentComponent implements AfterViewInit {
       RadialLinearScale
     );
 
-    // Criar gráfico com configuração dinâmica
+
     const chartConfig = this.getChartConfig();
     this.chart = new Chart('meuGrafico', chartConfig);
   }
 
-  // ✅ Configuração dinâmica do gráfico
+
   getChartConfig(): any {
     const commonData = {
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -73,7 +73,7 @@ export class ChartComponentComponent implements AfterViewInit {
         borderRadius: 5,
         hoverBackgroundColor: '#F0E68C',
         hoverBorderWidth: 2,
-        barPercentage: 0.8, // Largura das barras (0-1)
+        barPercentage: 0.8, 
         categoryPercentage: 0.9 
 
       }]
