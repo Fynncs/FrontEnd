@@ -109,8 +109,6 @@ export class ChartComponentComponent implements AfterViewInit {
       });
   
       commonData = this.createCommonData(['Pago', 'Não Pago'], [paidBills, unpaidBills], 'Controle Financeiro');
-      
-      // Adiciona onClick aos dados
       commonData.datasets[0].onClick = (event: any, elements: any[]) => {
         if (elements.length > 0) {
           const clickedIndex = elements[0].index;
@@ -260,19 +258,13 @@ export class ChartComponentComponent implements AfterViewInit {
         throw new Error('Tipo de gráfico não suportado!');
     }
   }
-  
-  // Métodos de clique
   handlePaidClick() {
     console.log('Pago foi clicado!');
-    // Lógica adicional para "Pago"
   }
   
   handleUnpaidClick() {
     console.log('Não Pago foi clicado!');
-    // Lógica adicional para "Não Pago"
   }
-  
-  // Método createCommonData
   createCommonData(labels: string[], data: number[], label: string): object {
     return {
       labels: labels,
