@@ -78,7 +78,7 @@ export class ChartComponentComponent implements AfterViewInit {
     this.Month?.getMonth();
     const months = this.Months;
     let data: number[] = [];
-
+  
     this.User?.financial?.forEach((element) => {
       if (element.debt) {
         data.push(element.debt);
@@ -86,12 +86,13 @@ export class ChartComponentComponent implements AfterViewInit {
         data.push(0);
       }
     });
-
+  
     let commonData: any;
-
+  
     if (this.User) {
       commonData = this.createCommonData(months, data, 'Gastos Mensais');
-    } else if (this.paymentStatus) {
+    } 
+    else if (this.paymentStatus) {
       let paidBills: number = 0;
       let unpaidBills: number = 0;
       
@@ -100,16 +101,28 @@ export class ChartComponentComponent implements AfterViewInit {
           paidBills += element.amount;
         }
       });
-
+  
       this.paymentStatus.unpaidBills?.forEach((element) => {
         if (element.amount) {
           unpaidBills += element.amount;
         }
       });
-
+  
       commonData = this.createCommonData(['Pago', 'Não Pago'], [paidBills, unpaidBills], 'Controle Financeiro');
+      
+      // Adiciona onClick aos dados
+      commonData.datasets[0].onClick = (event: any, elements: any[]) => {
+        if (elements.length > 0) {
+          const clickedIndex = elements[0].index;
+          if (clickedIndex === 0) {
+            this.handlePaidClick();
+          } else if (clickedIndex === 1) {
+            this.handleUnpaidClick();
+          }
+        }
+      };
     }
-
+  
     const commonOptions = {
       responsive: true,
       plugins: {
@@ -126,7 +139,7 @@ export class ChartComponentComponent implements AfterViewInit {
         },
         title: {
           display: true,
-          text: 'Gastos Mensais',
+          text: this.User ? 'Gastos Mensais' : 'Controle Financeiro',
           font: {
             size: 18,
             weight: 'bold'
@@ -147,9 +160,14 @@ export class ChartComponentComponent implements AfterViewInit {
       animation: {
         duration: 1000,
         easing: 'easeInOutQuad'
+      },
+      onClick: (event: any, elements: any[]) => {
+        if (commonData.datasets[0].onClick) {
+          commonData.datasets[0].onClick(event, elements);
+        }
       }
     };
-
+  
     switch (this.chartType) {
       case 'bar':
         return {
@@ -179,7 +197,7 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-
+  
       case 'radar':
         return {
           type: 'radar',
@@ -200,7 +218,7 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-
+  
       case 'pie':
       case 'doughnut':
         return {
@@ -215,7 +233,7 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-
+  
       case 'line':
         return {
           type: 'line',
@@ -237,19 +255,31 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-
+  
       default:
         throw new Error('Tipo de gráfico não suportado!');
     }
   }
-
+  
+  // Métodos de clique
+  handlePaidClick() {
+    console.log('Pago foi clicado!');
+    // Lógica adicional para "Pago"
+  }
+  
+  handleUnpaidClick() {
+    console.log('Não Pago foi clicado!');
+    // Lógica adicional para "Não Pago"
+  }
+  
+  // Método createCommonData
   createCommonData(labels: string[], data: number[], label: string): object {
     return {
       labels: labels,
       datasets: [{
         label: label,
         data: data,
-        backgroundColor: ['#2C3E50'],
+        backgroundColor: ['#2C3E50', '#8B0000'],
         borderColor: '#000000b4',
         borderWidth: 1.5,
         borderRadius: 5,
@@ -260,7 +290,7 @@ export class ChartComponentComponent implements AfterViewInit {
       }]
     };
   }
-
+  
   generateNext12Months() {
     this.Months = Array.from({ length: 12 }, (_, i) => {
       const nextMonth = new Date(this.Month as Date);
