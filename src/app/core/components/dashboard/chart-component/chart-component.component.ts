@@ -64,7 +64,7 @@ export class ChartComponentComponent implements AfterViewInit {
     const commonData = {
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       datasets: [{
-        label: 'Vendas Mensais',
+        label: 'Gastos Mensais',
         data: [1200, 1500, 1300, 1100, 1800, 1600, 2000, 1700, 1500, 1400, 1600, 2200],
         backgroundColor: [
           '#2C3E50' ],
@@ -95,7 +95,7 @@ export class ChartComponentComponent implements AfterViewInit {
         },
         title: {
           display: true,
-          text: 'Desempenho Mensal de Vendas',
+          text: 'Gastos Mensais',
           font: {
             size: 18,
             weight: 'bold'
