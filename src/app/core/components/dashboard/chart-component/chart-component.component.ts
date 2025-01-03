@@ -1,4 +1,6 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, Input } from '@angular/core';
+import { IUser } from '@fynnc.models';
+import { PaymentStatus } from 'app/core/models/payment-status.model';
 import { 
   Chart,
   LinearScale, 
@@ -27,9 +29,23 @@ import {
 })
 export class ChartComponentComponent implements AfterViewInit {
   chart!: Chart;
+  @Input() User?: IUser;
+  @Input() Type?: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut';
+  @Input() Month?: Date;
+  @Input() paymentStatus?: PaymentStatus;
+  Months: string[] = [];
   chartType: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut' = 'bar'; 
 
+  ngOnInit() {
+    this.Month = this.Month ?? new Date();
+    this.generateNext12Months();
+  }
+
   ngAfterViewInit() {
+    if (this.Type && ['bar', 'radar', 'pie', 'line', 'doughnut'].includes(this.Type)) {
+      this.chartType = this.Type;
+    }
+
     if (this.chart) {
       this.chart.destroy();
     }
@@ -54,30 +70,45 @@ export class ChartComponentComponent implements AfterViewInit {
       RadialLinearScale
     );
 
-
     const chartConfig = this.getChartConfig();
     this.chart = new Chart('meuGrafico', chartConfig);
   }
 
+  getChartConfig(): any { 
+    this.Month?.getMonth();
+    const months = this.Months;
+    let data: number[] = [];
 
-  getChartConfig(): any {
-    const commonData = {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-      datasets: [{
-        label: 'Gastos Mensais',
-        data: [1200, 1500, 1300, 1100, 1800, 1600, 2000, 1700, 1500, 1400, 1600, 2200],
-        backgroundColor: [
-          '#2C3E50' ],
-        borderColor: '#000000b4',
-        borderWidth: 1.5,
-        borderRadius: 5,
-        hoverBackgroundColor: '#F0E68C',
-        hoverBorderWidth: 2,
-        barPercentage: 0.8, 
-        categoryPercentage: 0.9 
+    this.User?.financial?.forEach((element) => {
+      if (element.debt) {
+        data.push(element.debt);
+      } else {
+        data.push(0);
+      }
+    });
 
-      }]
-    };
+    let commonData: any;
+
+    if (this.User) {
+      commonData = this.createCommonData(months, data, 'Gastos Mensais');
+    } else if (this.paymentStatus) {
+      let paidBills: number = 0;
+      let unpaidBills: number = 0;
+      
+      this.paymentStatus.paidBills?.forEach((element) => {
+        if (element.amount) {
+          paidBills += element.amount;
+        }
+      });
+
+      this.paymentStatus.unpaidBills?.forEach((element) => {
+        if (element.amount) {
+          unpaidBills += element.amount;
+        }
+      });
+
+      commonData = this.createCommonData(['Pago', 'Não Pago'], [paidBills, unpaidBills], 'Controle Financeiro');
+    }
 
     const commonOptions = {
       responsive: true,
@@ -210,5 +241,32 @@ export class ChartComponentComponent implements AfterViewInit {
       default:
         throw new Error('Tipo de gráfico não suportado!');
     }
+  }
+
+  createCommonData(labels: string[], data: number[], label: string): object {
+    return {
+      labels: labels,
+      datasets: [{
+        label: label,
+        data: data,
+        backgroundColor: ['#2C3E50'],
+        borderColor: '#000000b4',
+        borderWidth: 1.5,
+        borderRadius: 5,
+        hoverBackgroundColor: '#F0E68C',
+        hoverBorderWidth: 2,
+        barPercentage: 0.8,
+        categoryPercentage: 0.9
+      }]
+    };
+  }
+
+  generateNext12Months() {
+    this.Months = Array.from({ length: 12 }, (_, i) => {
+      const nextMonth = new Date(this.Month as Date);
+      if(this.Month)
+      nextMonth.setMonth(this.Month.getMonth() + i);      
+      return nextMonth.toLocaleString('pt-BR', { month: 'long' });
+    });
   }
 }
