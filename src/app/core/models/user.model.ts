@@ -1,4 +1,6 @@
 import { ModelState, IUser, IFinancialData } from '@fynnc.models';
+import { PaymentStatus } from './payment-status.model';
+import { IPaymentStatus } from './i-payment-status.model';
 
 export class User extends ModelState<IUser> implements IUser {
   private _id?: number;
@@ -15,6 +17,7 @@ export class User extends ModelState<IUser> implements IUser {
   private _username?: string;
   private _password?: string;
   private _financial?: IFinancialData[];
+  private _paymentStatus?: IPaymentStatus[];
 
   constructor(user: IUser = {} as IUser) {
     super(user);
@@ -32,6 +35,7 @@ export class User extends ModelState<IUser> implements IUser {
     this._username = user.username;
     this._password = user.password;
     this._financial = user.financial;
+    this._paymentStatus = user.paymentStatus;
   }
 
   get id(): number | undefined {
@@ -132,7 +136,13 @@ export class User extends ModelState<IUser> implements IUser {
   set financial(value: IFinancialData[] | undefined) {
     this._financial = value;
   }
-
+  get paymentStatus(): IPaymentStatus[] | undefined {
+    return this._paymentStatus;
+  }
+  set paymentStatus(value: IPaymentStatus[] | undefined) {
+    this._paymentStatus = value;
+  }
+  
   toJSON(): Partial<IUser> {
     return {
       id: this.id,
@@ -142,6 +152,7 @@ export class User extends ModelState<IUser> implements IUser {
       phone: this.phone,
       birthDate: this.birthDate,
       gender: this.gender,
+      paymentStatus: this.paymentStatus,
       nationality: this.nationality,
       financial: this.financial,
       maritalStatus: this.maritalStatus,

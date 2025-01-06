@@ -34,7 +34,7 @@ export class ChartComponentComponent implements AfterViewInit {
   @Input() Month?: Date;
   @Input() paymentStatus?: PaymentStatus;
   Months: string[] = [];
-  chartType: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut' = 'bar'; 
+  chartType: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut' = 'line'; 
 
   ngOnInit() {
     this.Month = this.Month ?? new Date();
