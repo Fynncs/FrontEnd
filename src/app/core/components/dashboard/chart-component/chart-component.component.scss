@@ -1,5 +1,15 @@
-// #meuGrafico {
-//     width: 100% !important;   
-//     height: 400px;            
-// }
-  
+#meuGrafico {
+    background-color: #25282b;
+    height: 100% !important;
+    border: 1px solid #515355;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#meuGrafico p {
+    color: #ecf0f1;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}

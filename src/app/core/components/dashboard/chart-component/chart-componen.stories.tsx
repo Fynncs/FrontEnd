@@ -8,7 +8,7 @@ export default {
   component: ChartComponentComponent,
   decorators: [
     moduleMetadata({
-      imports: [CommonModule],  // Certifique-se de incluir qualquer módulo necessário
+      imports: [CommonModule], 
     }),
   ],
 } as Meta<ChartComponentComponent>;

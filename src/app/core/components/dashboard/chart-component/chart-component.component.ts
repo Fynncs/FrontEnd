@@ -34,14 +34,15 @@ export class ChartComponentComponent implements AfterViewInit {
   @Input() Month?: Date;
   @Input() paymentStatus?: PaymentStatus;
   Months: string[] = [];
-  chartType: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut' = 'line'; 
+  chartType: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut' = 'bar'; 
 
   ngOnInit() {
     this.Month = this.Month ?? new Date();
     this.generateNext12Months();
   }
-
+  
   ngAfterViewInit() {
+    console.log(this.User)
     if (this.Type && ['bar', 'radar', 'pie', 'line', 'doughnut'].includes(this.Type)) {
       this.chartType = this.Type;
     }
@@ -270,8 +271,9 @@ export class ChartComponentComponent implements AfterViewInit {
       labels: labels,
       datasets: [{
         label: label,
-        data: data,
-        backgroundColor: ['#2C3E50', '#8B0000'],
+        //back que vai ter que me retornar sempre o valor do mes atual
+        data: [160, 149, 260, 275, 115, 121, 187, 161, 216, 257, 252, 136],
+        backgroundColor: ['#BDC3C7'],
         borderColor: '#000000b4',
         borderWidth: 1.5,
         borderRadius: 5,

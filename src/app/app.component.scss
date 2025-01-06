@@ -1,0 +1,20 @@
+.app-layout {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  app-nav-bar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+  
+  .content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 20px;
+  }
+  
