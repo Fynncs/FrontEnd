@@ -1,15 +1,21 @@
-<mat-sidenav-container class="example-container">
-
-  <mat-icon (click)="toggleNavbar()">menu</mat-icon>
-  <mat-sidenav 
-  #sidenav 
-  mode="side" 
-  [opened]="true">
-  <mat-icon (click)="toggleNavbar()">menu</mat-icon>
-    <mat-nav-list>
-      <a mat-list-item routerLink="/home" (click)="toggleNavbar()">Home</a>
-      <a mat-list-item routerLink="/about" (click)="toggleNavbar()">About</a>
-      <a mat-list-item routerLink="/contact" (click)="toggleNavbar()">Contact</a>
-    </mat-nav-list>
-  </mat-sidenav>
-</mat-sidenav-container>
+<div class="example-container">
+  <div class="sidenav" [class.opened]="true">
+    <div class="navbar" (click)="toggleNavbar()">
+      <mat-icon>menu</mat-icon>
+    </div>
+    <div class="nav-list">
+      <a class="nav-item" routerLink="/home" (click)="toggleNavbar()">
+        <mat-icon *ngIf="sidenavOpened">home</mat-icon>
+        <span *ngIf="!sidenavOpened">Home</span>
+      </a>
+      <a class="nav-item" routerLink="/about" (click)="toggleNavbar()">
+        <mat-icon *ngIf="sidenavOpened">info</mat-icon>
+        <span *ngIf="!sidenavOpened">About</span>
+      </a>
+      <a class="nav-item" routerLink="/contact" (click)="toggleNavbar()">
+        <mat-icon *ngIf="sidenavOpened">contact_mail</mat-icon>
+        <span *ngIf="!sidenavOpened">Contact</span>
+      </a>
+    </div>
+  </div>
+</div>
