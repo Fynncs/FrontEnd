@@ -1,82 +1,54 @@
 .example-container {
+  display: flex;
   height: 100vh;
-  display: flex;
-  flex-direction: row;
+  overflow: hidden;
 }
 
-/* Estilo do Sidenav */
+/* Estilo para o Sidenav */
 mat-sidenav {
-  width: 280px;
-  background-color: E5E7EB;
-  color: #4B5563; /* Cinza Escuro para o texto */
-  padding: 20px;
-  border-radius: 0 !important;
-  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.05);
-  overflow-y: auto;
+  width: 250px; /* Largura inicial quando aberto */
+  min-width: 0;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  transition: width 0.3s ease-in-out;
+}
+/* Ícones no Sidenav */
+mat-icon {
+  font-size: 24px;
+  cursor: pointer;
+  margin: 16px;
+  color: #424242;
+  transition: color 0.3s ease;
 }
 
-/* Estilo da Lista de Navegação */
-mat-nav-list {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  gap: 8px; /* Espaço entre os itens */
+mat-icon:hover {
+  color: #1976d2;
 }
 
-/* Links da Navbar */
-mat-nav-list a {
-  color: #6B7280; /* Cinza Médio */
-  text-decoration: none;
-  font-size: 16px;
+/* Itens de Navegação */
+mat-sidenav mat-nav-list {
+  margin-top: 20px;
+}
+
+mat-sidenav a[mat-list-item] {
+  color: #424242;
+  font-size: 14px;
   font-weight: 500;
-  padding: 12px 16px;
-  margin: 5px 0;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Espaço entre ícone e texto */
+  padding: 12px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover nos Links */
-mat-nav-list a:hover {
-  background-color: #D1D5DB; /* Cinza mais claro */
-  color: #374151; /* Cinza mais escuro */
-  transform: translateX(5px); /* Efeito sutil de movimento */
-  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+mat-sidenav a[mat-list-item]:hover {
+  background-color: #f5f5f5;
+  color: #1976d2;
 }
 
 /* Conteúdo Principal */
-mat-sidenav-content {
+.example-container > mat-sidenav-content {
   flex: 1;
-  background-color: #FAFAFA; /* Branco quebrado */
-  padding: 24px;
-  overflow-y: auto;
-}
-
-/* Estilização específica do conteúdo */
-mat-sidenav-content .content {
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 20px;
+  overflow: auto;
+  background-color: #fafafa;
+  transition: margin-left 0.3s ease-in-out;
 }
 
-/* Ajustes Gerais do Container */
-mat-sidenav-container {
-  border-radius: 0 !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-/* Efeito de Rolagem no Sidenav */
-mat-sidenav::-webkit-scrollbar {
-  width: 6px;
-}
-
-mat-sidenav::-webkit-scrollbar-thumb {
-  background-color: #D1D5DB; /* Cinza Claro */
-  border-radius: 10px;
-}
-
-mat-sidenav::-webkit-scrollbar-thumb:hover {
-  background-color: #9CA3AF; /* Cinza Médio */
-}

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
@@ -7,12 +7,14 @@ import { RouterModule } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { CommonModule } from '@angular/common';
 
 
 
 @Component({
   selector: 'app-nav-bar',
   imports: [
+    CommonModule,
     MatToolbarModule,
     MatButtonModule,
     MatListModule,
@@ -33,15 +35,10 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   ]
 })
 export class NavBarComponent {
-  sidenavOpened = false;
-
-  // Função para alternar o estado do sidenav
-  toggleSidenav() {
+  @Output() toggle = new EventEmitter<void>(); 
+  sidenavOpened = false;  
+  toggleNavbar() {
+    this.toggle.emit(); 
     this.sidenavOpened = !this.sidenavOpened;
-  }
-
-  // Função para fechar o sidenav
-  closeSidenav() {
-    this.sidenavOpened = false;
   }
 }

@@ -1,20 +1,29 @@
-.app-layout {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  app-nav-bar {
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-  }
-  
-  .content {
-    margin-left: 250px;
-    width: calc(100% - 250px);
-    padding: 20px;
-  }
-  
+.app-container {
+  display: flex;
+  width: 100%;
+}
+
+.navbar-header {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+}
+
+app-nav-bar {
+  transition: margin-left 0.3s ease;
+  width: 250px;
+}
+
+app-nav-bar.closed {
+  //display: none;
+  width: 90px;
+}
+
+.main-content {
+  flex: 1;
+  transition: margin-left 0.3s ease;
+  margin-left: 0;
+}
+
+
