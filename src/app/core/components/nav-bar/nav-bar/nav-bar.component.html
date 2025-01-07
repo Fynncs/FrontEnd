@@ -16,6 +16,10 @@
         <mat-icon *ngIf="sidenavOpened">contact_mail</mat-icon>
         <span *ngIf="!sidenavOpened">Contact</span>
       </a>
+      <a class="nav-item exit" routerLink="/login" (click)="toggleNavbar()">
+        <mat-icon>exit_to_app</mat-icon>
+      </a>
     </div>
+    
   </div>
 </div>
