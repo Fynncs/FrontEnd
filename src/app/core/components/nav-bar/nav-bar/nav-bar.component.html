@@ -1,25 +1,53 @@
 <div class="example-container">
   <div class="sidenav" [class.opened]="true">
-    <div class="navbar" (click)="toggleNavbar()"  [ngStyle]="{ 'justify-content': sidenavOpened ? 'center' : 'end' }">
-      <mat-icon>menu</mat-icon>
-    </div>
-    <div class="nav-list">
-      <a class="nav-item" routerLink="/home" (click)="toggleNavbar()">
-        <mat-icon *ngIf="sidenavOpened">home</mat-icon>
-        <span *ngIf="!sidenavOpened">Home</span>
-      </a>
-      <a class="nav-item" routerLink="/about" (click)="toggleNavbar()">
-        <mat-icon *ngIf="sidenavOpened">info</mat-icon>
-        <span *ngIf="!sidenavOpened">About</span>
-      </a>
-      <a class="nav-item" routerLink="/contact" (click)="toggleNavbar()">
-        <mat-icon *ngIf="sidenavOpened">contact_mail</mat-icon>
-        <span *ngIf="!sidenavOpened">Contact</span>
-      </a>
-      <a class="nav-item exit" routerLink="/login" (click)="toggleNavbar()">
-        <mat-icon>exit_to_app</mat-icon>
-      </a>
+    <div class="navbar" (click)="toggleNavbar()" [ngStyle]="{ 'justify-content': sidenavOpened ? 'center' : 'end' }">
+      <mat-icon matTooltip="Menu" matTooltipShowDelay="1000">
+        {{ sidenavOpened ? 'menu' : 'arrow_back' }}
+      </mat-icon>
     </div>
     
+    <div class="nav-list">
+      <a class="nav-item" routerLink="/home" (click)="toggleNavbar()">
+        <mat-icon 
+          *ngIf="sidenavOpened"
+          matTooltip="Início" 
+          matTooltipShowDelay="1000">home</mat-icon>
+        <span *ngIf="!sidenavOpened"><mat-icon>home</mat-icon>Início</span>
+      </a>
+      <a class="nav-item" routerLink="/about" (click)="toggleNavbar()">
+        <mat-icon 
+          *ngIf="sidenavOpened"
+          matTooltip="Cadastro e Categorização de Despesas e Receitas" 
+          matTooltipShowDelay="1000">receipt_long</mat-icon>
+        <span *ngIf="!sidenavOpened"><mat-icon>receipt_long</mat-icon>Cadastro</span>
+      </a>
+      <a class="nav-item" routerLink="/contact" (click)="toggleNavbar()">
+        <mat-icon 
+          *ngIf="sidenavOpened"
+          matTooltip="Compartilhamento de Finanças Familiares ou de Parceria"
+          matTooltipShowDelay="1000">group</mat-icon>
+        <span *ngIf="!sidenavOpened"><mat-icon>group</mat-icon>Compartilhamento</span>
+      </a>
+      <a class="nav-item" routerLink="/contact" (click)="toggleNavbar()">
+        <mat-icon 
+          *ngIf="sidenavOpened"
+          matTooltip="Plano Financeiro"
+          matTooltipShowDelay="1000">paid</mat-icon>
+        <span *ngIf="!sidenavOpened"><mat-icon>paid</mat-icon>Plano</span>
+      </a>
+      <a class="nav-item" routerLink="/contact" (click)="toggleNavbar()">
+        <mat-icon 
+          *ngIf="sidenavOpened"
+          matTooltip="Visualização de Relatórios Financeiros"
+          matTooltipShowDelay="1000">assessment</mat-icon>
+        <span *ngIf="!sidenavOpened"><mat-icon>assessment</mat-icon>Relatórios</span>
+      </a>
+      <a class="nav-item exit" routerLink="/login" (click)="toggleNavbar()">
+        <mat-icon 
+          matTooltip="Sair"
+          matTooltipShowDelay="1000">exit_to_app</mat-icon>
+
+      </a>
+    </div>
   </div>
 </div>

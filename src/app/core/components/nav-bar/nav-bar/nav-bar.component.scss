@@ -57,8 +57,9 @@
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Ícones e texto centralizados */
   text-decoration: none;
+  gap: 8px; /* Espaço entre ícone e texto */
 }
 
 .nav-item:hover {
@@ -90,9 +91,25 @@
   background-color: #e0e0e0;
 }
 
-.nav-item mat-icon {
+/* Ícones dentro do span alinhados à esquerda */
+.nav-item span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center; /* Ícones dentro do span à esquerda */
+  width: 100%;
+}
+
+.nav-item span mat-icon {
+  text-align: center;
+  min-width: 24px;
+}
+
+/* Ícones fora do span permanecem centralizados */
+.nav-item > mat-icon {
   color: #757575;
   transition: color 0.3s ease, transform 0.3s ease;
+  text-align: center;
 }
 
 .nav-item:hover mat-icon {
