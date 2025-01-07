@@ -1,6 +1,6 @@
 <div class="example-container">
   <div class="sidenav" [class.opened]="true">
-    <div class="navbar" (click)="toggleNavbar()">
+    <div class="navbar" (click)="toggleNavbar()"  [ngStyle]="{ 'justify-content': sidenavOpened ? 'center' : 'end' }">
       <mat-icon>menu</mat-icon>
     </div>
     <div class="nav-list">

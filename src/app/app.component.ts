@@ -13,7 +13,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   animations: [
     trigger('toggleNav', [
       state('open', style({
-        width: '250px',
+        width: '220px',
       })),
       state('closed', style({
         width: '90px',
