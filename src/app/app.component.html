@@ -1,8 +1,8 @@
 <div class="app-container">
-  <!-- <app-nav-bar 
+  <app-nav-bar 
     [@toggleNav]="navbarFechada ? 'closed' : 'open'" 
     (toggle)="toggleNavbar()">
-  </app-nav-bar> -->
+  </app-nav-bar>
   <div class="main-content" [class.expanded]="!navbarFechada">
     <router-outlet></router-outlet>
   </div>

@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { SignUpFormComponent } from "../core/components/auth/sign-up-form-component/sign-up-form-component.component";
 import { SignInFormComponent } from "../core/components/auth/sign-in-form-component/sign-in-form-component.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -25,22 +26,15 @@ import { SignInFormComponent } from "../core/components/auth/sign-in-form-compon
 })
 export class LoginComponent implements OnInit {
   form!: FormGroup;
-  tentativasFalhas: number = 0;
-  maxTentativas: number = 3;
   isLoading: boolean = false;
   singUp: boolean = false;
   singIn: boolean = true;
 
 
   constructor(
-    private fb: FormBuilder,
   ) {}
 
   ngOnInit() {
-    this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-    });
   }
 
   singUpForm(){
@@ -52,12 +46,5 @@ export class LoginComponent implements OnInit {
     setTimeout(() => {
       this.singIn = true;
     }, 100);
-    if (this.form.valid) {
-      return;
-    } else {
-      console.log('Form is invalid');
-      this.tentativasFalhas++;
-      this.form.markAllAsTouched();
-    }
   }
 }
