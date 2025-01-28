@@ -9,14 +9,14 @@ import { AuthService } from './core/components/auth/service/auth.service';
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
-  /**
-   * Método que verifica se o usuário está autenticado.
-   * Se estiver autenticado, permite o acesso à rota.
-   * Caso contrário, redireciona para a página de login.
-   * @param next - Snapshot da rota ativada.
-   * @param state - Estado da rota.
-   * @returns Observable<boolean> ou Promise<boolean> ou boolean
-   */
+/**
+ * Method that checks if the user is authenticated.
+ * If authenticated, allows access to the route.
+ * Otherwise, redirects to the login page.
+ * @param next - Snapshot of the activated route.
+ * @param state - State of the route.
+ * @returns Observable<boolean> or Promise<boolean> or boolean
+ */
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

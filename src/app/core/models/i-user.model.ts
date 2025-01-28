@@ -1,4 +1,5 @@
-import { ModelState } from "@fynnc.models";
+import { IFinancialData, ModelState } from "@fynnc.models";
+import { IPaymentStatus } from "./i-payment-status.model";
 
 export interface IUser extends ModelState<IUser> {
   id?: number;
@@ -14,4 +15,6 @@ export interface IUser extends ModelState<IUser> {
   academicBackground?: string;
   username?: string;
   password?: string;
+  financial?: IFinancialData[];
+  paymentStatus?: IPaymentStatus[];
 }
