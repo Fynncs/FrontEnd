@@ -28,6 +28,7 @@ import { CodePasswordComponent } from '../code-password/code-password.component'
 })
 export class SignInFormComponent {
   @Output() goBackToLogin = new EventEmitter<void>();
+  @Output() goSuccessful = new EventEmitter<void>();
   form!: FormGroup;
   errorMessage: string | undefined
   tentativasFalhas: number = 0;
@@ -43,9 +44,8 @@ export class SignInFormComponent {
 
   ngOnInit() {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      recaptcha: ['', Validators.required]
+      email: ['', ],
+      password: ['',],
     });
   }
   changeToSingUp() {
@@ -78,50 +78,36 @@ export class SignInFormComponent {
       }
     });
   }
-  onCaptchaResolved(captchaResponse: string | null | undefined) {
-    if (captchaResponse) {
-      this.recaptchaResponse = captchaResponse;
-      this.form.get('recaptcha')?.setValue(captchaResponse);
-      this.form.get('recaptcha')?.updateValueAndValidity();
-    }
-  }
-mostrarCaptcha: boolean = false;
 mostrarEsqueceuSenha: boolean = false;
 
 verificarTentativas(): void {
   if (this.tentativasFalhas >= this.maxTentativas) {
     setTimeout(() => {
       this.mostrarEsqueceuSenha = true;
-      this.mostrarCaptcha = true;
     }, 500); // Delay de 500ms
   }
 }
 
   onSubmit(): void {
-    if (this.tentativasFalhas >= this.maxTentativas) {
-      this.form.get('recaptcha')?.setValidators([Validators.required]);
-      this.form.get('recaptcha')?.updateValueAndValidity();
-    }
 
-    if (!this.form.valid) {
-      this.tentativasFalhas += 1;
-      this.form.markAllAsTouched();
-      return;
-    }
+    //Quem deve fazer isso é login n o component
+    this.goSuccessful.emit()
+  //   if (!this.form.valid) {
+  //     this.tentativasFalhas += 1;
+  //   }
 
-    const user: IUser = this.form.value;
-    this.authService.login(user.email, user.password).subscribe({
-      next: (response) => {
-        const token = response.token;
-        this.authService.saveToken(token);
-        this.router.navigate(['/home']);
-        this.tentativasFalhas = 0;
-      },
-      error: (error: HttpErrorResponse) => {
-        this.errorMessage = 'Login falhou. Verifique suas credenciais.';
-        console.error('Erro no login:', error);
-        this.tentativasFalhas += 1;
-      }
-    });
-  }
+  //   const user: IUser = this.form.value;
+  //   this.authService.login(user.email, user.password).subscribe({
+  //     next: (response) => {
+  //       const token = response.token;
+  //       this.authService.saveToken(token);
+  //       this.tentativasFalhas = 0;
+  //     },
+  //     error: (error: HttpErrorResponse) => {
+  //       this.errorMessage = 'Login falhou. Verifique suas credenciais.';
+  //       console.error('Erro no login:', error);
+  //       this.tentativasFalhas += 1;
+  //     }
+  //   });
+   }
 }

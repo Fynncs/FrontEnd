@@ -1,9 +1,12 @@
+
 <div class="app-container">
-  <!-- <app-nav-bar 
+  <app-nav-bar 
+  *ngIf="exibirNavbar"
     [@toggleNav]="navbarFechada ? 'closed' : 'open'" 
-    (toggle)="toggleNavbar()">
-  </app-nav-bar> -->
-  <div class="main-content" [class.expanded]="!navbarFechada">
+    (toggle)="toggleNavbar()"
+    [situationNavBar]="navbarFechada">
+  </app-nav-bar>
+  <div class="main-content" [class.expanded]="navbarFechada">
     <router-outlet></router-outlet>
   </div>
 </div>
