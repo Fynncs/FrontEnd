@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { IUser } from '@fynnc.models';
+import { IPerson, IUser, User } from '@fynnc.models';
 import { MatDialog } from '@angular/material/dialog';
 import { ResetPasswordComponent } from '../reset-password/reset-password.component';
 import { CodePasswordComponent } from '../code-password/code-password.component';
@@ -54,7 +54,16 @@ export class SignInFormComponent {
 
     this.socialAuthService.authState.subscribe((user: SocialUser) => {
       console.log(user);
-
+      this.authService.loginWithGoogle(
+        new User({
+          login: [user.id],
+          oauthProvider: user.provider,
+          person: {
+            nickname: user.firstName,
+            name: user.name,
+          } as IPerson
+        } as IUser)
+      )
 
     })
   }

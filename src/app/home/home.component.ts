@@ -52,19 +52,9 @@ export class HomeComponent {
   fakePaymentStatusData: PaymentStatus = new PaymentStatus();
   userData: User = new User({
     id: 1,
-    name: 'John',
-    fullName: 'John Doe',
-    email: 'johndoe@example.com',
-    phone: '+1 555-1234',
-    birthDate: new Date('1990-05-15'),
-    gender: 'male',
-    nationality: 'American',
-    maritalStatus: 'single',
-    profession: 'Software Engineer',
-    academicBackground: 'Bachelor in Computer Science',
-    username: 'johndoe',
+    login: ['johndoe@example.com'],
     password: 'password123',
-  } as IUser);
+  } as unknown as IUser);
   selectedDate: Date | undefined;
   onDateChange(event: any) {
     this.selectedDate = event.value;
@@ -77,17 +67,17 @@ export class HomeComponent {
     if (!this.fakePaymentStatusData.unpaidBills) {
       this.fakePaymentStatusData.unpaidBills = [];
     }
-    if (!this.userData.paymentStatus) {
-      this.userData.paymentStatus = [];
-    }
-    if (!this.userData.financial) {
-      this.userData.financial = [];
-    }
+    // if (!this.userData.paymentStatus) {
+    //   this.userData.paymentStatus = [];
+    // }
+    // if (!this.userData.financial) {
+    //   this.userData.financial = [];
+    // }
 
     this.fakePaymentStatusData.paidBills.push(this.fakeBillData);
     this.fakePaymentStatusData.unpaidBills.push(this.fakeBillData);
-    this.userData.paymentStatus.push(this.fakePaymentStatusData);
-    this.userData.financial.push(this.fakeFinancialData);
+    // this.userData.paymentStatus.push(this.fakePaymentStatusData);
+    // this.userData.financial.push(this.fakeFinancialData);
     console.log(this.userData)
   }
 }

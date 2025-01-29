@@ -25,6 +25,7 @@ export class AuthService {
 
   loginWithGoogle(user: User): Observable<any> {
     const endpoint = `${this.apiUrl}/google`;
+    console.log(user);
     return this.http.post<IUser>(this.apiUrl, user);
   }
 

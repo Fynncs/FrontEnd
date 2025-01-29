@@ -80,13 +80,13 @@ export class ChartComponentComponent implements AfterViewInit {
     const months = this.Months;
     let data: number[] = [];
   
-    this.User?.financial?.forEach((element) => {
-      if (element.debt) {
-        data.push(element.debt);
-      } else {
-        data.push(0);
-      }
-    });
+    // this.User?.financial?.forEach((element) => {
+    //   if (element.debt) {
+    //     data.push(element.debt);
+    //   } else {
+    //     data.push(0);
+    //   }
+    // });
   
     let commonData: any;
   
