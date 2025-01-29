@@ -7,10 +7,16 @@
 
 .logo {
   flex: 1;
+  margin-bottom: -5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  background-color: #f0f0f0; /* Fundo cinza claro semelhante ao exemplo */
+  height: 100vh;
+  
 }
+
 
 .logo span {
   font-size: 6em;
@@ -21,13 +27,39 @@
   #9276B4, 
   #6D7FBE, 
   #181F37
-);
+  );
 
   -webkit-background-clip: text;
   color: transparent;
   white-space: nowrap;
+  border-bottom: 2px solid #D86894;
+  line-height: 90px;
   overflow: hidden;
   animation: escrever 2s linear forwards;
+
+  
+}
+.logo small {
+  font-size: 1em;
+  font-weight: normal;
+  letter-spacing: 0.2em;
+  color: #D86894;
+  margin-top: 5px;
+  text-transform: uppercase;
+  text-align: center;
+  
+  animation: fadeIn 3s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes escrever {
@@ -39,6 +71,7 @@
     clip-path: inset(0 0 0 0);
   }
 }
+
 
 .form {
   width: 30%;
@@ -122,27 +155,6 @@ button {
   margin-bottom: 20px;
   text-align: center;
 }
-
-.welcome-text span {
-  font-size: 2.5em;
-  font-weight: bold;
-  color: #fff;
-  background-image: linear-gradient(to right, #6a82fb, #fc5c7d);
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 .forget-password {
   font-size: small;
   justify-content: end;
@@ -184,25 +196,4 @@ button {
   margin-right: 10px;
 }
 
-.or-separator {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  margin: 20px 0;
-}
-
-.or-separator span {
-  padding: 0 10px;
-  z-index: 1;
-  position: relative;
-}
-
-.or-separator::before,
-.or-separator::after {
-  content: "";
-  flex-grow: 1;
-  height: 1px;
-  background-color: #ccc;
-}
-  
 
