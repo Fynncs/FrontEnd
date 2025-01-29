@@ -12,6 +12,7 @@ import { IUser } from '@fynnc.models';
 import { MatDialog } from '@angular/material/dialog';
 import { ResetPasswordComponent } from '../reset-password/reset-password.component';
 import { CodePasswordComponent } from '../code-password/code-password.component';
+import { GoogleSigninButtonModule, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-sign-in-form-component',
@@ -23,7 +24,8 @@ import { CodePasswordComponent } from '../code-password/code-password.component'
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GoogleSigninButtonModule
   ],
 })
 export class SignInFormComponent {
@@ -39,7 +41,9 @@ export class SignInFormComponent {
     private readonly fb: FormBuilder,
     private readonly authService: AuthService,
     private readonly router: Router,
-    private readonly dialog: MatDialog
+    private readonly dialog: MatDialog,
+
+    private readonly socialAuthService: SocialAuthService,
   ) { }
 
   ngOnInit() {
@@ -47,6 +51,12 @@ export class SignInFormComponent {
       email: ['', ],
       password: ['',],
     });
+
+    this.socialAuthService.authState.subscribe((user: SocialUser) => {
+      console.log(user);
+
+
+    })
   }
   changeToSingUp() {
     this.goBackToLogin.emit();
@@ -109,5 +119,11 @@ verificarTentativas(): void {
   //       this.tentativasFalhas += 1;
   //     }
   //   });
+   }
+
+   async loginWithGoogle(user: SocialUser) {
+    // newUser = {
+    //   login: user.''
+    // }
    }
 }

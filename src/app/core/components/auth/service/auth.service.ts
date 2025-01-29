@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { IUser, User } from '@fynnc.models';
 
 @Injectable({
   providedIn: 'root' // Garante que o serviço está disponível globalmente
@@ -20,6 +21,11 @@ export class AuthService {
   login(email?: string, password?: string): Observable<any> {
     const body = { email, password };
     return this.http.post(this.apiUrl, body);
+  }
+
+  loginWithGoogle(user: User): Observable<any> {
+    const endpoint = `${this.apiUrl}/google`;
+    return this.http.post<IUser>(this.apiUrl, user);
   }
 
   /**
