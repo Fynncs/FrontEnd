@@ -4,7 +4,7 @@
     [@toggleNav]="navbarFechada ? 'closed' : 'open'" 
     (toggle)="toggleNavbar()">
   </app-nav-bar>
-  <div class="main-content" [class.expanded]="!navbarFechada">
-    <router-outlet></router-outlet>
+  <div class="main-content" [class.expanded]="!navbarFechada"[@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet  #outlet="outlet"></router-outlet>
   </div>
 </div>
