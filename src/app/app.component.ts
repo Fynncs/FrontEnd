@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavBarComponent } from './core/components/nav-bar/nav-bar/nav-bar.component';
 import { Router, NavigationEnd } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { filter } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavBarComponent],
+  imports: [RouterOutlet, NavBarComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: [
@@ -19,24 +21,30 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         width: '90px',
       })),
       transition('open <=> closed', [
-        animate('300ms ease-in-out') // Duração da animação
+        animate('300ms ease-in-out')
       ]),
     ])
   ]
 })
 export class AppComponent {
   title = 'FYNNC';
-  exibirNavbar: boolean = true;
-  navbarFechada: boolean = false; // Estado inicial
-
+  exibirNavbar: boolean = false;
+  navbarFechada: boolean = true;
+  constructor(
+    private router: Router,
+    private cdr: ChangeDetectorRef
+  ) { }
   toggleNavbar() {
-    this.navbarFechada = !this.navbarFechada; // Alterna entre aberta/fechada
+    this.navbarFechada = !this.navbarFechada;
   }
-  // constructor(private router: Router) {
-  //   this.router.events.subscribe(event => {
-  //     if (event instanceof NavigationEnd) {
-  //       this.exibirNavbar = event.url !== '/login';
-  //     }
-  //   });
-  // }
+  ngOnInit(): void {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.exibirNavbar = event.url === '/login' ? this.exibirNavbar = false 
+        : this.exibirNavbar = true;
+        this.exibirNavbar
+        this.cdr.detectChanges();
+      });
+  }
 }

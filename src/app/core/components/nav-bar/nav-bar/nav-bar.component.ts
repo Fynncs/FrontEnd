@@ -37,7 +37,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 })
 export class NavBarComponent {
   @Output() toggle = new EventEmitter<void>(); 
-  sidenavOpened = false;  
+  sidenavOpened = true;  
   toggleNavbar() {
     this.toggle.emit(); 
     this.sidenavOpened = !this.sidenavOpened;
