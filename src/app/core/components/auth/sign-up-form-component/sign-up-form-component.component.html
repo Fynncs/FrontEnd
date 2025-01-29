@@ -4,54 +4,44 @@
 
         <div class="welcome-text">
             <span>Quase lá! Complete seu cadastro.</span>
-          </div>
-          
+        </div>
+
         <mat-form-field appearance="outline" class="custom-input">
             <mat-label>Nome Completo</mat-label>
-            <input matInput id="fullName" formControlName="fullName" type="text" required />
+            <input matInput id="fullName" formControlName="fullName" type="text" required
+                placeholder="Digite seu nome completo" />
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="custom-input">
             <mat-label>Email</mat-label>
-            <input matInput id="email" formControlName="email" type="email" required />
+            <input matInput id="email" formControlName="email" type="email" required title="Email" placeholder="Digite seu email" />
         </mat-form-field>
 
     </div>
-    <mat-form-field appearance="outline" class="custom-input" style="position: relative;">
+    <mat-form-field appearance="outline" class="custom-input custom-input-relative">
         <mat-label>Senha</mat-label>
-        <input matInput 
-               id="password" 
-               formControlName="password" 
-               [type]="hidePassword ? 'password' : 'text'" 
-               required 
-               style="color: white;"/>
-        <button mat-icon-button 
-                matSuffix 
-                (click)="hidePassword = !hidePassword" 
-                [attr.aria-label]="'Toggle password visibility'" 
-                [attr.aria-pressed]="hidePassword"
-                style="margin-right: 8px; display: flex; align-items: center; font-size: 20px; padding: 0; height: 36px; width: 36px;">
-            <mat-icon style="color: rgba(255, 255, 255, 0.7);"> 
+        <input matInput id="password" formControlName="password" [type]="hidePassword ? 'password' : 'text'" required
+            title="Senha" />
+        <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="'Toggle password visibility'" [attr.aria-pressed]="hidePassword"
+            class="toggle-password-button">
+            style="margin-right: 8px; display: flex; align-items: center; font-size: 20px; padding: 0; height: 36px;
+            width: 36px;">
+            <mat-icon class="icon-style">
                 {{ hidePassword ? 'visibility_off' : 'visibility' }}
             </mat-icon>
         </button>
     </mat-form-field>
-    
-    <mat-form-field appearance="outline" class="custom-input" style="position: relative;">
+
+    <mat-form-field appearance="outline" class="custom-input custom-input-relative">
         <mat-label>Confirmar Senha</mat-label>
-        <input matInput 
-               id="confirmPassword" 
-               formControlName="confirmPassword" 
-               [type]="hideConfirmPassword ? 'password' : 'text'" 
-               required 
-               style="color: white;"/>
-        <button mat-icon-button 
-                matSuffix 
-                (click)="hideConfirmPassword = !hideConfirmPassword" 
-                [attr.aria-label]="'Toggle confirm password visibility'" 
-                [attr.aria-pressed]="hideConfirmPassword"
-                style="margin-right: 8px; display: flex; align-items: center; font-size: 20px; padding: 0; height: 36px; width: 36px;">
-            <mat-icon style="color: rgba(255, 255, 255, 0.7);"> 
+        <input matInput id="confirmPassword" formControlName="confirmPassword"
+            [type]="hideConfirmPassword ? 'password' : 'text'" required title="Confirmar Senha"
+            placeholder="Confirme sua senha" />
+        <button mat-icon-button matSuffix type="button" (click)="hideConfirmPassword = !hideConfirmPassword"
+            [attr.aria-label]="'Toggle confirm password visibility'" [attr.aria-pressed]="hideConfirmPassword"
+            class="toggle-confirm-password-button">
+            <mat-icon class="icon-style">
                 {{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}
             </mat-icon>
         </button>
@@ -59,11 +49,11 @@
             <small class="text-danger">As senhas não são iguais.</small>
         </div>
     </mat-form-field>
-    
-    
+
+
 
     <div class="button-container">
-        <button class="btn-secondary" (click)="changeToSingIn()">Voltar</button>
+        <button type="button" class="btn-secondary" (click)="changeToSingIn()">Voltar</button>
         <button type="submit" class="btn-primary">Finalizar Cadastro</button>
-      </div>
+    </div>
 </form>
