@@ -28,6 +28,7 @@ import { CodePasswordComponent } from '../code-password/code-password.component'
 })
 export class SignInFormComponent {
   @Output() goBackToLogin = new EventEmitter<void>();
+  @Output() goSuccessful = new EventEmitter<void>();
   form!: FormGroup;
   errorMessage: string | undefined
   tentativasFalhas: number = 0;
@@ -88,7 +89,10 @@ verificarTentativas(): void {
 }
 
   onSubmit(): void {
+
+    //Quem deve fazer isso é login n o component
     this.router.navigate(['/home']);
+    this.goSuccessful.emit()
   //   if (!this.form.valid) {
   //     this.tentativasFalhas += 1;
   //   }
