@@ -28,6 +28,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'FYNNC';
+  
   exibirNavbar: boolean = false;
   navbarFechada: boolean = false;
   constructor(
