@@ -1,6 +1,11 @@
 <div class="container">
   <div class="logo">
-    <span>FYNNC</span>
+    <div class="icon-container">
+      <div class="circle pink"></div>
+      <div class="line purple"></div>
+       <div class="line blue"></div>
+    </div>
+    <span>YNNC</span>
   </div>
   <div class="form" [ngClass]="{'expanded': singUp}">
     <app-sign-in-form-component *ngIf="singIn"(goBackToLogin)="singUpForm()" (goSuccessful)="navegate()"></app-sign-in-form-component>
