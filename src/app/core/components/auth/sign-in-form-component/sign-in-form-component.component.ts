@@ -91,7 +91,6 @@ verificarTentativas(): void {
   onSubmit(): void {
 
     //Quem deve fazer isso é login n o component
-    this.router.navigate(['/home']);
     this.goSuccessful.emit()
   //   if (!this.form.valid) {
   //     this.tentativasFalhas += 1;

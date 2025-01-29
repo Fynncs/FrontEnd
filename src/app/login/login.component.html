@@ -3,7 +3,7 @@
     <span>FYNNC</span>
   </div>
   <div class="form" [ngClass]="{'expanded': singUp}">
-    <app-sign-in-form-component *ngIf="singIn"(goBackToLogin)="singUpForm()"></app-sign-in-form-component>
+    <app-sign-in-form-component *ngIf="singIn"(goBackToLogin)="singUpForm()" (goSuccessful)="navegate()"></app-sign-in-form-component>
     <app-sign-up-form-component *ngIf="singUp" (goBackToLogin)="singInForm()"></app-sign-up-form-component>
   </div>
 </div>

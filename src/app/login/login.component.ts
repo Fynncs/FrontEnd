@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { SignUpFormComponent } from "../core/components/auth/sign-up-form-component/sign-up-form-component.component";
 import { SignInFormComponent } from "../core/components/auth/sign-in-form-component/sign-in-form-component.component";
-import { Router } from '@angular/router';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -32,11 +32,14 @@ export class LoginComponent implements OnInit {
 
 
   constructor(
+    private readonly router: Router
   ) {}
 
   ngOnInit() {
   }
-
+  navegate(){
+    this.router.navigate(['/home']);
+  }
   singUpForm(){
     this.singUp = true
     this.singIn = false
