@@ -12,7 +12,6 @@ import { PaymentStatus } from 'app/core/models/payment-status.model';
 @Component({
   selector: 'app-home',
   imports: [
-    ChartComponentComponent,
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,

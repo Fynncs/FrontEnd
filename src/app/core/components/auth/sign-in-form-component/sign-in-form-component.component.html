@@ -1,21 +1,21 @@
-<div class="welcome-text">
-  <img src="assets/imagens/F.png" class="f" style="height: 110px;"/>
-</div>
+  <div>
+    <img src="assets/imagens/F.png" class="f" alt="Logo" />
+  </div>
 
 <div class="login-options">
   <form [formGroup]="form" class="form-container">
     <mat-form-field appearance="outline" class="custom-input">
       <mat-label>Email:</mat-label>
-      <input matInput formControlName="email" placeholder="Enter email" autocomplete="off"  style="color: white;" />
+      <input matInput formControlName="email" placeholder="Enter email" autocomplete="off" class="email-input" />
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="custom-input">
       <mat-label>Senha:</mat-label>
-      <input matInput formControlName="password" type="password" placeholder="Enter password" style="color: white;"/>
+      <input matInput formControlName="password" type="password" placeholder="Enter password" class="password-input"/>
     </mat-form-field>
     <span 
     *ngIf="tentativasFalhas >= maxTentativas" 
-    style="color: rgb(231, 85, 75); cursor: pointer; text-decoration: underline;" 
+    class="forgot-password" 
     (click)="openForgotPassword()"
   >
     Esqueceu a senha?
