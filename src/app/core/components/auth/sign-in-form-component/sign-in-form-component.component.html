@@ -3,10 +3,6 @@
 </div>
 
 <div class="login-options">
-  <div class="login">
-    <asl-google-signin-button type='standard' size='large' shape="pill"></asl-google-signin-button>
-  </div>
-  <div class="or-separator"><span>ou</span></div> 
   <form [formGroup]="form" class="form-container">
     <mat-form-field appearance="outline" class="custom-input">
       <mat-label>Email:</mat-label>
@@ -29,5 +25,9 @@
       <button type="submit" class="btn-secondary" (click)="changeToSingUp()">Registrar</button>
       <button type="submit" class="btn-primary" (click)="onSubmit()">Entrar</button>
     </div>
+    <div class="login">
+      <asl-google-signin-button type='standard' size='large' shape="pill"></asl-google-signin-button>
+    </div>
   </form>
-<!-- </div> -->
+
+  

@@ -28,8 +28,9 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'FYNNC';
+  
   exibirNavbar: boolean = false;
-  navbarFechada: boolean = true;
+  navbarFechada: boolean = false;
   constructor(
     private router: Router,
     private cdr: ChangeDetectorRef
