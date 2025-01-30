@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { FinancialData, IFinancialData, IUser, User } from '@fynnc.models';
 import { ChartComponentComponent } from 'app/core/components/dashboard/chart-component/chart-component.component';
 import { ExpenseCardComponent } from 'app/core/components/dashboard/expense-card/expense-card.component';
+import { TableComponent } from 'app/core/components/entity-creation/table/table.component';
 import { Bill } from 'app/core/models/bill.mode';
 import { IBill } from 'app/core/models/i-bill.model';
 import { PaymentStatus } from 'app/core/models/payment-status.model';
-import { TableComponent } from 'app/core/components/entity-creation/table/table.component';
+
 
 @Component({
   selector: 'app-cadastro-despesa',
@@ -62,9 +63,6 @@ export class CadastroDespesaComponent {
     console.log('Data selecionada:', this.selectedDate);
   }
   ngOnInit(): void {
-    // setInterval(() => {
-    //   this.nextSlide();
-    // }, 3000);
     if (!this.fakePaymentStatusData.paidBills) {
       this.fakePaymentStatusData.paidBills = [];
     }
@@ -85,14 +83,16 @@ export class CadastroDespesaComponent {
     console.log(this.userData)
   }
   currentIndex = 0;
+  itemsPerMove = 3; // Move 3 itens por vez
 
-  nextSlide() {
-    const totalCards = document.querySelectorAll('.card').length;
-    this.currentIndex = (this.currentIndex + 1) % totalCards;
-    this.updateCarouselPosition();
-  }
+  moveCarousel(direction: number) {
+    const totalItems = 6; // Número total de itens
+    const newIndex = this.currentIndex + direction * this.itemsPerMove;
 
-  updateCarouselPosition() {
+    if (newIndex >= 0 && newIndex <= totalItems - this.itemsPerMove) {
+      this.currentIndex = newIndex;
+    }
+
     const carousel = document.querySelector('.carousel') as HTMLElement;
     carousel.style.transform = `translateX(-${this.currentIndex * 33.33}%)`;
   }
