@@ -4,16 +4,17 @@
     align-items: flex-start;
     gap: 15px; 
     margin: 5px;
-    height: 98%;
+    height: 94%;
 
 }
 .ghapic {
     margin-top: 48px;
     background-color: #fff;
     text-align: center;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
     padding: 5px;
+    height: 68vh;
     margin-left: 10px;
   }
   .card {
@@ -35,7 +36,7 @@
 .carousel-container {
   position: relative;
   width: 100%;
-  overflow: hidden; /* Oculta o conteúdo que sair da área visível */
+  overflow: hidden; 
 }
 
 .carousel {
@@ -44,7 +45,7 @@
 }
 
 .card {
-  flex: 0 0 33.33%; /* Exibe três itens por vez */
+  flex: 0 0 33.33%; 
   padding: 10px;
   box-sizing: border-box;
 }

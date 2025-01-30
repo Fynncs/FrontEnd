@@ -10,7 +10,15 @@ import { MatMenuModule } from '@angular/material/menu';
   styleUrl: './expense-card.component.scss'
 })
 export class ExpenseCardComponent {
-  barHeights: number[] = [70, 40, 80, 60, 90, 70, 40];
+  barHeights: number[] = [];
+
+  constructor() {
+    this.gerarValoresAleatorios();
+  }
+
+  gerarValoresAleatorios() {
+    this.barHeights = Array.from({ length: 7 }, () => Math.floor(Math.random() * 71) + 30);
+  }
 
 
 }
