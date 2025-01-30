@@ -1,4 +1,33 @@
-.graphic{
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px; 
+    height: 80vh;
+}
+
+.graphic {
     width: 45%;
-    margin: 1px;
+
+    box-sizing: border-box;
+}
+
+.table {
+    width: 45%;
+    margin-right: 15px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .graphic,
+    .table {
+        width: 100%;
+        margin: 10px 0;
+    }
 }

@@ -1,4 +1,5 @@
-<div class="graphic">
-    <app-expense-card></app-expense-card>
-    <app-chart-component [User]="userData" [Type]="'line'"></app-chart-component>
+<app-expense-card></app-expense-card>
+<div class="main-container">
+    <app-chart-component  class="graphic" [User]="userData" [Type]="'line'"></app-chart-component>
+    <app-table class="table"></app-table>
 </div>
