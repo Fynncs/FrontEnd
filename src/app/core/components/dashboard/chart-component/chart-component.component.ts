@@ -133,7 +133,7 @@ export class ChartComponentComponent implements AfterViewInit {
               size: 14,
               weight: 'bold'
             },
-            color: '#A0C1D1'
+            color: '#000000'
           }
         },
         title: {
@@ -143,7 +143,7 @@ export class ChartComponentComponent implements AfterViewInit {
             size: 18,
             weight: 'bold'
           },
-          color: '#D4EAF7'
+          color: '#000000'
         },
         tooltip: {
           callbacks: {
@@ -180,7 +180,7 @@ export class ChartComponentComponent implements AfterViewInit {
                   display: false
                 },
                 ticks: {
-                  color: '#A0C1D1'
+                  color: '#000000'
                 }
               },
               y: {
@@ -189,7 +189,7 @@ export class ChartComponentComponent implements AfterViewInit {
                   color: 'rgba(255, 255, 255, 0.1)'
                 },
                 ticks: {
-                  color: '#D4EAF7',
+                  color: '#000000',
                   callback: (value: number) => `R$ ${value.toLocaleString('pt-BR')}`
                 }
               }
@@ -208,10 +208,10 @@ export class ChartComponentComponent implements AfterViewInit {
                 beginAtZero: true,
                 angleLines: {
                   display: true,
-                  color: '#A0C1D1'
+                  color: '#000000'
                 },
                 ticks: {
-                  color: '#D4EAF7'
+                  color: '#000000'
                 }
               }
             }
@@ -242,13 +242,13 @@ export class ChartComponentComponent implements AfterViewInit {
             scales: {
               x: {
                 ticks: {
-                  color: '#A0C1D1'
+                  color: '#000000'
                 }
               },
               y: {
                 beginAtZero: true,
                 ticks: {
-                  color: '#D4EAF7'
+                  color: '#000000'
                 }
               }
             }
@@ -273,7 +273,7 @@ export class ChartComponentComponent implements AfterViewInit {
         label: label,
         //back que vai ter que me retornar sempre o valor do mes atual
         data: [160, 149, 260, 275, 115, 121, 187, 161, 216, 257, 252, 136],
-        backgroundColor: ['#BDC3C7'],
+        backgroundColor: ['#FFFFFF', '#EB5C81', '#D86894', '#A76FAC', '#9276B4', '#6D7FBE', '#181F37'],
         borderColor: '#000000b4',
         borderWidth: 1.5,
         borderRadius: 5,
