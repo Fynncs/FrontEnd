@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -14,6 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 @Component({
   selector: 'app-nav-bar',
   imports: [
+    RouterModule,
     CommonModule,
     MatToolbarModule,
     MatButtonModule,
@@ -21,8 +23,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatListModule,
     MatMenuModule,
     MatIconModule,
-    MatSidenavModule,
-    RouterModule,],
+    MatSidenavModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.scss',
   animations: [
