@@ -21,12 +21,12 @@ export class CadastroDespesaComponent{
   ngAfterViewInit() {
     setTimeout(() => {
       flatpickr(this.datePickerButton.nativeElement, {
-        mode: 'time',
+        mode: 'range',
         dateFormat: 'M d',
         onClose: (selectedDates, dateStr) => {
           if (selectedDates.length === 2) {
-            const startDate = selectedDates[0].toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
-            const endDate = selectedDates[1].toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+            const startDate = selectedDates[0].toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            const endDate = selectedDates[1].toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
             this.selectedDateRange = `${startDate} - ${endDate}`;
           }
         }
