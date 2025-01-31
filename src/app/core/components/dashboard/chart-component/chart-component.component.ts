@@ -272,10 +272,10 @@ export class ChartComponentComponent implements AfterViewInit {
         label: label,
         //back que vai ter que me retornar sempre o valor do mes atual
         data: [160, 149, 260, 275, 115, 121, 187, 161, 216, 257, 252, 136],
-        backgroundColor: ['#FFFFFF', '#EB5C81', '#D86894', '#A76FAC', '#9276B4', '#6D7FBE', '#181F37'],
+        backgroundColor: ['#A76FAC', '#181F37'],
         borderColor: '#000000b4',
         borderWidth: 1.5,
-        borderRadius: 5,
+        borderRadius: 10,
         hoverBackgroundColor: '#F0E68C',
         hoverBorderWidth: 2,
         barPercentage: 0.8,
