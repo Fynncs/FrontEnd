@@ -1,28 +1,84 @@
-/* Estilo dos botões */
+.flex-container {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
 .button {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  border-radius: 9999px; /* Faz bordas arredondadas */
+  border-radius: 9999px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
   cursor: pointer;
+  border: none;
 }
 
 .button-light {
   background-color: #f7f7f7;
+  color: #333;
+}
+
+.button-light i {
+  color: #888;
+  font-size: 16px;
 }
 
 .button-dark {
   background-color: #000;
   color: #fff;
+  padding: 8px 24px;
+  flex-direction: column;
+  font-weight: bold;
+  display: flex;
+  transition: background-color 0.3s ease;
+}
+
+.button-dark i {
+  font-size: 16px;
+  color: #fff;
+}
+
+.button-light:hover {
+  background-color: #eaeaea;
 }
 
 .button-dark:hover {
   background-color: #333;
 }
 
-/* Ícones */
-.icon {
-  font-size: 1rem;
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dropdown span {
+  padding: 8px;
+  width: 100%;
+  cursor: pointer;
+  display: block;
+}
+
+// .dropdown span:hover {
+//   background: #f0f0f0;
+// }
+
+.dropdown-content {
+  position: absolute;
+  flex-direction: column;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100px;
+  z-index: 1000;
+}
+
+.flatpickr-calendar {
+  z-index: 9999 !important;
+  display: block !important;
 }
