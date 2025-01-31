@@ -1,29 +1,31 @@
+import { CommonModule } from '@angular/common';
 import { Component, AfterViewInit, Input } from '@angular/core';
 import { IUser } from '@fynnc.models';
 import { PaymentStatus } from 'app/core/models/payment-status.model';
-import { 
+import {
   Chart,
-  LinearScale, 
-  BarElement, 
-  CategoryScale, 
-  Title, 
-  Tooltip, 
-  Legend, 
-  BarController, 
-  BubbleController, 
-  RadarController, 
+  LinearScale,
+  BarElement,
+  CategoryScale,
+  Title,
+  Tooltip,
+  Legend,
+  BarController,
+  BubbleController,
+  RadarController,
   DoughnutController,
   ScatterController,
-  PointElement, 
-  LineElement, 
-  LineController, 
-  ArcElement, 
-  RadialLinearScale, 
+  PointElement,
+  LineElement,
+  LineController,
+  ArcElement,
+  RadialLinearScale,
   PieController
 } from 'chart.js';
 
 @Component({
   selector: 'app-chart-component',
+  imports:[CommonModule],
   templateUrl: './chart-component.component.html',
   styleUrls: ['./chart-component.component.scss']
 })
@@ -34,52 +36,49 @@ export class ChartComponentComponent implements AfterViewInit {
   @Input() Month?: Date;
   @Input() paymentStatus?: PaymentStatus;
   Months: string[] = [];
-  chartType: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut' = 'bar'; 
+  chartType: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut' = 'bar';
+  selectedType: string = 'bar';
 
   ngOnInit() {
     this.Month = this.Month ?? new Date();
     this.generateNext12Months();
   }
-  
-  ngAfterViewInit() {
-    console.log(this.User)
-    if (this.Type && ['bar', 'radar', 'pie', 'line', 'doughnut'].includes(this.Type)) {
-      this.chartType = this.Type;
-    }
 
+  ngAfterViewInit() {
+    this.initialChart()
+  }
+  async initialChart() {
     if (this.chart) {
       this.chart.destroy();
     }
-
     Chart.register(
-      LinearScale, 
-      BarElement, 
+      LinearScale,
+      BarElement,
       ScatterController,
-      CategoryScale, 
-      Title, 
-      Tooltip, 
-      Legend, 
-      BarController, 
-      BubbleController, 
-      RadarController, 
-      PointElement, 
-      LineElement, 
+      CategoryScale,
+      Title,
+      Tooltip,
+      Legend,
+      BarController,
+      BubbleController,
+      RadarController,
+      PointElement,
+      LineElement,
       PieController,
-      LineController, 
+      LineController,
       DoughnutController,
-      ArcElement, 
+      ArcElement,
       RadialLinearScale
     );
 
     const chartConfig = this.getChartConfig();
     this.chart = new Chart('meuGrafico', chartConfig);
   }
-
-  getChartConfig(): any { 
+  getChartConfig(): any {
     this.Month?.getMonth();
     const months = this.Months;
     let data: number[] = [];
-  
+
     this.User?.financial?.forEach((element) => {
       if (element.debt) {
         data.push(element.debt);
@@ -87,28 +86,28 @@ export class ChartComponentComponent implements AfterViewInit {
         data.push(0);
       }
     });
-  
+
     let commonData: any;
-  
+
     if (this.User) {
       commonData = this.createCommonData(months, data, 'Gastos Mensais');
-    } 
+    }
     else if (this.paymentStatus) {
       let paidBills: number = 0;
       let unpaidBills: number = 0;
-      
+
       this.paymentStatus.paidBills?.forEach((element) => {
         if (element.amount) {
           paidBills += element.amount;
         }
       });
-  
+
       this.paymentStatus.unpaidBills?.forEach((element) => {
         if (element.amount) {
           unpaidBills += element.amount;
         }
       });
-  
+
       commonData = this.createCommonData(['Pago', 'Não Pago'], [paidBills, unpaidBills], 'Controle Financeiro');
       commonData.datasets[0].onClick = (event: any, elements: any[]) => {
         if (elements.length > 0) {
@@ -121,7 +120,7 @@ export class ChartComponentComponent implements AfterViewInit {
         }
       };
     }
-  
+
     const commonOptions = {
       responsive: true,
       plugins: {
@@ -166,7 +165,7 @@ export class ChartComponentComponent implements AfterViewInit {
         }
       }
     };
-  
+
     switch (this.chartType) {
       case 'bar':
         return {
@@ -196,7 +195,7 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-  
+
       case 'radar':
         return {
           type: 'radar',
@@ -217,7 +216,7 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-  
+
       case 'pie':
       case 'doughnut':
         return {
@@ -232,7 +231,7 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-  
+
       case 'line':
         return {
           type: 'line',
@@ -254,7 +253,7 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-  
+
       default:
         throw new Error('Tipo de gráfico não suportado!');
     }
@@ -262,7 +261,7 @@ export class ChartComponentComponent implements AfterViewInit {
   handlePaidClick() {
     console.log('Pago foi clicado!');
   }
-  
+
   handleUnpaidClick() {
     console.log('Não Pago foi clicado!');
   }
@@ -284,12 +283,18 @@ export class ChartComponentComponent implements AfterViewInit {
       }]
     };
   }
-  
+  mudarTipoGrafico(type: string) {
+    if (type && ['bar', 'radar', 'pie', 'line', 'doughnut'].includes(type)) {
+      this.chartType = type as 'bar' | 'radar' | 'pie' | 'line' | 'doughnut';
+      this.initialChart()
+    }
+  }
+
   generateNext12Months() {
     this.Months = Array.from({ length: 12 }, (_, i) => {
       const nextMonth = new Date(this.Month as Date);
-      if(this.Month)
-      nextMonth.setMonth(this.Month.getMonth() + i);      
+      if (this.Month)
+        nextMonth.setMonth(this.Month.getMonth() + i);
       return nextMonth.toLocaleString('pt-BR', { month: 'long' });
     });
   }

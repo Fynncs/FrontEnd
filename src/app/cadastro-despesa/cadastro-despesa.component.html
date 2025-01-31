@@ -1,26 +1,5 @@
 <div class="main-container">
-    <div>
-        <div class="carousel-container">
-            <button class="carousel-control prev">&#10094;</button>
-          
-            <div class="carousel">
-              <div class="card">
-                <app-expense-card></app-expense-card>
-              </div>
-              <div class="card">
-                <app-expense-card></app-expense-card>
-              </div>
-              <div class="card">
-                <app-expense-card></app-expense-card>
-              </div>
-
-            </div>
-            
-            <button class="carousel-control next" (click)="moveCarousel(1)">&#10095;</button>
-          </div>
-          
-          
-          
+    <div> 
         <div class="ghapic">
             <app-chart-component [User]="userData" [Type]="'line'"></app-chart-component>
         </div>

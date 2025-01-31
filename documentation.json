@@ -69,6 +69,73 @@
             ]
         },
         {
+            "name": "ICategory",
+            "id": "interface-ICategory-49f0eedb23e064f1416eafcee0d710b489ca6197b411582f9a2c2e44a549246c486c2658f8a5ecb20edd79038cff7e9984131e7d68bac2d1981124915d4615ec",
+            "file": "src/app/core/models/classification/i-category.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { ModelState } from \"../state.model\";\r\n\r\n\r\nexport interface ICategory extends ModelState<ICategory> {\r\n    name?: string,\r\n    color?: string,\r\n    userId?: string,\r\n    status?: string,\r\n    id?: string\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 9
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "status",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "userId",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 7
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": [
+                "ModelState"
+            ]
+        },
+        {
             "name": "IFinancialData",
             "id": "interface-IFinancialData-93e5bac9ce781ea03249a21c0b1a81e145d6e986a5eb9a81bb50376f065dafb3d4c1a0d7d66651ca1b3d8145cd601e8e97a630d1a1a5205b98c1134b26bf7e3f",
             "file": "src/app/core/models/i-financial-data.model.ts",
@@ -1803,6 +1870,868 @@
             "hostListeners": [],
             "implements": [
                 "IBill"
+            ]
+        },
+        {
+            "name": "Category",
+            "id": "class-Category-6128841c10751d4ea1f3126cc8d778b50e124bcf0566a36453d56da812086bf5b7d643792f0923377741f87555ea65a6332b924dd5dec42e1bf05c98d4755434",
+            "file": "src/app/core/models/classification/category.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { ModelState } from \"../state.model\";\r\nimport { ICategory } from \"./i-category.model\";\r\n\r\nexport class Category extends ModelState<ICategory> implements ICategory {\r\n  private _name?: string;\r\n  private _color?: string;\r\n  private _userId?: string;\r\n  private _status?: string;\r\n  private _id?: string;\r\n  private _dueDate?: string;  \r\n\r\n  constructor(category: ICategory = {} as ICategory) {\r\n    super(category);\r\n    this._name = category.name;\r\n    this._color = category.color;\r\n    this._userId = category.userId;\r\n    this._status = category.status;\r\n    this._id = category.id;\r\n  }\r\n\r\n  get id(): string | undefined {\r\n    return this._id;\r\n  }\r\n\r\n  set id(value: string | undefined) {\r\n    this._id = value;\r\n  }\r\n\r\n  get name(): string | undefined {\r\n    return this._name;\r\n  }\r\n\r\n  set name(value: string | undefined) {\r\n    this._name = value;\r\n  }\r\n\r\n  get color(): string | undefined {\r\n    return this._color;\r\n  }\r\n\r\n  set color(value: string | undefined) {\r\n    this._color = value;\r\n  }\r\n\r\n  get userId(): string | undefined {\r\n    return this._userId;\r\n  }\r\n\r\n  set userId(value: string | undefined) {\r\n    this._userId = value;\r\n  }\r\n\r\n  get dueDate(): string | undefined {\r\n    return this._dueDate;\r\n  }\r\n\r\n  set dueDate(value: string | undefined) {\r\n    this._dueDate = value;\r\n  }\r\n\r\n  get status(): string | undefined {\r\n    return this._status;\r\n  }\r\n\r\n  set status(value: string | undefined) {\r\n    this._status = value;\r\n  }\r\n\r\n  toJSON(): Partial<ICategory> {  // Corrigido para ICategory\r\n    return {\r\n      id: this.id,\r\n      name: this.name,\r\n      color: this.color,\r\n      userId: this.userId,\r\n\r\n      status: this.status,\r\n    };\r\n  }\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "category",
+                        "type": "ICategory",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "defaultValue": "{} as ICategory"
+                    }
+                ],
+                "line": 10,
+                "jsdoctags": [
+                    {
+                        "name": "category",
+                        "type": "ICategory",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "defaultValue": "{} as ICategory",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [
+                {
+                    "name": "_color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 6,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "_dueDate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 10,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "_id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "_name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 5,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "_status",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "_userId",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 7,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "_data",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "T",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "<p>Original data of the model.</p>\n",
+                    "line": 13,
+                    "rawdescription": "\nOriginal data of the model.",
+                    "modifierKind": [
+                        123
+                    ],
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "_modifiedAttributes",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Set<T>",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "<p>Set that stores modified attributes.</p>\n",
+                    "line": 25,
+                    "rawdescription": "\nSet that stores modified attributes.",
+                    "modifierKind": [
+                        123
+                    ],
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "_proxy",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "T",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "<p>Proxy that intercepts modifications to the data.</p>\n",
+                    "line": 16,
+                    "rawdescription": "\nProxy that intercepts modifications to the data.",
+                    "modifierKind": [
+                        123
+                    ],
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "_state",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "State",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "<p>Current state of the model (ORIGINAL, NEW, MODIFIED, DELETED).</p>\n",
+                    "line": 19,
+                    "rawdescription": "\nCurrent state of the model (ORIGINAL, NEW, MODIFIED, DELETED).",
+                    "modifierKind": [
+                        123
+                    ],
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "_stateSubject",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "BehaviorSubject<State>",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "<p>Observable that notifies state changes.</p>\n",
+                    "line": 22,
+                    "rawdescription": "\nObservable that notifies state changes.",
+                    "modifierKind": [
+                        123
+                    ],
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                }
+            ],
+            "methods": [
+                {
+                    "name": "toJSON",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Partial<ICategory>",
+                    "typeParameters": [],
+                    "line": 69,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "_createProxy",
+                    "args": [
+                        {
+                            "name": "obj",
+                            "type": "T",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "T",
+                    "typeParameters": [],
+                    "line": 47,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nCreates a Proxy to intercept changes to the model's data.\n",
+                    "description": "<p>Creates a Proxy to intercept changes to the model&#39;s data.</p>\n",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": {
+                                "pos": 1443,
+                                "end": 1446,
+                                "kind": 80,
+                                "id": 0,
+                                "flags": 16842752,
+                                "transformFlags": 0,
+                                "escapedText": "obj"
+                            },
+                            "type": "T",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "pos": 1433,
+                                "end": 1438,
+                                "kind": 80,
+                                "id": 0,
+                                "flags": 16842752,
+                                "transformFlags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<ul>\n<li>Original model object.</li>\n</ul>\n",
+                            "typeExpression": {
+                                "pos": 1439,
+                                "end": 1442,
+                                "kind": 309,
+                                "id": 0,
+                                "flags": 16842752,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "type": {
+                                    "pos": 1440,
+                                    "end": 1441,
+                                    "kind": 183,
+                                    "id": 0,
+                                    "flags": 16777216,
+                                    "modifierFlagsCache": 0,
+                                    "transformFlags": 1,
+                                    "typeName": {
+                                        "pos": 1440,
+                                        "end": 1441,
+                                        "kind": 80,
+                                        "id": 0,
+                                        "flags": 16777216,
+                                        "transformFlags": 0,
+                                        "escapedText": "T"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "tagName": {
+                                "pos": 1479,
+                                "end": 1486,
+                                "kind": 80,
+                                "id": 0,
+                                "flags": 16842752,
+                                "transformFlags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>Proxy of the model object.</p>\n",
+                            "returnType": ""
+                        },
+                        {
+                            "tagName": {
+                                "pos": 1525,
+                                "end": 1532,
+                                "kind": 80,
+                                "id": 0,
+                                "flags": 16842752,
+                                "transformFlags": 0,
+                                "escapedText": "private"
+                            },
+                            "comment": ""
+                        }
+                    ],
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "clearModifiedAttributes",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 151,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nClears all attributes marked as modified.\n",
+                    "description": "<p>Clears all attributes marked as modified.</p>\n",
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "getModifiedAttributes",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "[]",
+                    "typeParameters": [],
+                    "line": 144,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nGets a list of modified attributes in the model.\n",
+                    "description": "<p>Gets a list of modified attributes in the model.</p>\n",
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 3975,
+                                "end": 3982,
+                                "kind": 80,
+                                "id": 0,
+                                "flags": 16842752,
+                                "transformFlags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>List of modified attributes.</p>\n",
+                            "returnType": "[]"
+                        }
+                    ],
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "isDeleted",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 175,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nChecks if the current state is DELETED.\n",
+                    "description": "<p>Checks if the current state is DELETED.</p>\n",
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 4707,
+                                "end": 4714,
+                                "kind": 80,
+                                "id": 0,
+                                "flags": 16842752,
+                                "transformFlags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>True if the state is DELETED.</p>\n",
+                            "returnType": "boolean"
+                        }
+                    ],
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "isModified",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 167,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nChecks if the current state is MODIFIED.\n",
+                    "description": "<p>Checks if the current state is MODIFIED.</p>\n",
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 4513,
+                                "end": 4520,
+                                "kind": 80,
+                                "id": 0,
+                                "flags": 16842752,
+                                "transformFlags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>True if the state is MODIFIED.</p>\n",
+                            "returnType": "boolean"
+                        }
+                    ],
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "isNew",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 159,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nChecks if the current state is NEW.\n",
+                    "description": "<p>Checks if the current state is NEW.</p>\n",
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 4333,
+                                "end": 4340,
+                                "kind": 80,
+                                "id": 0,
+                                "flags": 16842752,
+                                "transformFlags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>True if the state is NEW.</p>\n",
+                            "returnType": "boolean"
+                        }
+                    ],
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "isOriginal",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 183,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nChecks if the current state is ORIGINAL.\n",
+                    "description": "<p>Checks if the current state is ORIGINAL.</p>\n",
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 4899,
+                                "end": 4906,
+                                "kind": 80,
+                                "id": 0,
+                                "flags": 16842752,
+                                "transformFlags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>True if the state is ORIGINAL.</p>\n",
+                            "returnType": "boolean"
+                        }
+                    ],
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "markAsDeleted",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 122,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nMarks the model as DELETED, if allowed.\n",
+                    "description": "<p>Marks the model as DELETED, if allowed.</p>\n",
+                    "jsdoctags": [],
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "markAsModified",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 112,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nMarks the model as MODIFIED, if applicable.\n",
+                    "description": "<p>Marks the model as MODIFIED, if applicable.</p>\n",
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "markAsNew",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 105,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nMarks the model as NEW.\n",
+                    "description": "<p>Marks the model as NEW.</p>\n",
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "restore",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 133,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nRestores the model to the ORIGINAL state.\nClears the modified attributes.\n",
+                    "description": "<p>Restores the model to the ORIGINAL state.\nClears the modified attributes.</p>\n",
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                },
+                {
+                    "name": "setState",
+                    "args": [
+                        {
+                            "name": "newState",
+                            "type": "State",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 97,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nChanges the current state of the model and notifies observers.\n",
+                    "description": "<p>Changes the current state of the model and notifies observers.</p>\n",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": {
+                                "pos": 2845,
+                                "end": 2853,
+                                "kind": 80,
+                                "id": 0,
+                                "flags": 16842752,
+                                "transformFlags": 0,
+                                "escapedText": "newState"
+                            },
+                            "type": "State",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "pos": 2831,
+                                "end": 2836,
+                                "kind": 80,
+                                "id": 0,
+                                "flags": 16842752,
+                                "transformFlags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<ul>\n<li>New state to be set.</li>\n</ul>\n",
+                            "typeExpression": {
+                                "pos": 2837,
+                                "end": 2844,
+                                "kind": 309,
+                                "id": 0,
+                                "flags": 16842752,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "type": {
+                                    "pos": 2838,
+                                    "end": 2843,
+                                    "kind": 183,
+                                    "id": 0,
+                                    "flags": 16777216,
+                                    "modifierFlagsCache": 0,
+                                    "transformFlags": 1,
+                                    "typeName": {
+                                        "pos": 2838,
+                                        "end": 2843,
+                                        "kind": 80,
+                                        "id": 0,
+                                        "flags": 16777216,
+                                        "transformFlags": 0,
+                                        "escapedText": "State"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "tagName": {
+                                "pos": 2884,
+                                "end": 2891,
+                                "kind": 80,
+                                "id": 0,
+                                "flags": 16842752,
+                                "transformFlags": 0,
+                                "escapedText": "private"
+                            },
+                            "comment": ""
+                        }
+                    ],
+                    "inheritance": {
+                        "file": "ModelState"
+                    }
+                }
+            ],
+            "indexSignatures": [],
+            "extends": [
+                "ModelState"
+            ],
+            "accessors": {
+                "id": {
+                    "name": "id",
+                    "setSignature": {
+                        "name": "id",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "string | undefined",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 25,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "string | undefined",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "id",
+                        "type": "",
+                        "returnType": "string | undefined",
+                        "line": 21
+                    }
+                },
+                "name": {
+                    "name": "name",
+                    "setSignature": {
+                        "name": "name",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "string | undefined",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 33,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "string | undefined",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "name",
+                        "type": "",
+                        "returnType": "string | undefined",
+                        "line": 29
+                    }
+                },
+                "color": {
+                    "name": "color",
+                    "setSignature": {
+                        "name": "color",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "string | undefined",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 41,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "string | undefined",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "color",
+                        "type": "",
+                        "returnType": "string | undefined",
+                        "line": 37
+                    }
+                },
+                "userId": {
+                    "name": "userId",
+                    "setSignature": {
+                        "name": "userId",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "string | undefined",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 49,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "string | undefined",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "userId",
+                        "type": "",
+                        "returnType": "string | undefined",
+                        "line": 45
+                    }
+                },
+                "dueDate": {
+                    "name": "dueDate",
+                    "setSignature": {
+                        "name": "dueDate",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "string | undefined",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 57,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "string | undefined",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "dueDate",
+                        "type": "",
+                        "returnType": "string | undefined",
+                        "line": 53
+                    }
+                },
+                "status": {
+                    "name": "status",
+                    "setSignature": {
+                        "name": "status",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "string | undefined",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 65,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "string | undefined",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "status",
+                        "type": "",
+                        "returnType": "string | undefined",
+                        "line": 61
+                    }
+                }
+            },
+            "hostBindings": [],
+            "hostListeners": [],
+            "implements": [
+                "ICategory"
             ]
         },
         {
@@ -5737,46 +6666,221 @@
             "templateData": "\r\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\r\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\r\n<link href=\"https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap\" rel=\"stylesheet\">\r\n<div class=\"app-container\">\r\n  <ng-container *ngIf=\"exibirNavbar\">    \r\n    <app-nav-bar \r\n      [@toggleNav]=\"navbarFechada ? 'closed' : 'open'\" \r\n      (toggle)=\"toggleNavbar()\"\r\n      [situationNavBar]=\"navbarFechada\">\r\n    </app-nav-bar>\r\n  </ng-container>\r\n  <div class=\"main-content\" [class.expanded]=\"navbarFechada\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>\r\n"
         },
         {
-            "name": "CategoryCreationComponent",
-            "id": "component-CategoryCreationComponent-059bc839a5e48cee7d642d5d161a16f4c7d69185c034b6fd8ec70ada3bde8926462f569919c48a4e3f6bc82876bb0aba0b6df9e964d3b78972b77dd707baf57c",
-            "file": "src/app/core/components/entity-creation/category-creation/category-creation/category-creation.component.ts",
+            "name": "CadastroDespesaComponent",
+            "id": "component-CadastroDespesaComponent-fb4ff0f1c7d8fe1a74d83aa3370b0cc4fdae89f3ac8647c98542cab22db3d0a3a46ee42e82a25001990307f15b191ed4bf0cbbdfb495b6b5b002533461298a32",
+            "file": "src/app/cadastro-despesa/cadastro-despesa.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-category-creation",
+            "selector": "app-cadastro-despesa",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
-                "./category-creation.component.html"
+                "./cadastro-despesa.component.html"
             ],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "currentIndex",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 85
+                },
+                {
+                    "name": "fakeBillData",
+                    "defaultValue": "new Bill({\r\n    id: 1,\r\n    description: \"Pagamento de serviço de consultoria\",\r\n    amount: 350.75,\r\n    dueDate: \"2024-08-15\",\r\n    status: \"Pendente\"\r\n  } as IBill)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Bill",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 35
+                },
+                {
+                    "name": "fakeFinancialData",
+                    "defaultValue": "new FinancialData({\r\n    balance: 1500.75,\r\n    budget: 2000,\r\n    expenses: 500.25,\r\n    income: 2500,\r\n    savings: 1000,\r\n    debt: 300,\r\n    investment: 700,\r\n    currency: 'USD',\r\n    lastUpdated: new Date('2024-08-12T10:30:00Z')\r\n  } as IFinancialData)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FinancialData",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                },
+                {
+                    "name": "fakePaymentStatusData",
+                    "defaultValue": "new PaymentStatus()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "PaymentStatus",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 44
+                },
+                {
+                    "name": "itemsPerMove",
+                    "defaultValue": "3",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 86
+                },
+                {
+                    "name": "selectedDate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Date | undefined",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 60
+                },
+                {
+                    "name": "user",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "IUser | undefined",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                },
+                {
+                    "name": "userData",
+                    "defaultValue": "new User({\r\n    id: 1,\r\n    name: 'John',\r\n    fullName: 'John Doe',\r\n    email: 'johndoe@example.com',\r\n    phone: '+1 555-1234',\r\n    birthDate: new Date('1990-05-15'),\r\n    gender: 'male',\r\n    nationality: 'American',\r\n    maritalStatus: 'single',\r\n    profession: 'Software Engineer',\r\n    academicBackground: 'Bachelor in Computer Science',\r\n    username: 'johndoe',\r\n    password: 'password123',\r\n  } as IUser)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "User",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 45
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "moveCarousel",
+                    "args": [
+                        {
+                            "name": "direction",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 88,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "direction",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 65,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onDateChange",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 61,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
             "standalone": false,
-            "imports": [],
+            "imports": [
+                {
+                    "name": "ChartComponentComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "ExpenseCardComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "TableComponent",
+                    "type": "component"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-category-creation',\r\n  imports: [],\r\n  templateUrl: './category-creation.component.html',\r\n  styleUrl: './category-creation.component.scss'\r\n})\r\nexport class CategoryCreationComponent {\r\n\r\n}\r\n",
-            "styleUrl": "./category-creation.component.scss",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { FinancialData, IFinancialData, IUser, User } from '@fynnc.models';\r\nimport { ChartComponentComponent } from 'app/core/components/dashboard/chart-component/chart-component.component';\r\nimport { ExpenseCardComponent } from 'app/core/components/dashboard/expense-card/expense-card.component';\r\nimport { TableComponent } from 'app/core/components/entity-creation/table/table.component';\r\nimport { Bill } from 'app/core/models/bill.mode';\r\nimport { IBill } from 'app/core/models/i-bill.model';\r\nimport { PaymentStatus } from 'app/core/models/payment-status.model';\r\n\r\n\r\n@Component({\r\n  selector: 'app-cadastro-despesa',\r\n  imports: [ChartComponentComponent, ExpenseCardComponent, TableComponent],\r\n  templateUrl: './cadastro-despesa.component.html',\r\n  styleUrl: './cadastro-despesa.component.scss'\r\n})\r\nexport class CadastroDespesaComponent {\r\n  constructor() {\r\n    // Inicia a data selecionada, caso necessário\r\n    this.selectedDate = new Date();\r\n  }\r\n  user: IUser | undefined;\r\n  fakeFinancialData: FinancialData = new FinancialData({\r\n    balance: 1500.75,\r\n    budget: 2000,\r\n    expenses: 500.25,\r\n    income: 2500,\r\n    savings: 1000,\r\n    debt: 300,\r\n    investment: 700,\r\n    currency: 'USD',\r\n    lastUpdated: new Date('2024-08-12T10:30:00Z')\r\n  } as IFinancialData);\r\n\r\n  fakeBillData: Bill = new Bill({\r\n    id: 1,\r\n    description: \"Pagamento de serviço de consultoria\",\r\n    amount: 350.75,\r\n    dueDate: \"2024-08-15\",\r\n    status: \"Pendente\"\r\n  } as IBill);\r\n  \r\n\r\n  fakePaymentStatusData: PaymentStatus = new PaymentStatus();\r\n  userData: User = new User({\r\n    id: 1,\r\n    name: 'John',\r\n    fullName: 'John Doe',\r\n    email: 'johndoe@example.com',\r\n    phone: '+1 555-1234',\r\n    birthDate: new Date('1990-05-15'),\r\n    gender: 'male',\r\n    nationality: 'American',\r\n    maritalStatus: 'single',\r\n    profession: 'Software Engineer',\r\n    academicBackground: 'Bachelor in Computer Science',\r\n    username: 'johndoe',\r\n    password: 'password123',\r\n  } as IUser);\r\n  selectedDate: Date | undefined;\r\n  onDateChange(event: any) {\r\n    this.selectedDate = event.value;\r\n    console.log('Data selecionada:', this.selectedDate);\r\n  }\r\n  ngOnInit(): void {\r\n    if (!this.fakePaymentStatusData.paidBills) {\r\n      this.fakePaymentStatusData.paidBills = [];\r\n    }\r\n    if (!this.fakePaymentStatusData.unpaidBills) {\r\n      this.fakePaymentStatusData.unpaidBills = [];\r\n    }\r\n    if (!this.userData.paymentStatus) {\r\n      this.userData.paymentStatus = [];\r\n    }\r\n    if (!this.userData.financial) {\r\n      this.userData.financial = [];\r\n    }\r\n\r\n    this.fakePaymentStatusData.paidBills.push(this.fakeBillData);\r\n    this.fakePaymentStatusData.unpaidBills.push(this.fakeBillData);\r\n    this.userData.paymentStatus.push(this.fakePaymentStatusData);\r\n    this.userData.financial.push(this.fakeFinancialData);\r\n    console.log(this.userData)\r\n  }\r\n  currentIndex = 0;\r\n  itemsPerMove = 3; // Move 3 itens por vez\r\n\r\n  moveCarousel(direction: number) {\r\n    const totalItems = 6; // Número total de itens\r\n    const newIndex = this.currentIndex + direction * this.itemsPerMove;\r\n\r\n    if (newIndex >= 0 && newIndex <= totalItems - this.itemsPerMove) {\r\n      this.currentIndex = newIndex;\r\n    }\r\n\r\n    const carousel = document.querySelector('.carousel') as HTMLElement;\r\n    carousel.style.transform = `translateX(-${this.currentIndex * 33.33}%)`;\r\n  }\r\n}\r\n",
+            "styleUrl": "./cadastro-despesa.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 17
+            },
             "extends": [],
-            "templateData": "<p>category-creation works!</p>\r\n"
+            "templateData": "<div class=\"main-container\">\r\n    <div> \r\n        <div class=\"ghapic\">\r\n            <app-chart-component [User]=\"userData\" [Type]=\"'line'\"></app-chart-component>\r\n        </div>\r\n    </div>\r\n    <app-table class=\"table\"></app-table>\r\n</div>"
         },
         {
             "name": "ChartComponentComponent",
-            "id": "component-ChartComponentComponent-90061d2238e2d090ea03452826ec57480657d60cb49e362cd5809dec067001f04f31ea1943cca64f3c5e87085556bfb53a950b898929723d0cd08b1f623744d0",
+            "id": "component-ChartComponentComponent-2c6b83020107cc8a5e72bf4eb056cd1557a7704b1c3ca7429d24621d3df0ab2cd45344cb22282cffdf00f3924c0c60364091da5ae648436c08708618cf039f51",
             "file": "src/app/core/components/dashboard/chart-component/chart-component.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5991,11 +7095,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, AfterViewInit, Input } from '@angular/core';\r\nimport { IUser } from '@fynnc.models';\r\nimport { PaymentStatus } from 'app/core/models/payment-status.model';\r\nimport { \r\n  Chart,\r\n  LinearScale, \r\n  BarElement, \r\n  CategoryScale, \r\n  Title, \r\n  Tooltip, \r\n  Legend, \r\n  BarController, \r\n  BubbleController, \r\n  RadarController, \r\n  DoughnutController,\r\n  ScatterController,\r\n  PointElement, \r\n  LineElement, \r\n  LineController, \r\n  ArcElement, \r\n  RadialLinearScale, \r\n  PieController\r\n} from 'chart.js';\r\n\r\n@Component({\r\n  selector: 'app-chart-component',\r\n  templateUrl: './chart-component.component.html',\r\n  styleUrls: ['./chart-component.component.scss']\r\n})\r\nexport class ChartComponentComponent implements AfterViewInit {\r\n  chart!: Chart;\r\n  @Input() User?: IUser;\r\n  @Input() Type?: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut';\r\n  @Input() Month?: Date;\r\n  @Input() paymentStatus?: PaymentStatus;\r\n  Months: string[] = [];\r\n  chartType: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut' = 'bar'; \r\n\r\n  ngOnInit() {\r\n    this.Month = this.Month ?? new Date();\r\n    this.generateNext12Months();\r\n  }\r\n  \r\n  ngAfterViewInit() {\r\n    console.log(this.User)\r\n    if (this.Type && ['bar', 'radar', 'pie', 'line', 'doughnut'].includes(this.Type)) {\r\n      this.chartType = this.Type;\r\n    }\r\n\r\n    if (this.chart) {\r\n      this.chart.destroy();\r\n    }\r\n\r\n    Chart.register(\r\n      LinearScale, \r\n      BarElement, \r\n      ScatterController,\r\n      CategoryScale, \r\n      Title, \r\n      Tooltip, \r\n      Legend, \r\n      BarController, \r\n      BubbleController, \r\n      RadarController, \r\n      PointElement, \r\n      LineElement, \r\n      PieController,\r\n      LineController, \r\n      DoughnutController,\r\n      ArcElement, \r\n      RadialLinearScale\r\n    );\r\n\r\n    const chartConfig = this.getChartConfig();\r\n    this.chart = new Chart('meuGrafico', chartConfig);\r\n  }\r\n\r\n  getChartConfig(): any { \r\n    this.Month?.getMonth();\r\n    const months = this.Months;\r\n    let data: number[] = [];\r\n  \r\n    this.User?.financial?.forEach((element) => {\r\n      if (element.debt) {\r\n        data.push(element.debt);\r\n      } else {\r\n        data.push(0);\r\n      }\r\n    });\r\n  \r\n    let commonData: any;\r\n  \r\n    if (this.User) {\r\n      commonData = this.createCommonData(months, data, 'Gastos Mensais');\r\n    } \r\n    else if (this.paymentStatus) {\r\n      let paidBills: number = 0;\r\n      let unpaidBills: number = 0;\r\n      \r\n      this.paymentStatus.paidBills?.forEach((element) => {\r\n        if (element.amount) {\r\n          paidBills += element.amount;\r\n        }\r\n      });\r\n  \r\n      this.paymentStatus.unpaidBills?.forEach((element) => {\r\n        if (element.amount) {\r\n          unpaidBills += element.amount;\r\n        }\r\n      });\r\n  \r\n      commonData = this.createCommonData(['Pago', 'Não Pago'], [paidBills, unpaidBills], 'Controle Financeiro');\r\n      commonData.datasets[0].onClick = (event: any, elements: any[]) => {\r\n        if (elements.length > 0) {\r\n          const clickedIndex = elements[0].index;\r\n          if (clickedIndex === 0) {\r\n            this.handlePaidClick();\r\n          } else if (clickedIndex === 1) {\r\n            this.handleUnpaidClick();\r\n          }\r\n        }\r\n      };\r\n    }\r\n  \r\n    const commonOptions = {\r\n      responsive: true,\r\n      plugins: {\r\n        legend: {\r\n          display: true,\r\n          position: 'top',\r\n          labels: {\r\n            font: {\r\n              size: 14,\r\n              weight: 'bold'\r\n            },\r\n            color: '#A0C1D1'\r\n          }\r\n        },\r\n        title: {\r\n          display: true,\r\n          text: this.User ? 'Gastos Mensais' : 'Controle Financeiro',\r\n          font: {\r\n            size: 18,\r\n            weight: 'bold'\r\n          },\r\n          color: '#D4EAF7'\r\n        },\r\n        tooltip: {\r\n          callbacks: {\r\n            label: (context: any) => {\r\n              return `R$ ${context.raw.toLocaleString('pt-BR')}`;\r\n            }\r\n          },\r\n          backgroundColor: '#19202b',\r\n          titleColor: '#A0C1D1',\r\n          bodyColor: '#D4EAF7'\r\n        }\r\n      },\r\n      animation: {\r\n        duration: 1000,\r\n        easing: 'easeInOutQuad'\r\n      },\r\n      onClick: (event: any, elements: any[]) => {\r\n        if (commonData.datasets[0].onClick) {\r\n          commonData.datasets[0].onClick(event, elements);\r\n        }\r\n      }\r\n    };\r\n  \r\n    switch (this.chartType) {\r\n      case 'bar':\r\n        return {\r\n          type: 'bar',\r\n          data: commonData,\r\n          options: {\r\n            ...commonOptions,\r\n            scales: {\r\n              x: {\r\n                grid: {\r\n                  display: false\r\n                },\r\n                ticks: {\r\n                  color: '#A0C1D1'\r\n                }\r\n              },\r\n              y: {\r\n                beginAtZero: true,\r\n                grid: {\r\n                  color: 'rgba(255, 255, 255, 0.1)'\r\n                },\r\n                ticks: {\r\n                  color: '#D4EAF7',\r\n                  callback: (value: number) => `R$ ${value.toLocaleString('pt-BR')}`\r\n                }\r\n              }\r\n            }\r\n          }\r\n        };\r\n  \r\n      case 'radar':\r\n        return {\r\n          type: 'radar',\r\n          data: commonData,\r\n          options: {\r\n            ...commonOptions,\r\n            scales: {\r\n              r: {\r\n                beginAtZero: true,\r\n                angleLines: {\r\n                  display: true,\r\n                  color: '#A0C1D1'\r\n                },\r\n                ticks: {\r\n                  color: '#D4EAF7'\r\n                }\r\n              }\r\n            }\r\n          }\r\n        };\r\n  \r\n      case 'pie':\r\n      case 'doughnut':\r\n        return {\r\n          type: this.chartType,\r\n          data: commonData,\r\n          options: {\r\n            ...commonOptions,\r\n            plugins: {\r\n              legend: {\r\n                position: 'right'\r\n              }\r\n            }\r\n          }\r\n        };\r\n  \r\n      case 'line':\r\n        return {\r\n          type: 'line',\r\n          data: commonData,\r\n          options: {\r\n            ...commonOptions,\r\n            scales: {\r\n              x: {\r\n                ticks: {\r\n                  color: '#A0C1D1'\r\n                }\r\n              },\r\n              y: {\r\n                beginAtZero: true,\r\n                ticks: {\r\n                  color: '#D4EAF7'\r\n                }\r\n              }\r\n            }\r\n          }\r\n        };\r\n  \r\n      default:\r\n        throw new Error('Tipo de gráfico não suportado!');\r\n    }\r\n  }\r\n  handlePaidClick() {\r\n    console.log('Pago foi clicado!');\r\n  }\r\n  \r\n  handleUnpaidClick() {\r\n    console.log('Não Pago foi clicado!');\r\n  }\r\n  createCommonData(labels: string[], data: number[], label: string): object {\r\n    return {\r\n      labels: labels,\r\n      datasets: [{\r\n        label: label,\r\n        //back que vai ter que me retornar sempre o valor do mes atual\r\n        data: [160, 149, 260, 275, 115, 121, 187, 161, 216, 257, 252, 136],\r\n        backgroundColor: ['#BDC3C7'],\r\n        borderColor: '#000000b4',\r\n        borderWidth: 1.5,\r\n        borderRadius: 5,\r\n        hoverBackgroundColor: '#F0E68C',\r\n        hoverBorderWidth: 2,\r\n        barPercentage: 0.8,\r\n        categoryPercentage: 0.9\r\n      }]\r\n    };\r\n  }\r\n  \r\n  generateNext12Months() {\r\n    this.Months = Array.from({ length: 12 }, (_, i) => {\r\n      const nextMonth = new Date(this.Month as Date);\r\n      if(this.Month)\r\n      nextMonth.setMonth(this.Month.getMonth() + i);      \r\n      return nextMonth.toLocaleString('pt-BR', { month: 'long' });\r\n    });\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, AfterViewInit, Input } from '@angular/core';\r\nimport { IUser } from '@fynnc.models';\r\nimport { PaymentStatus } from 'app/core/models/payment-status.model';\r\nimport { \r\n  Chart,\r\n  LinearScale, \r\n  BarElement, \r\n  CategoryScale, \r\n  Title, \r\n  Tooltip, \r\n  Legend, \r\n  BarController, \r\n  BubbleController, \r\n  RadarController, \r\n  DoughnutController,\r\n  ScatterController,\r\n  PointElement, \r\n  LineElement, \r\n  LineController, \r\n  ArcElement, \r\n  RadialLinearScale, \r\n  PieController\r\n} from 'chart.js';\r\n\r\n@Component({\r\n  selector: 'app-chart-component',\r\n  templateUrl: './chart-component.component.html',\r\n  styleUrls: ['./chart-component.component.scss']\r\n})\r\nexport class ChartComponentComponent implements AfterViewInit {\r\n  chart!: Chart;\r\n  @Input() User?: IUser;\r\n  @Input() Type?: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut';\r\n  @Input() Month?: Date;\r\n  @Input() paymentStatus?: PaymentStatus;\r\n  Months: string[] = [];\r\n  chartType: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut' = 'bar'; \r\n\r\n  ngOnInit() {\r\n    this.Month = this.Month ?? new Date();\r\n    this.generateNext12Months();\r\n  }\r\n  \r\n  ngAfterViewInit() {\r\n    console.log(this.User)\r\n    if (this.Type && ['bar', 'radar', 'pie', 'line', 'doughnut'].includes(this.Type)) {\r\n      this.chartType = this.Type;\r\n    }\r\n\r\n    if (this.chart) {\r\n      this.chart.destroy();\r\n    }\r\n\r\n    Chart.register(\r\n      LinearScale, \r\n      BarElement, \r\n      ScatterController,\r\n      CategoryScale, \r\n      Title, \r\n      Tooltip, \r\n      Legend, \r\n      BarController, \r\n      BubbleController, \r\n      RadarController, \r\n      PointElement, \r\n      LineElement, \r\n      PieController,\r\n      LineController, \r\n      DoughnutController,\r\n      ArcElement, \r\n      RadialLinearScale\r\n    );\r\n\r\n    const chartConfig = this.getChartConfig();\r\n    this.chart = new Chart('meuGrafico', chartConfig);\r\n  }\r\n\r\n  getChartConfig(): any { \r\n    this.Month?.getMonth();\r\n    const months = this.Months;\r\n    let data: number[] = [];\r\n  \r\n    this.User?.financial?.forEach((element) => {\r\n      if (element.debt) {\r\n        data.push(element.debt);\r\n      } else {\r\n        data.push(0);\r\n      }\r\n    });\r\n  \r\n    let commonData: any;\r\n  \r\n    if (this.User) {\r\n      commonData = this.createCommonData(months, data, 'Gastos Mensais');\r\n    } \r\n    else if (this.paymentStatus) {\r\n      let paidBills: number = 0;\r\n      let unpaidBills: number = 0;\r\n      \r\n      this.paymentStatus.paidBills?.forEach((element) => {\r\n        if (element.amount) {\r\n          paidBills += element.amount;\r\n        }\r\n      });\r\n  \r\n      this.paymentStatus.unpaidBills?.forEach((element) => {\r\n        if (element.amount) {\r\n          unpaidBills += element.amount;\r\n        }\r\n      });\r\n  \r\n      commonData = this.createCommonData(['Pago', 'Não Pago'], [paidBills, unpaidBills], 'Controle Financeiro');\r\n      commonData.datasets[0].onClick = (event: any, elements: any[]) => {\r\n        if (elements.length > 0) {\r\n          const clickedIndex = elements[0].index;\r\n          if (clickedIndex === 0) {\r\n            this.handlePaidClick();\r\n          } else if (clickedIndex === 1) {\r\n            this.handleUnpaidClick();\r\n          }\r\n        }\r\n      };\r\n    }\r\n  \r\n    const commonOptions = {\r\n      responsive: true,\r\n      plugins: {\r\n        legend: {\r\n          display: true,\r\n          position: 'top',\r\n          labels: {\r\n            font: {\r\n              size: 14,\r\n              weight: 'bold'\r\n            },\r\n            color: '#000000'\r\n          }\r\n        },\r\n        title: {\r\n          display: true,\r\n          text: this.User ? 'Gastos Mensais' : 'Controle Financeiro',\r\n          font: {\r\n            size: 18,\r\n            weight: 'bold'\r\n          },\r\n          color: '#000000'\r\n        },\r\n        tooltip: {\r\n          callbacks: {\r\n            label: (context: any) => {\r\n              return `R$ ${context.raw.toLocaleString('pt-BR')}`;\r\n            }\r\n          },\r\n          backgroundColor: '#19202b',\r\n          titleColor: '#A0C1D1',\r\n          bodyColor: '#D4EAF7'\r\n        }\r\n      },\r\n      animation: {\r\n        duration: 1000,\r\n        easing: 'easeInOutQuad'\r\n      },\r\n      onClick: (event: any, elements: any[]) => {\r\n        if (commonData.datasets[0].onClick) {\r\n          commonData.datasets[0].onClick(event, elements);\r\n        }\r\n      }\r\n    };\r\n  \r\n    switch (this.chartType) {\r\n      case 'bar':\r\n        return {\r\n          type: 'bar',\r\n          data: commonData,\r\n          options: {\r\n            ...commonOptions,\r\n            scales: {\r\n              x: {\r\n                grid: {\r\n                  display: false\r\n                },\r\n                ticks: {\r\n                  color: '#000000'\r\n                }\r\n              },\r\n              y: {\r\n                beginAtZero: true,\r\n                grid: {\r\n                  color: 'rgba(255, 255, 255, 0.1)'\r\n                },\r\n                ticks: {\r\n                  color: '#000000',\r\n                  callback: (value: number) => `R$ ${value.toLocaleString('pt-BR')}`\r\n                }\r\n              }\r\n            }\r\n          }\r\n        };\r\n  \r\n      case 'radar':\r\n        return {\r\n          type: 'radar',\r\n          data: commonData,\r\n          options: {\r\n            ...commonOptions,\r\n            scales: {\r\n              r: {\r\n                beginAtZero: true,\r\n                angleLines: {\r\n                  display: true,\r\n                  color: '#000000'\r\n                },\r\n                ticks: {\r\n                  color: '#000000'\r\n                }\r\n              }\r\n            }\r\n          }\r\n        };\r\n  \r\n      case 'pie':\r\n      case 'doughnut':\r\n        return {\r\n          type: this.chartType,\r\n          data: commonData,\r\n          options: {\r\n            ...commonOptions,\r\n            plugins: {\r\n              legend: {\r\n                position: 'right'\r\n              }\r\n            }\r\n          }\r\n        };\r\n  \r\n      case 'line':\r\n        return {\r\n          type: 'line',\r\n          data: commonData,\r\n          options: {\r\n            ...commonOptions,\r\n            scales: {\r\n              x: {\r\n                ticks: {\r\n                  color: '#000000'\r\n                }\r\n              },\r\n              y: {\r\n                beginAtZero: true,\r\n                ticks: {\r\n                  color: '#000000'\r\n                }\r\n              }\r\n            }\r\n          }\r\n        };\r\n  \r\n      default:\r\n        throw new Error('Tipo de gráfico não suportado!');\r\n    }\r\n  }\r\n  handlePaidClick() {\r\n    console.log('Pago foi clicado!');\r\n  }\r\n  \r\n  handleUnpaidClick() {\r\n    console.log('Não Pago foi clicado!');\r\n  }\r\n  createCommonData(labels: string[], data: number[], label: string): object {\r\n    return {\r\n      labels: labels,\r\n      datasets: [{\r\n        label: label,\r\n        //back que vai ter que me retornar sempre o valor do mes atual\r\n        data: [160, 149, 260, 275, 115, 121, 187, 161, 216, 257, 252, 136],\r\n        backgroundColor: ['#FFFFFF', '#EB5C81', '#D86894', '#A76FAC', '#9276B4', '#6D7FBE', '#181F37'],\r\n        borderColor: '#000000b4',\r\n        borderWidth: 1.5,\r\n        borderRadius: 5,\r\n        hoverBackgroundColor: '#F0E68C',\r\n        hoverBorderWidth: 2,\r\n        barPercentage: 0.8,\r\n        categoryPercentage: 0.9\r\n      }]\r\n    };\r\n  }\r\n  \r\n  generateNext12Months() {\r\n    this.Months = Array.from({ length: 12 }, (_, i) => {\r\n      const nextMonth = new Date(this.Month as Date);\r\n      if(this.Month)\r\n      nextMonth.setMonth(this.Month.getMonth() + i);      \r\n      return nextMonth.toLocaleString('pt-BR', { month: 'long' });\r\n    });\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "#meuGrafico {\r\n    background-color: #25282b;\r\n    height: 100% !important;\r\n    border: 1px solid #515355;\r\n    border-radius: 8px;\r\n    padding: 15px;\r\n    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n#meuGrafico p {\r\n    color: #ecf0f1;\r\n    font-size: 16px;\r\n    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\r\n    margin: 0;\r\n}\r\n",
+                    "data": ".grafico-container {\r\n    //background-color: #ffffffe3;\r\n    border-radius: 8px;\r\n    padding: 15px;\r\n    height: 70vh;\r\n    width: 97%;\r\n}\r\n",
                     "styleUrl": "./chart-component.component.scss"
                 }
             ],
@@ -6004,7 +7108,7 @@
             "implements": [
                 "AfterViewInit"
             ],
-            "templateData": "<div id=\"grafico-container\">\r\n    <canvas id=\"meuGrafico\"></canvas>\r\n  </div>\r\n  "
+            "templateData": "<div class=\"grafico-container\">\r\n    <canvas id=\"meuGrafico\"></canvas>\r\n  </div>\r\n  "
         },
         {
             "name": "CodePasswordComponent",
@@ -6228,7 +7332,7 @@
         },
         {
             "name": "ExpenseCardComponent",
-            "id": "component-ExpenseCardComponent-cb15cff2da7ff98a15f71c8265b847a78829e5b77405cec9e411f5819c0ae1f0b952f765206d6a0f9d4cbe4f49f5ac70d4175c8025c364e11479c512093a5425",
+            "id": "component-ExpenseCardComponent-b00fe196911ef9bd16562d9d5cb0180dd2f91c7ded30f17f7f26a3e8a063cb1ecf61db0a7f1079122a0de0f46c1a5780a1332e8197f0374277d4d8e750fb39dd",
             "file": "src/app/core/components/dashboard/expense-card/expense-card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -6245,8 +7349,31 @@
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "barHeights",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "gerarValoresAleatorios",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -6269,17 +7396,25 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component } from '@angular/core';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { MatMenuModule } from '@angular/material/menu';\r\n\r\n@Component({\r\n  selector: 'app-expense-card',\r\n  imports: [CommonModule, MatIconModule,MatMenuModule],\r\n  templateUrl: './expense-card.component.html',\r\n  styleUrl: './expense-card.component.scss'\r\n})\r\nexport class ExpenseCardComponent {\r\n\r\n}\r\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component } from '@angular/core';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { MatMenuModule } from '@angular/material/menu';\r\n\r\n@Component({\r\n  selector: 'app-expense-card',\r\n  imports: [CommonModule, MatIconModule,MatMenuModule],\r\n  templateUrl: './expense-card.component.html',\r\n  styleUrl: './expense-card.component.scss'\r\n})\r\nexport class ExpenseCardComponent {\r\n  barHeights: number[] = [];\r\n\r\n  constructor() {\r\n    this.gerarValoresAleatorios();\r\n  }\r\n\r\n  gerarValoresAleatorios() {\r\n    this.barHeights = Array.from({ length: 7 }, () => Math.floor(Math.random() * 71) + 30);\r\n  }\r\n\r\n\r\n}\r\n",
             "styleUrl": "./expense-card.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 13
+            },
             "extends": [],
-            "templateData": "<div class=\"expense-card\">\r\n    <div class=\"expense-header\">\r\n\r\n      <span class=\"category\">Comida</span>\r\n    </div>\r\n    <div class=\"expense-body\">\r\n        <mat-icon>account_circle</mat-icon>\r\n        <span class=\"amount\">R$ {{ 10000 | number:'1.2-2' }}</span>\r\n    </div>\r\n  </div>\r\n  "
+            "templateData": "<div class=\"expense-card\">\r\n    <div class=\"category\">\r\n      <mat-icon>attach_money</mat-icon> Comida\r\n    </div>\r\n    <div class=\"expense-body\">\r\n      <div class=\"chart\">\r\n        <div class=\"bar\" *ngFor=\"let value of barHeights\" [ngStyle]=\"{'height': value + '%'}\"></div>\r\n      </div>\r\n      <div class=\"amount\">$150</div>\r\n    </div>\r\n  </div>\r\n  "
         },
         {
             "name": "HomeComponent",
-            "id": "component-HomeComponent-7862651c534dc0d313f930ef7f8a5950c113a0a7f37c183faca5742803014f5b23a0df7c7b42e0383720b27160e590b9a476e2991e1f5c052a3c53dd516f3fb4",
+            "id": "component-HomeComponent-959484ac7fd202307d3560ee38891787c39621a24dbd2a60fc0d07af687b4194bf79411363eee26f25461be90f9deb0d858cfc13d446351f2fcb83d86fa0d7e4",
             "file": "src/app/home/home.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -6296,8 +7431,112 @@
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "fakeBillData",
+                    "defaultValue": "new Bill({\r\n    id: 1,\r\n    description: \"Pagamento de serviço de consultoria\",\r\n    amount: 350.75,\r\n    dueDate: \"2024-08-15\",\r\n    status: \"Pendente\"\r\n  } as IBill)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Bill",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 42
+                },
+                {
+                    "name": "fakeFinancialData",
+                    "defaultValue": "new FinancialData({\r\n    balance: 1500.75,\r\n    budget: 2000,\r\n    expenses: 500.25,\r\n    income: 2500,\r\n    savings: 1000,\r\n    debt: 300,\r\n    investment: 700,\r\n    currency: 'USD',\r\n    lastUpdated: new Date('2024-08-12T10:30:00Z')\r\n  } as IFinancialData)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FinancialData",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 30
+                },
+                {
+                    "name": "fakePaymentStatusData",
+                    "defaultValue": "new PaymentStatus()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "PaymentStatus",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 51
+                },
+                {
+                    "name": "selectedDate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Date | undefined",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 67
+                },
+                {
+                    "name": "user",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "IUser | undefined",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 29
+                },
+                {
+                    "name": "userData",
+                    "defaultValue": "new User({\r\n    id: 1,\r\n    name: 'John',\r\n    fullName: 'John Doe',\r\n    email: 'johndoe@example.com',\r\n    phone: '+1 555-1234',\r\n    birthDate: new Date('1990-05-15'),\r\n    gender: 'male',\r\n    nationality: 'American',\r\n    maritalStatus: 'single',\r\n    profession: 'Software Engineer',\r\n    academicBackground: 'Bachelor in Computer Science',\r\n    username: 'johndoe',\r\n    password: 'password123',\r\n  } as IUser)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "User",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 52
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 72,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onDateChange",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 68,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -6324,7 +7563,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport { FinancialData, IFinancialData, IUser, User } from '@fynnc.models';\r\nimport { ChartComponentComponent } from 'app/core/components/dashboard/chart-component/chart-component.component';\r\nimport { Bill } from 'app/core/models/bill.mode';\r\nimport { IBill } from 'app/core/models/i-bill.model';\r\nimport { MatDatepickerModule } from '@angular/material/datepicker';\r\nimport { MatFormFieldModule } from '@angular/material/form-field';\r\nimport { MatInputModule } from '@angular/material/input';\r\nimport { MatNativeDateModule } from '@angular/material/core';\r\nimport { PaymentStatus } from 'app/core/models/payment-status.model';\r\n\r\n@Component({\r\n  selector: 'app-home',\r\n  imports: [\r\n    MatDatepickerModule,\r\n    MatFormFieldModule,\r\n    MatInputModule,\r\n    MatNativeDateModule\r\n  ],\r\n  templateUrl: './home.component.html',\r\n  styleUrl: './home.component.scss'\r\n})\r\n\r\nexport class HomeComponent {\r\n  constructor() {\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { FinancialData, IFinancialData, IUser, User } from '@fynnc.models';\r\nimport { ChartComponentComponent } from 'app/core/components/dashboard/chart-component/chart-component.component';\r\nimport { Bill } from 'app/core/models/bill.mode';\r\nimport { IBill } from 'app/core/models/i-bill.model';\r\nimport { MatDatepickerModule } from '@angular/material/datepicker';\r\nimport { MatFormFieldModule } from '@angular/material/form-field';\r\nimport { MatInputModule } from '@angular/material/input';\r\nimport { MatNativeDateModule } from '@angular/material/core';\r\nimport { PaymentStatus } from 'app/core/models/payment-status.model';\r\n\r\n@Component({\r\n  selector: 'app-home',\r\n  imports: [\r\n    MatDatepickerModule,\r\n    MatFormFieldModule,\r\n    MatInputModule,\r\n    MatNativeDateModule\r\n  ],\r\n  templateUrl: './home.component.html',\r\n  styleUrl: './home.component.scss'\r\n})\r\n\r\nexport class HomeComponent {\r\n  constructor() {\r\n    // Inicia a data selecionada, caso necessário\r\n    this.selectedDate = new Date();\r\n  }\r\n  user: IUser | undefined;\r\n  fakeFinancialData: FinancialData = new FinancialData({\r\n    balance: 1500.75,\r\n    budget: 2000,\r\n    expenses: 500.25,\r\n    income: 2500,\r\n    savings: 1000,\r\n    debt: 300,\r\n    investment: 700,\r\n    currency: 'USD',\r\n    lastUpdated: new Date('2024-08-12T10:30:00Z')\r\n  } as IFinancialData);\r\n\r\n  fakeBillData: Bill = new Bill({\r\n    id: 1,\r\n    description: \"Pagamento de serviço de consultoria\",\r\n    amount: 350.75,\r\n    dueDate: \"2024-08-15\",\r\n    status: \"Pendente\"\r\n  } as IBill);\r\n  \r\n\r\n  fakePaymentStatusData: PaymentStatus = new PaymentStatus();\r\n  userData: User = new User({\r\n    id: 1,\r\n    name: 'John',\r\n    fullName: 'John Doe',\r\n    email: 'johndoe@example.com',\r\n    phone: '+1 555-1234',\r\n    birthDate: new Date('1990-05-15'),\r\n    gender: 'male',\r\n    nationality: 'American',\r\n    maritalStatus: 'single',\r\n    profession: 'Software Engineer',\r\n    academicBackground: 'Bachelor in Computer Science',\r\n    username: 'johndoe',\r\n    password: 'password123',\r\n  } as IUser);\r\n  selectedDate: Date | undefined;\r\n  onDateChange(event: any) {\r\n    this.selectedDate = event.value;\r\n    console.log('Data selecionada:', this.selectedDate);\r\n  }\r\n  ngOnInit(): void {\r\n    if (!this.fakePaymentStatusData.paidBills) {\r\n      this.fakePaymentStatusData.paidBills = [];\r\n    }\r\n    if (!this.fakePaymentStatusData.unpaidBills) {\r\n      this.fakePaymentStatusData.unpaidBills = [];\r\n    }\r\n    if (!this.userData.paymentStatus) {\r\n      this.userData.paymentStatus = [];\r\n    }\r\n    if (!this.userData.financial) {\r\n      this.userData.financial = [];\r\n    }\r\n\r\n    this.fakePaymentStatusData.paidBills.push(this.fakeBillData);\r\n    this.fakePaymentStatusData.unpaidBills.push(this.fakeBillData);\r\n    this.userData.paymentStatus.push(this.fakePaymentStatusData);\r\n    this.userData.financial.push(this.fakeFinancialData);\r\n    console.log(this.userData)\r\n  }\r\n}\r\n",
             "styleUrl": "./home.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -6342,7 +7581,7 @@
         },
         {
             "name": "LoginComponent",
-            "id": "component-LoginComponent-1370c770b628e6b19873eadebd843b2a9dbf0977e56a8752df3f129356f17ab53a723e24cabd9040cc7472cdcb727dae45ad519560a80cf3e5a983d13ab49fb3",
+            "id": "component-LoginComponent-ae6122de782a25b9f3bdfae174c1b48bfe41aff268a8a82c766ad975143d90c4a3436cb991b286f86344b780d9bba26a9a1f02193fee62020b0b08f9a353d4ee",
             "file": "src/app/login/login.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -6370,7 +7609,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 28
+                    "line": 30
                 },
                 {
                     "name": "isLoading",
@@ -6381,7 +7620,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 29
+                    "line": 31
                 },
                 {
                     "name": "singIn",
@@ -6392,7 +7631,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 31
+                    "line": 33
                 },
                 {
                     "name": "singUp",
@@ -6403,7 +7642,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 30
+                    "line": 32
                 }
             ],
             "methodsClass": [
@@ -6413,7 +7652,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 40,
+                    "line": 42,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -6423,7 +7662,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 38,
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -6433,7 +7672,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 47,
+                    "line": 49,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -6443,7 +7682,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 43,
+                    "line": 45,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -6490,7 +7729,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';\r\nimport { MatFormFieldModule } from '@angular/material/form-field';\r\nimport { MatInputModule } from '@angular/material/input';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { CommonModule } from '@angular/common';\r\nimport { SignUpFormComponent } from \"../core/components/auth/sign-up-form-component/sign-up-form-component.component\";\r\nimport { SignInFormComponent } from \"../core/components/auth/sign-in-form-component/sign-in-form-component.component\";\r\nimport {  Router } from '@angular/router';\r\n\r\n@Component({\r\n  selector: 'app-login',\r\n  templateUrl: './login.component.html',\r\n  styleUrls: ['./login.component.scss'],\r\n  imports: [\r\n    CommonModule,\r\n    MatFormFieldModule,\r\n    MatInputModule,\r\n    MatButtonModule,\r\n    MatIconModule,\r\n    ReactiveFormsModule,\r\n    SignUpFormComponent,\r\n    SignInFormComponent\r\n],\r\n})\r\nexport class LoginComponent implements OnInit {\r\n  form!: FormGroup;\r\n  isLoading: boolean = false;\r\n  singUp: boolean = false;\r\n  singIn: boolean = true;\r\n\r\n\r\n  constructor(\r\n    private readonly router: Router\r\n  ) {}\r\n\r\n  ngOnInit() {\r\n  }\r\n  navegate(){\r\n    this.router.navigate(['/home']);\r\n  }\r\n  singUpForm(){\r\n    this.singUp = true\r\n    this.singIn = false\r\n  }\r\n  singInForm() {\r\n    this.singUp = false;\r\n    setTimeout(() => {\r\n      this.singIn = true;\r\n    }, 100);\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\nimport { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';\r\nimport { MatFormFieldModule } from '@angular/material/form-field';\r\nimport { MatInputModule } from '@angular/material/input';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { CommonModule } from '@angular/common';\r\nimport { SignUpFormComponent } from \"../core/components/auth/sign-up-form-component/sign-up-form-component.component\";\r\nimport { SignInFormComponent } from \"../core/components/auth/sign-in-form-component/sign-in-form-component.component\";\r\nimport {  Router } from '@angular/router';\r\nimport { ExpenseCardComponent } from 'app/core/components/dashboard/expense-card/expense-card.component';\r\n\r\n@Component({\r\n  selector: 'app-login',\r\n  templateUrl: './login.component.html',\r\n  styleUrls: ['./login.component.scss'],\r\n  imports: [\r\n    CommonModule,\r\n    MatFormFieldModule,\r\n    MatInputModule,\r\n    \r\n    MatButtonModule,\r\n    MatIconModule,\r\n    ReactiveFormsModule,\r\n    SignUpFormComponent,\r\n    SignInFormComponent\r\n],\r\n})\r\nexport class LoginComponent implements OnInit {\r\n  form!: FormGroup;\r\n  isLoading: boolean = false;\r\n  singUp: boolean = false;\r\n  singIn: boolean = true;\r\n\r\n\r\n  constructor(\r\n    private readonly router: Router\r\n  ) {}\r\n\r\n  ngOnInit() {\r\n  }\r\n  navegate(){\r\n    this.router.navigate(['/home']);\r\n  }\r\n  singUpForm(){\r\n    this.singUp = true\r\n    this.singIn = false\r\n  }\r\n  singInForm() {\r\n    this.singUp = false;\r\n    setTimeout(() => {\r\n      this.singIn = true;\r\n    }, 100);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -6512,7 +7751,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 31,
+                "line": 33,
                 "jsdoctags": [
                     {
                         "name": "router",
@@ -6533,7 +7772,7 @@
         },
         {
             "name": "NavBarComponent",
-            "id": "component-NavBarComponent-eb193f651ab0301c56293a2562bcef4f2bd313b20e4bec19263e446d2ce783ce32533e19e9cda3bfa60618f10fa063acf8f671aa0fb7f3d1537fa90df6e6a9ec",
+            "id": "component-NavBarComponent-a231332b01703edbf7267d021edeee1205fd1ba269a28dd2cdb0354522966e8dd7e7ebd50466c3429bd275e09748abf17c60b77985221dd13bb3f389b4b9111a",
             "file": "src/app/core/components/nav-bar/nav-bar/nav-bar.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -6553,7 +7792,7 @@
                     "name": "situationNavBar",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 40,
+                    "line": 41,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -6564,7 +7803,7 @@
                     "defaultValue": "new EventEmitter<void>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 39,
+                    "line": 40,
                     "type": "EventEmitter"
                 }
             ],
@@ -6578,7 +7817,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 41
+                    "line": 42
                 }
             ],
             "methodsClass": [
@@ -6595,7 +7834,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 42,
+                    "line": 43,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -6616,7 +7855,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 47,
+                    "line": 48,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -6627,6 +7866,10 @@
             "hostListeners": [],
             "standalone": false,
             "imports": [
+                {
+                    "name": "RouterModule",
+                    "type": "module"
+                },
                 {
                     "name": "CommonModule",
                     "type": "module"
@@ -6658,22 +7901,18 @@
                 {
                     "name": "MatSidenavModule",
                     "type": "module"
-                },
-                {
-                    "name": "RouterModule",
-                    "type": "module"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, HostListener, Input, Output, SimpleChanges } from '@angular/core';\r\nimport { MatToolbarModule } from '@angular/material/toolbar';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatMenuModule } from '@angular/material/menu';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { RouterModule } from '@angular/router';\r\nimport { MatSidenavModule } from '@angular/material/sidenav';\r\nimport { MatListModule } from '@angular/material/list';\r\nimport { animate, state, style, transition, trigger } from '@angular/animations';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatTooltipModule } from '@angular/material/tooltip';\r\n\r\n\r\n@Component({\r\n  selector: 'app-nav-bar',\r\n  imports: [\r\n    CommonModule,\r\n    MatToolbarModule,\r\n    MatButtonModule,\r\n    MatTooltipModule,\r\n    MatListModule,\r\n    MatMenuModule,\r\n    MatIconModule,\r\n    MatSidenavModule,\r\n    RouterModule,],\r\n  templateUrl: './nav-bar.component.html',\r\n  styleUrl: './nav-bar.component.scss',\r\n  animations: [\r\n    trigger('sidenavAnimation', [\r\n      state('void', style({ transform: 'translateX(-100%)' })),\r\n      state('open', style({ transform: 'translateX(0)' })),\r\n      transition('void <=> open', [\r\n        animate('300ms ease-in-out')\r\n      ])\r\n    ])\r\n  ]\r\n})\r\nexport class NavBarComponent {\r\n  @Output() toggle = new EventEmitter<void>(); \r\n  @Input() situationNavBar!: boolean;\r\n  sidenavOpened = false; \r\n  ngOnChanges(changes: SimpleChanges): void {\r\n    if (changes['situationNavBar']) {\r\n      this.sidenavOpened = this.situationNavBar;\r\n    }\r\n  } \r\n  toggleNavbar() {\r\n    this.toggle.emit(); \r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, EventEmitter, HostListener, Input, Output, SimpleChanges } from '@angular/core';\r\nimport { MatToolbarModule } from '@angular/material/toolbar';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatMenuModule } from '@angular/material/menu';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { RouterModule } from '@angular/router';\r\nimport { MatSidenavModule } from '@angular/material/sidenav';\r\nimport { MatListModule } from '@angular/material/list';\r\n\r\nimport { animate, state, style, transition, trigger } from '@angular/animations';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatTooltipModule } from '@angular/material/tooltip';\r\n\r\n\r\n@Component({\r\n  selector: 'app-nav-bar',\r\n  imports: [\r\n    RouterModule,\r\n    CommonModule,\r\n    MatToolbarModule,\r\n    MatButtonModule,\r\n    MatTooltipModule,\r\n    MatListModule,\r\n    MatMenuModule,\r\n    MatIconModule,\r\n    MatSidenavModule],\r\n  templateUrl: './nav-bar.component.html',\r\n  styleUrl: './nav-bar.component.scss',\r\n  animations: [\r\n    trigger('sidenavAnimation', [\r\n      state('void', style({ transform: 'translateX(-100%)' })),\r\n      state('open', style({ transform: 'translateX(0)' })),\r\n      transition('void <=> open', [\r\n        animate('300ms ease-in-out')\r\n      ])\r\n    ])\r\n  ]\r\n})\r\nexport class NavBarComponent {\r\n  @Output() toggle = new EventEmitter<void>(); \r\n  @Input() situationNavBar!: boolean;\r\n  sidenavOpened = false; \r\n  ngOnChanges(changes: SimpleChanges): void {\r\n    if (changes['situationNavBar']) {\r\n      this.sidenavOpened = this.situationNavBar;\r\n    }\r\n  } \r\n  toggleNavbar() {\r\n    this.toggle.emit(); \r\n  }\r\n}\r\n",
             "styleUrl": "./nav-bar.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "\r\n<div class=\"example-container\">\r\n  <div class=\"sidenav\" [class.opened]=\"true\">\r\n    <div class=\"navbar\" (click)=\"toggleNavbar()\" [ngStyle]=\"{ 'justify-content': sidenavOpened ? 'center' : 'end' }\">\r\n        <mat-icon matTooltip=\"Menu\" matTooltipShowDelay=\"1000\">\r\n          {{ sidenavOpened ? 'menu' : 'arrow_back' }}\r\n        </mat-icon>\r\n    </div>\r\n    \r\n    <div class=\"nav-list\">\r\n      <a class=\"nav-item\" routerLink=\"/home\">\r\n        <mat-icon \r\n          *ngIf=\"sidenavOpened\"\r\n          matTooltip=\"Início\" \r\n          matTooltipShowDelay=\"1000\">home</mat-icon>\r\n        <span *ngIf=\"!sidenavOpened\"><mat-icon>home</mat-icon>Início</span>\r\n      </a>\r\n      <a class=\"nav-item\" routerLink=\"/about\">\r\n        <mat-icon \r\n          *ngIf=\"sidenavOpened\"\r\n          matTooltip=\"Cadastro e Categorização de Despesas e Receitas\" \r\n          matTooltipShowDelay=\"1000\">receipt_long</mat-icon>\r\n        <span *ngIf=\"!sidenavOpened\"><mat-icon>receipt_long</mat-icon>Cadastro</span>\r\n      </a>\r\n      <a class=\"nav-item\" routerLink=\"/contact\" >\r\n        <mat-icon \r\n          *ngIf=\"sidenavOpened\"\r\n          matTooltip=\"Compartilhamento de Finanças Familiares ou de Parceria\"\r\n          matTooltipShowDelay=\"1000\">group</mat-icon>\r\n        <span *ngIf=\"!sidenavOpened\"><mat-icon>group</mat-icon>Compartilhamento</span>\r\n      </a>\r\n      <a class=\"nav-item\" routerLink=\"/contact\">\r\n        <mat-icon \r\n          *ngIf=\"sidenavOpened\"\r\n          matTooltip=\"Plano Financeiro\"\r\n          matTooltipShowDelay=\"1000\">paid</mat-icon>\r\n        <span *ngIf=\"!sidenavOpened\"><mat-icon>paid</mat-icon>Plano</span>\r\n      </a>\r\n      <a class=\"nav-item\" routerLink=\"/contact\">\r\n        <mat-icon \r\n          *ngIf=\"sidenavOpened\"\r\n          matTooltip=\"Visualização de Relatórios Financeiros\"\r\n          matTooltipShowDelay=\"1000\">assessment</mat-icon>\r\n        <span *ngIf=\"!sidenavOpened\"><mat-icon>assessment</mat-icon>Relatórios</span>\r\n      </a>\r\n      <a class=\"nav-item exit\" routerLink=\"/login\">\r\n        <mat-icon \r\n          matTooltip=\"Sair\">exit_to_app</mat-icon>\r\n      </a>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "\r\n<div class=\"example-container\">\r\n  <div class=\"sidenav\" [class.opened]=\"true\">\r\n    <div class=\"navbar\" (click)=\"toggleNavbar()\" [ngStyle]=\"{ 'justify-content': sidenavOpened ? 'center' : 'end' }\">\r\n        <mat-icon matTooltip=\"Menu\" matTooltipShowDelay=\"1000\">\r\n          {{ sidenavOpened ? 'menu' : 'arrow_back' }}\r\n        </mat-icon>\r\n    </div>\r\n    \r\n    <div class=\"nav-list\">\r\n      <a class=\"nav-item\" routerLink=\"/home\">\r\n        <mat-icon \r\n          *ngIf=\"sidenavOpened\"\r\n          matTooltip=\"Início\" \r\n          matTooltipShowDelay=\"1000\">home</mat-icon>\r\n        <span *ngIf=\"!sidenavOpened\"><mat-icon>home</mat-icon>Início</span>\r\n      </a>\r\n      <a class=\"nav-item\" routerLink=\"/cadastro-despesas\" routerLinkActive=\"active\" ariaCurrentWhenActive=\"page\">\r\n        <mat-icon \r\n          *ngIf=\"sidenavOpened\"\r\n          matTooltip=\"Cadastro de Despesas\" \r\n          matTooltipShowDelay=\"1000\">money_off</mat-icon>\r\n        <span *ngIf=\"!sidenavOpened\"><mat-icon>money_off</mat-icon>Cadastro de Despesas</span>\r\n      </a>\r\n      <a class=\"nav-item\" routerLink=\"/cadastro-receitas\" routerLinkActive=\"active\" ariaCurrentWhenActive=\"page\">\r\n        <mat-icon \r\n          *ngIf=\"sidenavOpened\"\r\n          matTooltip=\"Cadastro de Receitas\" \r\n          matTooltipShowDelay=\"1000\">\r\n          attach_money\r\n        </mat-icon>\r\n        <span *ngIf=\"!sidenavOpened\">\r\n          <mat-icon>attach_money</mat-icon>Cadastro de Receitas\r\n        </span>\r\n      </a>\r\n      \r\n      \r\n      <a class=\"nav-item\" routerLink=\"/login\" >\r\n        <mat-icon \r\n          *ngIf=\"sidenavOpened\"\r\n          matTooltip=\"Compartilhamento de Finanças Familiares ou de Parceria\"\r\n          matTooltipShowDelay=\"1000\">group</mat-icon>\r\n        <span *ngIf=\"!sidenavOpened\"><mat-icon>group</mat-icon>Compartilhamento</span>\r\n      </a>\r\n      <a class=\"nav-item\" routerLink=\"/contact\">\r\n        <mat-icon \r\n          *ngIf=\"sidenavOpened\"\r\n          matTooltip=\"Plano Financeiro\"\r\n          matTooltipShowDelay=\"1000\">paid</mat-icon>\r\n        <span *ngIf=\"!sidenavOpened\"><mat-icon>paid</mat-icon>Plano</span>\r\n      </a>\r\n      <a class=\"nav-item\" routerLink=\"/contact\">\r\n        <mat-icon \r\n          *ngIf=\"sidenavOpened\"\r\n          matTooltip=\"Visualização de Relatórios Financeiros\"\r\n          matTooltipShowDelay=\"1000\">assessment</mat-icon>\r\n        <span *ngIf=\"!sidenavOpened\"><mat-icon>assessment</mat-icon>Relatórios</span>\r\n      </a>\r\n      <a class=\"nav-item exit\" routerLink=\"/login\">\r\n        <mat-icon \r\n          matTooltip=\"Sair\">exit_to_app</mat-icon>\r\n      </a>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "NewPasswordComponent",
@@ -7571,46 +8810,293 @@
                 "OnInit"
             ],
             "templateData": "<form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\" class=\"form-container\">\r\n\r\n    <div class=\"form-fields\">\r\n\r\n        <div class=\"welcome-text\">\r\n            <span>Quase lá! Complete seu cadastro.</span>\r\n        </div>\r\n\r\n        <mat-form-field appearance=\"outline\" class=\"custom-input\">\r\n            <mat-label>Nome Completo</mat-label>\r\n            <input matInput id=\"fullName\" formControlName=\"fullName\" type=\"text\" required\r\n                placeholder=\"Digite seu nome completo\" />\r\n        </mat-form-field>\r\n\r\n        <mat-form-field appearance=\"outline\" class=\"custom-input\">\r\n            <mat-label>Email</mat-label>\r\n            <input matInput id=\"email\" formControlName=\"email\" type=\"email\" required title=\"Email\" placeholder=\"Digite seu email\" />\r\n        </mat-form-field>\r\n\r\n    </div>\r\n    <mat-form-field appearance=\"outline\" class=\"custom-input custom-input-relative\">\r\n        <mat-label>Senha</mat-label>\r\n        <input matInput id=\"password\" formControlName=\"password\" [type]=\"hidePassword ? 'password' : 'text'\" required\r\n            title=\"Senha\" />\r\n        <button type=\"button\" mat-icon-button matSuffix (click)=\"hidePassword = !hidePassword\"\r\n            [attr.aria-label]=\"'Toggle password visibility'\" [attr.aria-pressed]=\"hidePassword\"\r\n            class=\"toggle-password-button\">\r\n            style=\"margin-right: 8px; display: flex; align-items: center; font-size: 20px; padding: 0; height: 36px;\r\n            width: 36px;\">\r\n            <mat-icon class=\"icon-style\">\r\n                {{ hidePassword ? 'visibility_off' : 'visibility' }}\r\n            </mat-icon>\r\n        </button>\r\n    </mat-form-field>\r\n\r\n    <mat-form-field appearance=\"outline\" class=\"custom-input custom-input-relative\">\r\n        <mat-label>Confirmar Senha</mat-label>\r\n        <input matInput id=\"confirmPassword\" formControlName=\"confirmPassword\"\r\n            [type]=\"hideConfirmPassword ? 'password' : 'text'\" required title=\"Confirmar Senha\"\r\n            placeholder=\"Confirme sua senha\" />\r\n        <button mat-icon-button matSuffix type=\"button\" (click)=\"hideConfirmPassword = !hideConfirmPassword\"\r\n            [attr.aria-label]=\"'Toggle confirm password visibility'\" [attr.aria-pressed]=\"hideConfirmPassword\"\r\n            class=\"toggle-confirm-password-button\">\r\n            <mat-icon class=\"icon-style\">\r\n                {{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}\r\n            </mat-icon>\r\n        </button>\r\n        <div *ngIf=\"form.get('confirmPassword')?.touched && form.get('confirmPassword')?.invalid\">\r\n            <small class=\"text-danger\">As senhas não são iguais.</small>\r\n        </div>\r\n    </mat-form-field>\r\n\r\n\r\n\r\n    <div class=\"button-container\">\r\n        <button type=\"button\" class=\"btn-secondary\" (click)=\"changeToSingIn()\">Voltar</button>\r\n        <button type=\"submit\" class=\"btn-primary\">Finalizar Cadastro</button>\r\n    </div>\r\n</form>"
-        }
-    ],
-    "modules": [
+        },
         {
-            "name": "AppRoutingModule",
-            "id": "module-AppRoutingModule-a6e00effc054660e8518734d21fe9605ed9b46ee580c83f21be524f44a8d57a6a2ec1381bf2959b525ab13328779afc2b587e973d202ee33b76de7b7ebce929a",
-            "description": "",
-            "deprecationMessage": "",
+            "name": "TableComponent",
+            "id": "component-TableComponent-69b637a7a761b30308c7d12387d27e96794c18045b7c1ece23441ed5fdac57c58b41d8affa722c1232579eb325339d0930e15a54af3d112dfffdbee1dd97ec4d",
+            "file": "src/app/core/components/entity-creation/table/table.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-table",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./table.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
             "deprecated": false,
-            "file": "src/app/app.routes.ts",
-            "methods": [],
-            "sourceCode": "import { RouterModule, Routes } from '@angular/router';\r\nimport { LoginComponent } from './login/login.component';\r\nimport { ChartComponentComponent } from './core/components/dashboard/chart-component/chart-component.component';\r\nimport { HomeComponent } from './home/home.component';\r\nimport { NgModule } from '@angular/core';\r\n\r\nexport const routes: Routes = [\r\n    { path: '', redirectTo: '/login', pathMatch: 'full' },\r\n    { path: 'login', component: LoginComponent },\r\n    { path: 'home', component: HomeComponent },\r\n];\r\n@NgModule({\r\n    imports: [RouterModule.forRoot(routes)],\r\n    exports: [RouterModule]\r\n})\r\nexport class AppRoutingModule { }",
-            "children": [
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-table',\r\n  imports: [],\r\n  templateUrl: './table.component.html',\r\n  styleUrl: './table.component.scss'\r\n})\r\nexport class TableComponent {\r\n\r\n}\r\n",
+            "styleUrl": "./table.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"table-container\">\r\n    <div class=\"header\">\r\n      <div class=\"title\">Gastos Mensais</div>\r\n\r\n    </div>\r\n    <table>\r\n      <thead>\r\n        <tr>\r\n          <th>Price</th>\r\n          <th>Amount</th>\r\n          <th>Total</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <td>89.03</td>\r\n          <td>0.15</td>\r\n          <td>$126.00</td>\r\n        </tr>\r\n        <tr>\r\n          <td>94.02</td>\r\n          <td>0.18</td>\r\n          <td>$126.00</td>\r\n        </tr>\r\n        <tr>\r\n          <td>92.06</td>\r\n          <td>0.22</td>\r\n          <td>$252.00</td>\r\n        </tr>\r\n        <tr>\r\n          <td>95.20</td>\r\n          <td>0.26</td>\r\n          <td>$176.00</td>\r\n        </tr>\r\n        <tr>\r\n          <td>95.30</td>\r\n          <td>0.31</td>\r\n          <td>$226.00</td>\r\n        </tr>\r\n        <tr>\r\n          <td>92.01</td>\r\n          <td>0.35</td>\r\n          <td>$2,326.00</td>\r\n        </tr>\r\n        <tr>\r\n          <td>97.34</td>\r\n          <td>0.53</td>\r\n          <td>$2,243.00</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  "
+        },
+        {
+            "name": "TimeComponent",
+            "id": "component-TimeComponent-61402f57e3d72b259e3629a8190ecff18740ecba773fcc81f1f0fa403e5c5925d77899a3cb39d5fc6019f4d67d5a2ea7900e941c82f519c1198744e951fd5f4c",
+            "file": "src/app/core/components/entity-creation/time/time.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-time",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./time.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
                 {
-                    "type": "providers",
-                    "elements": []
+                    "name": "datePickerButton",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ElementRef",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'datePickerButton'"
+                        }
+                    ],
+                    "modifierKind": [
+                        170
+                    ]
                 },
                 {
-                    "type": "declarations",
-                    "elements": []
+                    "name": "selectedDateRange",
+                    "defaultValue": "new Date().toDateString()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
                 },
                 {
-                    "type": "imports",
-                    "elements": []
+                    "name": "selectedTime",
+                    "defaultValue": "'24h'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
                 },
                 {
-                    "type": "exports",
-                    "elements": []
+                    "name": "showTimeOptions",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
                 },
                 {
-                    "type": "bootstrap",
-                    "elements": []
-                },
-                {
-                    "type": "classes",
-                    "elements": []
+                    "name": "times",
+                    "defaultValue": "this.generateTimeOptions()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
                 }
-            ]
+            ],
+            "methodsClass": [
+                {
+                    "name": "formatTime",
+                    "args": [
+                        {
+                            "name": "hours",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 36,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "hours",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "generateTimeOptions",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "string[]",
+                    "typeParameters": [],
+                    "line": 26,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 41,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onTimeChange",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 56,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [
+                {
+                    "name": "ChartComponentComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "ExpenseCardComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "MatListModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatFormFieldModule",
+                    "type": "module"
+                },
+                {
+                    "name": "TableComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatListModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatMenuModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatIconModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';\r\nimport flatpickr from 'flatpickr';\r\nimport { ChartComponentComponent } from 'app/core/components/dashboard/chart-component/chart-component.component';\r\nimport { ExpenseCardComponent } from 'app/core/components/dashboard/expense-card/expense-card.component';\r\nimport { TableComponent } from 'app/core/components/entity-creation/table/table.component';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatIcon, MatIconModule } from '@angular/material/icon';\r\nimport { MatListModule } from '@angular/material/list';\r\nimport { MatMenuModule } from '@angular/material/menu';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { MatFormFieldModule } from '@angular/material/form-field';\r\n\r\n@Component({\r\n  selector: 'app-time',\r\n   imports: [ChartComponentComponent, ExpenseCardComponent, MatListModule, MatFormFieldModule, TableComponent, FormsModule, CommonModule, MatListModule, MatMenuModule, MatIconModule],\r\n  templateUrl: './time.component.html',\r\n  styleUrl: './time.component.scss'\r\n})\r\nexport class TimeComponent {\r\n  @ViewChild('datePickerButton') datePickerButton!: ElementRef;\r\n  selectedDateRange: string = new Date().toDateString();\r\n  selectedTime: string = '24h';\r\n  showTimeOptions: boolean = false\r\n  times: string[] = this.generateTimeOptions();\r\n  constructor(private cdr: ChangeDetectorRef) { }\r\n  generateTimeOptions(): string[] {\r\n    const times = [];\r\n    let hours = 0;\r\n    while (hours < 24) {\r\n      const time = this.formatTime(hours);\r\n      times.push(time);\r\n      hours += 6;\r\n    }\r\n    return times;\r\n  }\r\n  formatTime(hours: number): string {\r\n    const formattedHours = hours < 10 ? '0' + hours : hours;\r\n    return `${formattedHours}:00`;\r\n  }\r\n\r\n  ngAfterViewInit() {\r\n    setTimeout(() => {\r\n      flatpickr(this.datePickerButton.nativeElement, {\r\n        mode: 'range',\r\n        dateFormat: 'M d',\r\n        onClose: (selectedDates, dateStr) => {\r\n          if (selectedDates.length === 2) {\r\n            const startDate = selectedDates[0].toLocaleDateString('en-US', { month: 'short', day: 'numeric' });\r\n            const endDate = selectedDates[1].toLocaleDateString('en-US', { month: 'short', day: 'numeric' });\r\n            this.selectedDateRange = `${startDate} - ${endDate}`;\r\n          }\r\n        }\r\n      });\r\n    }, 0);\r\n  }\r\n  onTimeChange(event: any) {\r\n    console.log('Horário selecionado:', this.selectedTime);\r\n  }\r\n}\r\n",
+            "styleUrl": "./time.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "cdr",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 24,
+                "jsdoctags": [
+                    {
+                        "name": "cdr",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "templateData": "<div class=\"flex-container\">\r\n    <div class=\"button button-light\">\r\n      <mat-icon>calendar_month</mat-icon><input #datePickerButton type=\"text\"  [value]=\"selectedDateRange\" readonly title=\"Select Date\" placeholder=\"Select Date\">\r\n    </div>\r\n    <div class=\"selectedTime-container\">\r\n      <div class=\"selectedTime\">\r\n        <mat-icon>schedule</mat-icon>\r\n        <mat-form-field>\r\n          <mat-select placeholder=\"Favorite food\">\r\n            <mat-option *ngFor=\"let food of foods\" [value]=\"food.value\">\r\n              {{ food.viewValue }}\r\n            </mat-option>\r\n          </mat-select>\r\n        </mat-form-field>\r\n        \r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n  "
         }
     ],
+    "modules": [],
     "miscellaneous": {
         "variables": [
             {
@@ -7642,6 +9128,16 @@
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
                 "defaultValue": "{\r\n  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay()), provideAnimationsAsync(),  provideHttpClient()]\r\n}"
+            },
+            {
+                "name": "appConfig",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/app.routes.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ApplicationConfig",
+                "defaultValue": "{\r\n    providers: [provideRouter(routes, withDebugTracing())]\r\n}"
             },
             {
                 "name": "bootstrap",
@@ -7677,11 +9173,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/core/components/auth/new-password/new-password.stories.tsx",
+                "file": "src/app/core/components/dashboard/chart-component/chart-componen.stories.tsx",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {},\r\n  name: 'Gráfico Padrão',\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/core/components/dashboard/expense-card/expense-card.stories.tsx",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {},\r\n    name: 'Expense Card',\r\n    render: (args) => ({\r\n        component: ExpenseCardComponent,\r\n        props: args,\r\n    })\r\n}"
             },
             {
                 "name": "Default",
@@ -7697,21 +9203,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/core/components/dashboard/chart-component/chart-componen.stories.tsx",
+                "file": "src/app/core/components/auth/new-password/new-password.stories.tsx",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {},\r\n  name: 'Gráfico Padrão',\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/core/components/dashboard/expense-card/expense-card.stories.tsx",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n    args: {},\r\n    name: 'Expense Card',\r\n}"
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "reqHandler",
@@ -7759,21 +9255,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/core/components/auth/new-password/new-password.stories.tsx",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "StoryFn",
-                "defaultValue": "(args) => ({\r\n  component: NewPasswordComponent,\r\n  props: {\r\n    ...args,\r\n    passwordForm: new FormBuilder().group({\r\n      newPassword: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/)]],\r\n      confirmPassword: ['', [Validators.required]],\r\n    }),\r\n  },\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/core/components/auth/reset-password/reset-password.stories.tsx",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "StoryFn",
                 "defaultValue": "(args) => ({\r\n  component: ResetPasswordComponent,\r\n  props: {\r\n    ...args,\r\n    form: new FormBuilder().group({\r\n      email: [''],\r\n      password: [''],\r\n    }),\r\n    isCodeSent: false,\r\n  },\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/core/components/auth/new-password/new-password.stories.tsx",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "StoryFn",
+                "defaultValue": "(args) => ({\r\n  component: NewPasswordComponent,\r\n  props: {\r\n    ...args,\r\n    passwordForm: new FormBuilder().group({\r\n      newPassword: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/)]],\r\n      confirmPassword: ['', [Validators.required]],\r\n    }),\r\n  },\r\n})"
             }
         ],
         "functions": [],
@@ -7905,6 +9401,18 @@
                     "defaultValue": "{\r\n  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay()), provideAnimationsAsync(),  provideHttpClient()]\r\n}"
                 }
             ],
+            "src/app/app.routes.ts": [
+                {
+                    "name": "appConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.routes.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ApplicationConfig",
+                    "defaultValue": "{\r\n    providers: [provideRouter(routes, withDebugTracing())]\r\n}"
+                }
+            ],
             "src/main.server.ts": [
                 {
                     "name": "bootstrap",
@@ -7939,26 +9447,28 @@
                     "defaultValue": "{\r\n  providers: [\r\n    provideServerRendering(),\r\n    provideServerRoutesConfig(serverRoutes)\r\n  ]\r\n}"
                 }
             ],
-            "src/app/core/components/auth/new-password/new-password.stories.tsx": [
+            "src/app/core/components/dashboard/chart-component/chart-componen.stories.tsx": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/core/components/auth/new-password/new-password.stories.tsx",
+                    "file": "src/app/core/components/dashboard/chart-component/chart-componen.stories.tsx",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {},\r\n  name: 'Gráfico Padrão',\r\n}"
+                }
+            ],
+            "src/app/core/components/dashboard/expense-card/expense-card.stories.tsx": [
                 {
-                    "name": "Template",
+                    "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/core/components/auth/new-password/new-password.stories.tsx",
+                    "file": "src/app/core/components/dashboard/expense-card/expense-card.stories.tsx",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "StoryFn",
-                    "defaultValue": "(args) => ({\r\n  component: NewPasswordComponent,\r\n  props: {\r\n    ...args,\r\n    passwordForm: new FormBuilder().group({\r\n      newPassword: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/)]],\r\n      confirmPassword: ['', [Validators.required]],\r\n    }),\r\n  },\r\n})"
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {},\r\n    name: 'Expense Card',\r\n    render: (args) => ({\r\n        component: ExpenseCardComponent,\r\n        props: args,\r\n    })\r\n}"
                 }
             ],
             "src/app/core/components/auth/reset-password/reset-password.stories.tsx": [
@@ -7983,28 +9493,26 @@
                     "defaultValue": "(args) => ({\r\n  component: ResetPasswordComponent,\r\n  props: {\r\n    ...args,\r\n    form: new FormBuilder().group({\r\n      email: [''],\r\n      password: [''],\r\n    }),\r\n    isCodeSent: false,\r\n  },\r\n})"
                 }
             ],
-            "src/app/core/components/dashboard/chart-component/chart-componen.stories.tsx": [
+            "src/app/core/components/auth/new-password/new-password.stories.tsx": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/core/components/dashboard/chart-component/chart-componen.stories.tsx",
+                    "file": "src/app/core/components/auth/new-password/new-password.stories.tsx",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {},\r\n  name: 'Gráfico Padrão',\r\n}"
-                }
-            ],
-            "src/app/core/components/dashboard/expense-card/expense-card.stories.tsx": [
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
                 {
-                    "name": "Default",
+                    "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/core/components/dashboard/expense-card/expense-card.stories.tsx",
+                    "file": "src/app/core/components/auth/new-password/new-password.stories.tsx",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n    args: {},\r\n    name: 'Expense Card',\r\n}"
+                    "type": "StoryFn",
+                    "defaultValue": "(args) => ({\r\n  component: NewPasswordComponent,\r\n  props: {\r\n    ...args,\r\n    passwordForm: new FormBuilder().group({\r\n      newPassword: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/)]],\r\n      confirmPassword: ['', [Validators.required]],\r\n    }),\r\n  },\r\n})"
                 }
             ],
             "src/app/app.routes.server.ts": [
@@ -8144,6 +9652,16 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/app.routes.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "appConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/auth.guard.ts",
                 "type": "guard",
                 "linktype": "guard",
@@ -8151,6 +9669,15 @@
                 "coveragePercent": 33,
                 "coverageCount": "1/3",
                 "status": "medium"
+            },
+            {
+                "filePath": "src/app/cadastro-despesa/cadastro-despesa.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CadastroDespesaComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/13",
+                "status": "low"
             },
             {
                 "filePath": "src/app/core/components/auth/code-password/code-password.component.ts",
@@ -8281,7 +9808,7 @@
                 "linktype": "component",
                 "name": "ExpenseCardComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -8305,12 +9832,21 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/core/components/entity-creation/category-creation/category-creation/category-creation.component.ts",
+                "filePath": "src/app/core/components/entity-creation/table/table.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "CategoryCreationComponent",
+                "name": "TableComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/components/entity-creation/time/time.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TimeComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
@@ -8330,6 +9866,24 @@
                 "coveragePercent": 68,
                 "coverageCount": "17/25",
                 "status": "good"
+            },
+            {
+                "filePath": "src/app/core/models/classification/category.model.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "Category",
+                "coveragePercent": 65,
+                "coverageCount": "17/26",
+                "status": "good"
+            },
+            {
+                "filePath": "src/app/core/models/classification/i-category.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "ICategory",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
             },
             {
                 "filePath": "src/app/core/models/financial-data.model.ts",
@@ -8427,7 +9981,7 @@
                 "linktype": "component",
                 "name": "HomeComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
