@@ -286,6 +286,7 @@ export class ChartComponentComponent implements AfterViewInit {
   mudarTipoGrafico(type: string) {
     if (type && ['bar', 'radar', 'pie', 'line', 'doughnut'].includes(type)) {
       this.chartType = type as 'bar' | 'radar' | 'pie' | 'line' | 'doughnut';
+      this.selectedType = type
       this.initialChart()
     }
   }
