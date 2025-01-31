@@ -1,60 +1,99 @@
-import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
-import flatpickr from 'flatpickr';
+import { Component } from '@angular/core';
+import { FinancialData, IFinancialData, IUser, User } from '@fynnc.models';
 import { ChartComponentComponent } from 'app/core/components/dashboard/chart-component/chart-component.component';
 import { ExpenseCardComponent } from 'app/core/components/dashboard/expense-card/expense-card.component';
 import { TableComponent } from 'app/core/components/entity-creation/table/table.component';
-import { CommonModule } from '@angular/common';
-import { MatIcon, MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatMenuModule } from '@angular/material/menu';
-import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { Bill } from 'app/core/models/bill.mode';
+import { IBill } from 'app/core/models/i-bill.model';
+import { PaymentStatus } from 'app/core/models/payment-status.model';
 
 
 @Component({
   selector: 'app-cadastro-despesa',
-  imports: [ChartComponentComponent, ExpenseCardComponent, MatListModule, MatFormFieldModule, TableComponent, FormsModule, CommonModule, MatListModule, MatMenuModule, MatIconModule],
+  imports: [ChartComponentComponent, ExpenseCardComponent, TableComponent],
   templateUrl: './cadastro-despesa.component.html',
   styleUrl: './cadastro-despesa.component.scss'
 })
 export class CadastroDespesaComponent {
-  @ViewChild('datePickerButton') datePickerButton!: ElementRef;
-  selectedDateRange: string = new Date().toDateString();
-  selectedTime: string = '24h';
-  showTimeOptions: boolean = false
-  times: string[] = this.generateTimeOptions();
-  constructor(private cdr: ChangeDetectorRef) { }
-  generateTimeOptions(): string[] {
-    const times = [];
-    let hours = 0;
-    while (hours < 24) {
-      const time = this.formatTime(hours);
-      times.push(time);
-      hours += 6;
-    }
-    return times;
+  constructor() {
+    // Inicia a data selecionada, caso necessário
+    this.selectedDate = new Date();
   }
-  formatTime(hours: number): string {
-    const formattedHours = hours < 10 ? '0' + hours : hours;
-    return `${formattedHours}:00`;
-  }
+  user: IUser | undefined;
+  fakeFinancialData: FinancialData = new FinancialData({
+    balance: 1500.75,
+    budget: 2000,
+    expenses: 500.25,
+    income: 2500,
+    savings: 1000,
+    debt: 300,
+    investment: 700,
+    currency: 'USD',
+    lastUpdated: new Date('2024-08-12T10:30:00Z')
+  } as IFinancialData);
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      flatpickr(this.datePickerButton.nativeElement, {
-        mode: 'range',
-        dateFormat: 'M d',
-        onClose: (selectedDates, dateStr) => {
-          if (selectedDates.length === 2) {
-            const startDate = selectedDates[0].toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-            const endDate = selectedDates[1].toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-            this.selectedDateRange = `${startDate} - ${endDate}`;
-          }
-        }
-      });
-    }, 0);
+  fakeBillData: Bill = new Bill({
+    id: 1,
+    description: "Pagamento de serviço de consultoria",
+    amount: 350.75,
+    dueDate: "2024-08-15",
+    status: "Pendente"
+  } as IBill);
+  
+
+  fakePaymentStatusData: PaymentStatus = new PaymentStatus();
+  userData: User = new User({
+    id: 1,
+    name: 'John',
+    fullName: 'John Doe',
+    email: 'johndoe@example.com',
+    phone: '+1 555-1234',
+    birthDate: new Date('1990-05-15'),
+    gender: 'male',
+    nationality: 'American',
+    maritalStatus: 'single',
+    profession: 'Software Engineer',
+    academicBackground: 'Bachelor in Computer Science',
+    username: 'johndoe',
+    password: 'password123',
+  } as IUser);
+  selectedDate: Date | undefined;
+  onDateChange(event: any) {
+    this.selectedDate = event.value;
+    console.log('Data selecionada:', this.selectedDate);
   }
-  onTimeChange(event: any) {
-    console.log('Horário selecionado:', this.selectedTime);
+  ngOnInit(): void {
+    if (!this.fakePaymentStatusData.paidBills) {
+      this.fakePaymentStatusData.paidBills = [];
+    }
+    if (!this.fakePaymentStatusData.unpaidBills) {
+      this.fakePaymentStatusData.unpaidBills = [];
+    }
+    if (!this.userData.paymentStatus) {
+      this.userData.paymentStatus = [];
+    }
+    if (!this.userData.financial) {
+      this.userData.financial = [];
+    }
+
+    this.fakePaymentStatusData.paidBills.push(this.fakeBillData);
+    this.fakePaymentStatusData.unpaidBills.push(this.fakeBillData);
+    this.userData.paymentStatus.push(this.fakePaymentStatusData);
+    this.userData.financial.push(this.fakeFinancialData);
+    console.log(this.userData)
+  }
+  currentIndex = 0;
+  itemsPerMove = 3; // Move 3 itens por vez
+
+  moveCarousel(direction: number) {
+    const totalItems = 6; // Número total de itens
+    const newIndex = this.currentIndex + direction * this.itemsPerMove;
+
+    if (newIndex >= 0 && newIndex <= totalItems - this.itemsPerMove) {
+      this.currentIndex = newIndex;
+    }
+
+    const carousel = document.querySelector('.carousel') as HTMLElement;
+    carousel.style.transform = `translateX(-${this.currentIndex * 33.33}%)`;
   }
 }
