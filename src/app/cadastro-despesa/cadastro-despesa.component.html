@@ -1,3 +1,19 @@
 <div class="flex-container">
-  <input #datePickerButton type="text" class="button button-light" [value]="selectedDateRange" readonly title="Select Date" placeholder="Select Date">
+  <div class="button button-light">
+    <mat-icon>calendar_month</mat-icon><input #datePickerButton type="text"  [value]="selectedDateRange" readonly title="Select Date" placeholder="Select Date">
+  </div>
+  <div class="selectedTime-container">
+    <div class="selectedTime">
+      <mat-icon>schedule</mat-icon>
+      <mat-form-field>
+        <mat-select placeholder="Favorite food">
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+    </div>
+  </div>
+  
 </div>

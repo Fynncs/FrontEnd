@@ -26,59 +26,85 @@
   color: #888;
   font-size: 16px;
 }
-
-.button-dark {
-  background-color: #000;
-  color: #fff;
-  padding: 8px 24px;
-  flex-direction: column;
-  font-weight: bold;
-  display: flex;
-  transition: background-color 0.3s ease;
-}
-
-.button-dark i {
-  font-size: 16px;
-  color: #fff;
-}
-
 .button-light:hover {
   background-color: #eaeaea;
 }
-
-.button-dark:hover {
-  background-color: #333;
+.button input {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: #333;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
 }
 
-.dropdown {
+.button input[readonly] {
+  background-color: #f7f7f7;
+}
+.selectedTime-container {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.dropdown span {
-  padding: 8px;
-  width: 100%;
+.selectedTime {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 8px;
+  padding: 0px 28px;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background-color: #f7f7f7;
+  font-size: 14px;
+  color: #333;
   cursor: pointer;
-  display: block;
+  height: 50px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+.selectedTime {
+  -webkit-appearance: none;
+}
+.time-select {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  cursor: pointer;
+  padding: 8px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
-// .dropdown span:hover {
-//   background: #f0f0f0;
-// }
-
-.dropdown-content {
-  position: absolute;
-  flex-direction: column;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100px;
-  z-index: 1000;
+.time-select:focus {
+  outline: none;
+}
+/* Estiliza as opções */
+.time-select option {
+  background-color: white;
+  color: #333;
+  font-size: 14px;
+  padding: 10px;
 }
 
-.flatpickr-calendar {
-  z-index: 9999 !important;
-  display: block !important;
+/* Cor quando passa o mouse sobre uma opção (nem todos os navegadores suportam) */
+.time-select option:hover {
+  background-color: #f0f0f0;
+}
+
+/* Cor da opção selecionada */
+.time-select option:checked {
+  background-color: #888; /* Azul destaque */
+  color: white;
+}
+
+/* Para alguns navegadores que não suportam hover no option */
+.time-select optgroup {
+  background-color: #f7f7f7;
 }
