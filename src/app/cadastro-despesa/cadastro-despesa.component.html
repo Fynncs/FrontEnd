@@ -1,29 +1,22 @@
-<div class="main-container">
-    <div>
-        <div class="carousel-container">
-            <button class="carousel-control prev" (click)="moveCarousel(-1)">&#10094;</button>
-          
-            <div class="carousel">
-              <div class="card">
-                <app-expense-card></app-expense-card>
-              </div>
-              <div class="card">
-                <app-expense-card></app-expense-card>
-              </div>
-              <div class="card">
-                <app-expense-card></app-expense-card>
-              </div>
-
-            </div>
-            
-            <button class="carousel-control next" (click)="moveCarousel(1)">&#10095;</button>
-          </div>
-          
-          
-          
-        <div class="ghapic">
-            <app-chart-component [User]="userData" [Type]="'line'"></app-chart-component>
-        </div>
+<div class="flex gap-4 items-center">
+    <!-- Botão 1 -->
+    <div class="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full shadow-sm">
+      <i class="icon-calendar"></i>
+      <span>Sep 02 - Sep 09</span>
+      <i class="icon-chevron-down"></i>
     </div>
-    <app-table class="table"></app-table>
-</div>
+  
+    <!-- Botão 2 -->
+    <div class="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full shadow-sm">
+      <i class="icon-clock"></i>
+      <span>24h</span>
+      <i class="icon-chevron-down"></i>
+    </div>
+  
+    <!-- Botão 3 -->
+    <button class="flex items-center gap-2 px-6 py-2 bg-black text-white rounded-full shadow-md">
+      <span>Weekly</span>
+      <i class="icon-arrow-right"></i>
+    </button>
+  </div>
+  

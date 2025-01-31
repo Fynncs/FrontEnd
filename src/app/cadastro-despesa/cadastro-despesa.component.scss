@@ -1,88 +1,28 @@
-.main-container {
+/* Estilo dos botões */
+.button {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 15px; 
-  margin: 5px;
-  height: 94%;
-}
-
-.ghapic {
-  margin-top: 4px;
-  background-color: #fff;
-  text-align: center;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  padding: 5px;
-  height: 74vh;
-  margin-left: 10px;
-}
-
-.card {
-  display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100px;
-}
-
-.table {
-  width: 60%;
-  margin-right: 15px;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-.carousel-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel {
-  display: flex;
-  padding-left: 50px;
-  padding-right: 50px;
-  transition: transform 0.5s ease;
-}
-
-.card {
-  flex: 0 0 33.33%;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  color: rgb(0, 0, 0);
-  border: none;
-  font-size: 30px;
-  padding: 10px;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 9999px; /* Faz bordas arredondadas */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  z-index: 1;
 }
 
-.carousel-control.prev {
-  left: 10px;
+.button-light {
+  background-color: #f7f7f7;
 }
 
-.carousel-control.next {
-  right: 10px;
+.button-dark {
+  background-color: #000;
+  color: #fff;
 }
 
-@media (max-width: 768px) {
-  .main-container {
-      flex-direction: column;
-      align-items: center;
-  }
+.button-dark:hover {
+  background-color: #333;
+}
 
-  .graphic,
-  .table {
-      width: 100%;
-      margin: 10px 0;
-  }
+/* Ícones */
+.icon {
+  font-size: 1rem;
 }
