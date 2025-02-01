@@ -270,9 +270,8 @@ export class ChartComponentComponent implements AfterViewInit {
       labels: labels,
       datasets: [{
         label: label,
-        //back que vai ter que me retornar sempre o valor do mes atual
         data: [160, 149, 260, 275, 115, 121, 187, 161, 216, 257, 252, 136],
-        backgroundColor: ['#FFFFFF', '#181F37'],
+        backgroundColor: this.getMonthColor(new Date().getMonth()),
         borderColor: '#000000',
         borderWidth: 1.6,
         borderRadius: 10,
@@ -282,6 +281,23 @@ export class ChartComponentComponent implements AfterViewInit {
         categoryPercentage: 0.9
       }]
     };
+  }
+  getMonthColor(month: number): string[] {
+    const colors = [
+      '#FFFFFF', // Janeiro
+      '#181F37', // Fevereiro
+      '#EB5C81', // Março
+      '#D86894', // Abril
+      '#A76FAC', // Maio
+      '#9276B4', // Junho
+      '#6D7FBE', // Julho
+      '#181F37', // Agosto
+      '#EB5C81', // Setembro
+      '#D86894', // Outubro
+      '#A76FAC', // Novembro
+      '#9276B4'  // Dezembro
+    ];
+    return [colors[month], '#FFFFFF']; 
   }
   mudarTipoGrafico(type: string) {
     if (type && ['bar', 'radar', 'pie', 'line', 'doughnut'].includes(type)) {
