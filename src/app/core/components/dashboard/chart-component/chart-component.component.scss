@@ -4,6 +4,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    //background: linear-gradient(135deg, #4A5C78, #d1def1);
     position: relative;
     overflow: hidden;
     flex-direction: column;
@@ -12,37 +13,54 @@
 
 #meuGrafico {
     max-width: 100%;
-    max-height: 400px;
+    max-height: 100%;
+    display: flex;
     width: 100%;
     height: auto;
     object-fit: contain;
     flex-shrink: 0;
     flex-grow: 0;
 }
-
+.container-types{
+    display: flex;
+    width: 100%;
+}
 .grafico-tipos {
     display: flex;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
     padding-top: 15px;
     list-style-type: none;
     margin: 0;
+    justify-content: center;
 }
 
 .grafico-tipos li {
     cursor: pointer;
-    padding: 12px 30px;
+    padding: 10px 20px;
     background-color: #6D7FBE;
     border-radius: 5px;
     transition: background-color 0.3s;
-    font-size: 18px;
-    min-width: 100px;
+    font-size: 16px;
+    min-width: 80px;
+    flex-grow: 1;
     text-align: center;
 }
 
-.grafico-tipos li:hover {
+.grafico-tipos li:hover,
+.grafico-tipos li.selected {
     background-color: #D86894;
 }
 
-.grafico-tipos li.selected {
-    background-color: #D86894;
+@media (max-width: 600px) {
+    .grafico-tipos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grafico-tipos li {
+        width: 100%;
+        max-width: 200px;
+    }
 }
