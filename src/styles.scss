@@ -1,10 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 /* Reset básico para garantir que não haja margens ou preenchimentos indesejados */
 @import 'flatpickr/dist/flatpickr.css';
+$cores: (
+    branco: #FFFFFF,
+    rosa-claro: #EB5C81,
+    rosa-médio: #D86894,
+    roxo-claro: #A76FAC,
+    roxo-médio: #9276B4,
+    azul: #6D7FBE,
+    preto-azulado: #181F3F
+);
+:root {
+    --cor-branco: #{map-get($cores, branco)};
+    --cor-rosa-claro: #{map-get($cores, rosa-claro)};
+    --cor-rosa-médio: #{map-get($cores, rosa-médio)};
+    --cor-roxo-claro: #{map-get($cores, roxo-claro)};
+    --cor-roxo-médio: #{map-get($cores, roxo-médio)};
+    --cor-azul: #{map-get($cores, azul)};
+    --cor-preto-azulado: #{map-get($cores, preto-azulado)};
+}
+
 body, html {
     margin: 0;
-    // background-color: #ffff;
-    //background: linear-gradient(135deg,  #ffff  ,#D86894);
     padding: 0;
     overflow: hidden;
     height: 100%;
