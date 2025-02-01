@@ -1,6 +1,10 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
 <div class="container">
   <div class="logo">
-    <span>FYNNC</span>
+    <span>FYNNCS</span>
+    <small>Finance Your Next New Chapters</small>
   </div>
   <div class="form" [ngClass]="{'expanded': singUp}">
     <app-sign-in-form-component *ngIf="singIn"(goBackToLogin)="singUpForm()" (goSuccessful)="navegate()"></app-sign-in-form-component>

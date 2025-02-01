@@ -98,15 +98,6 @@
     text-align: center;
   }
   
-  .welcome-text span {
-    font-size: 1.7em;
-    font-weight: bold;
-    color: #fff;
-    background-image: linear-gradient(to right, #6a82fb, #fc5c7d);
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: fadeIn 1s ease-in-out;
-  }
   
   @keyframes fadeIn {
     from {
@@ -130,7 +121,7 @@
     color: white;
     margin-bottom: 20px;
   }
-  
+
   .google-button {
     color: rgb(0, 0, 0);
     margin: 20px;
@@ -159,6 +150,11 @@
     margin-right: 10px;
   }
   
+  .captcha-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .or-separator {
     display: flex;
     align-items: center;
@@ -171,11 +167,6 @@
     z-index: 1;
     position: relative;
   }
-  .captcha-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   .or-separator::before,
   .or-separator::after {
     content: "";
@@ -183,26 +174,9 @@
     height: 1px;
     background-color: #ccc;
   }
-  .captcha-loader {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 200px; // Ajuste conforme necessário
+  .f {
+    height: 110px;
     text-align: center;
+    justify-content: center;
+    
   }
-  
-  .spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  

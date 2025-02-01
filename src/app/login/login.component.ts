@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { SignUpFormComponent } from "../core/components/auth/sign-up-form-component/sign-up-form-component.component";
 import { SignInFormComponent } from "../core/components/auth/sign-in-form-component/sign-in-form-component.component";
 import {  Router } from '@angular/router';
+import { ExpenseCardComponent } from 'app/core/components/dashboard/expense-card/expense-card.component';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ import {  Router } from '@angular/router';
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
+    
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,

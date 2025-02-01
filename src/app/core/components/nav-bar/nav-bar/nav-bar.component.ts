@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output, SimpleChanges } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -14,6 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 @Component({
   selector: 'app-nav-bar',
   imports: [
+    RouterModule,
     CommonModule,
     MatToolbarModule,
     MatButtonModule,
@@ -21,8 +23,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatListModule,
     MatMenuModule,
     MatIconModule,
-    MatSidenavModule,
-    RouterModule,],
+    MatSidenavModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.scss',
   animations: [
@@ -37,9 +38,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 })
 export class NavBarComponent {
   @Output() toggle = new EventEmitter<void>(); 
-  sidenavOpened = true;  
+  @Input() situationNavBar!: boolean;
+  sidenavOpened = false; 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['situationNavBar']) {
+      this.sidenavOpened = this.situationNavBar;
+    }
+  } 
   toggleNavbar() {
     this.toggle.emit(); 
-    this.sidenavOpened = !this.sidenavOpened;
   }
 }
