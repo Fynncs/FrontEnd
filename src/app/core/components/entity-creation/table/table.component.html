@@ -1,53 +1,40 @@
 <div class="table-container">
-    <div class="header">
-      <div class="title">Gastos Mensais</div>
-
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Price</th>
-          <th>Amount</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>89.03</td>
-          <td>0.15</td>
-          <td>$126.00</td>
-        </tr>
-        <tr>
-          <td>94.02</td>
-          <td>0.18</td>
-          <td>$126.00</td>
-        </tr>
-        <tr>
-          <td>92.06</td>
-          <td>0.22</td>
-          <td>$252.00</td>
-        </tr>
-        <tr>
-          <td>95.20</td>
-          <td>0.26</td>
-          <td>$176.00</td>
-        </tr>
-        <tr>
-          <td>95.30</td>
-          <td>0.31</td>
-          <td>$226.00</td>
-        </tr>
-        <tr>
-          <td>92.01</td>
-          <td>0.35</td>
-          <td>$2,326.00</td>
-        </tr>
-        <tr>
-          <td>97.34</td>
-          <td>0.53</td>
-          <td>$2,243.00</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="header">
+    <h3 class="title">Gastos Mensais</h3>
   </div>
-  
+  <table>
+    <thead>
+      <tr>
+        <th>Categoria</th>
+        <th>Data Vencimento</th>
+        <th>Valor</th>
+        <th>Status</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let gasto of gastos" class="itens">
+        <td class="categoria">{{ gasto.categoria }}</td>
+        <td>
+          {{ gasto.dataVencimento }} <small class="tempo-restante">({{ calcularTempoRestante(gasto.dataVencimento) }})</small>
+          
+        </td>
+        <td>{{ gasto.valor | currency }}</td>
+        <td>
+          <span class="status-circle" [ngClass]="{
+            'status-pago': gasto.status === 'Pago',
+            'status-vencido': gasto.status === 'Vencido',
+            'status-pendente': gasto.status !== 'Pago' && gasto.status !== 'Vencido'
+          }"></span>
+          {{ gasto.status }}
+        </td>
+        
+        <td>
+          <mat-icon class="editar-icon">menu</mat-icon>
+        </td>
+        
+        
+      </tr>
+    </tbody>
+  </table>
+</div>

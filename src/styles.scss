@@ -8,7 +8,8 @@ $cores: (
     roxo-claro: #A76FAC,
     roxo-médio: #9276B4,
     azul: #6D7FBE,
-    preto-azulado: #181F3F
+    preto-azulado: #181F3F,
+    preto: black
 );
 :root {
     --cor-branco: #{map-get($cores, branco)};
@@ -18,6 +19,7 @@ $cores: (
     --cor-roxo-médio: #{map-get($cores, roxo-médio)};
     --cor-azul: #{map-get($cores, azul)};
     --cor-preto-azulado: #{map-get($cores, preto-azulado)};
+    --cor-preto: #{map-get($cores, preto)};
 
     --cor-branco-transparente: rgba(255, 255, 255, 0.5); /* Branco com 50% de transparência */
     --cor-rosa-claro-transparente: rgba(235, 92, 129, 0.5); /* Rosa claro com 50% de transparência */
