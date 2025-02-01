@@ -135,15 +135,6 @@ export class ChartComponentComponent implements AfterViewInit {
             color: '#000000'
           }
         },
-        title: {
-          display: true,
-          text: this.User ? 'Gastos Mensais' : 'Controle Financeiro',
-          font: {
-            size: 18,
-            weight: 'bold'
-          },
-          color: '#000000'
-        },
         tooltip: {
           callbacks: {
             label: (context: any) => {

@@ -18,6 +18,14 @@ $cores: (
     --cor-roxo-médio: #{map-get($cores, roxo-médio)};
     --cor-azul: #{map-get($cores, azul)};
     --cor-preto-azulado: #{map-get($cores, preto-azulado)};
+
+    --cor-branco-transparente: rgba(255, 255, 255, 0.5); /* Branco com 50% de transparência */
+    --cor-rosa-claro-transparente: rgba(235, 92, 129, 0.5); /* Rosa claro com 50% de transparência */
+    --cor-rosa-médio-transparente: rgba(216, 104, 148, 0.5); /* Rosa médio com 50% de transparência */
+    --cor-roxo-claro-transparente: rgba(167, 111, 172, 0.5); /* Roxo claro com 50% de transparência */
+    --cor-roxo-médio-transparente: rgba(146, 118, 180, 0.5); /* Roxo médio com 50% de transparência */
+    --cor-azul-transparente: rgba(109, 127, 190, 0.5); /* Azul com 50% de transparência */
+    --cor-preto-azulado-transparente: rgba(24, 31, 63, 0.5); /* Preto azulado com 50% de transparência */
 }
 
 body, html {
