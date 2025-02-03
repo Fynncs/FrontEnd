@@ -1,21 +1,35 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-table',
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule, MatIconModule, MatSelectModule ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })
 export class TableComponent {
   gastos = [
     {
-      categoria: 'Alimentação',
-      dataVencimento: '15/02/2025',
-      valor: 126.00,
+      categoria: 'Transporte',
+      dataVencimento: '20/02/2025',
+      valor: 75.50,
+      status: 'Pago'
+    },
+    {
+      categoria: 'Saúde',
+      dataVencimento: '10/03/2025',
+      valor: 230.00,
       status: 'Aguardando'
+    },
+    {
+      categoria: 'Educação',
+      dataVencimento: '05/04/2025',
+      valor: 450.90,
+      status: 'Vencido'
     }
+    
   ];
   calcularTempoRestante(dataVencimento: string): string {
     const hoje = new Date();
