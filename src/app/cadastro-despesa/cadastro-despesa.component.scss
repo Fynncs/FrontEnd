@@ -7,19 +7,24 @@
 .main-container {
   display: flex;
   margin-top: auto;
+  margin-bottom: 15px;
   width: 100%;
   gap: 20px;
   box-sizing: border-box;
   position: relative;
-  align-items: flex-end;
+  padding-left: 15px; 
+  padding-right: 15px; 
 }
 
 .table {
   flex: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 .app-time {
-  
+  flex-direction: column;
+  display: flex;
   justify-self: end;
   align-self: end;
   padding: 5px;

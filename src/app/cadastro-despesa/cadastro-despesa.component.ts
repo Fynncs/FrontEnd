@@ -4,6 +4,7 @@ import { ChartComponentComponent } from 'app/core/components/dashboard/chart-com
 import { ExpenseCardComponent } from 'app/core/components/dashboard/expense-card/expense-card.component';
 import { TableComponent } from 'app/core/components/entity-creation/table/table.component';
 import { TimeComponent } from 'app/core/components/entity-creation/time/time.component';
+import { WalletTrackerComponent } from 'app/core/components/entity-creation/wallet-tracker/wallet-tracker/wallet-tracker.component';
 import { Bill } from 'app/core/models/bill.mode';
 import { IBill } from 'app/core/models/i-bill.model';
 import { PaymentStatus } from 'app/core/models/payment-status.model';
@@ -11,7 +12,7 @@ import { PaymentStatus } from 'app/core/models/payment-status.model';
 
 @Component({
   selector: 'app-cadastro-despesa',
-  imports: [ChartComponentComponent, ExpenseCardComponent, TableComponent, TimeComponent, ExpenseCardComponent],
+  imports: [ChartComponentComponent, ExpenseCardComponent, TableComponent, TimeComponent, ExpenseCardComponent, WalletTrackerComponent],
   templateUrl: './cadastro-despesa.component.html',
   styleUrl: './cadastro-despesa.component.scss'
 })

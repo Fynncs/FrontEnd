@@ -7,6 +7,7 @@ $cores: (
     rosa-médio: #D86894,
     roxo-claro: #A76FAC,
     roxo-médio: #9276B4,
+    rosa-choque: #ff66b2,
     azul: #6D7FBE,
     preto-azulado: #181F3F,
     preto: black
@@ -20,6 +21,7 @@ $cores: (
     --cor-azul: #{map-get($cores, azul)};
     --cor-preto-azulado: #{map-get($cores, preto-azulado)};
     --cor-preto: #{map-get($cores, preto)};
+    --cor-rosa-choque: #{map-get($cores,rosa-choque)};
 
     --cor-branco-transparente: rgba(255, 255, 255, 0.5); /* Branco com 50% de transparência */
     --cor-rosa-claro-transparente: rgba(235, 92, 129, 0.5); /* Rosa claro com 50% de transparência */
@@ -35,6 +37,7 @@ body, html {
     padding: 0;
     overflow: hidden;
     height: 100%;
+    background-color: #f9f9f9;
     font-size: large;
     font-family: 'Times New Roman', Times, serif
   }

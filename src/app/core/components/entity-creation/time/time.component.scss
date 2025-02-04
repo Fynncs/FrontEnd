@@ -10,30 +10,22 @@
     gap: 8px;
     padding: 8px 16px;
     border-radius: 9999px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    cursor: pointer;
-    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   .button-light {
-    background-color: #f7f7f7;
-    color: #333;
+    background: linear-gradient(to right, var(--cor-rosa-claro-transparente), #ff66b2);
+    color: #000000;
   }
   
-  .button-light i {
-    color: #888;
-    font-size: 16px;
-  }
+  
   .button-light:hover {
-    background-color: #eaeaea;
+    background-color: var(--cor-azul)
   }
   .button input {
     border: none;
     background: transparent;
     font-size: 14px;
-    color: #333;
     width: 100%;
     padding: 8px 12px;
     border-radius: 9999px;
@@ -41,71 +33,5 @@
     transition: border-color 0.3s ease;
   }
   
-  .button input[readonly] {
-    background-color: #f7f7f7;
-  }
-  .selectedTime-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .selectedTime {
-    display: flex;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    gap: 8px;
-    padding: 0px 28px;
-    border-radius: 9999px;
-    border: 1px solid transparent;
-    background-color: #f7f7f7;
-    font-size: 14px;
-    color: #333;
-    cursor: pointer;
-    height: 50px;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-  }
-  .selectedTime {
-    -webkit-appearance: none;
-  }
-  .time-select {
-    flex: 1;
-    border: none;
-    background: transparent;
-    font-size: 14px;
-    color: #333;
-    outline: none;
-    cursor: pointer;
-    padding: 8px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
-  
-  .time-select:focus {
-    outline: none;
-  }
-  /* Estiliza as opções */
-  .time-select option {
-    background-color: white;
-    color: #333;
-    font-size: 14px;
-    padding: 10px;
-  }
-  
-  /* Cor quando passa o mouse sobre uma opção (nem todos os navegadores suportam) */
-  .time-select option:hover {
-    background-color: #f0f0f0;
-  }
-  
-  /* Cor da opção selecionada */
-  .time-select option:checked {
-    background-color: #888; /* Azul destaque */
-    color: white;
-  }
-  
-  /* Para alguns navegadores que não suportam hover no option */
-  .time-select optgroup {
-    background-color: #f7f7f7;
-  }
+
   
