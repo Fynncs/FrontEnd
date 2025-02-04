@@ -1,10 +1,46 @@
-<div class="financial-summary">
-    <h3>Resumo Financeiro</h3>
-    <div class="summary-info">
-      <p><strong>Total de Despesas:</strong> R$ {{ totalExpenses | number:'1.2-2' }}</p>
-      <p [class.negative]="availableBalance < 0">
-        <strong>Saldo Disponível:</strong> R$ {{ availableBalance | number:'1.2-2' }}
-      </p>
-    </div>
-  </div>
-  
+.financial-summary {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  transition: transform 0.3s ease;
+  text-align: center;
+  font-size: 16px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.summary-info {
+  margin-top: 20px;
+}
+
+.info-item {
+  margin-bottom: 15px;
+}
+
+.info-item p {
+  font-size: 18px;
+  color: #333;
+}
+
+.info-item strong {
+  font-weight: bold;
+}
+
+.negative {
+  color: #e74c3c; /* Red for negative balance */
+}
+
+.negative strong {
+  color: #c0392b; /* Darker red for emphasis */
+}

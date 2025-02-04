@@ -6,14 +6,16 @@
 
 .main-container {
   display: flex;
-  margin-top: auto;
   margin-bottom: 15px;
-  width: 100%;
   gap: 20px;
-  box-sizing: border-box;
-  position: relative;
   padding-left: 15px; 
   padding-right: 15px; 
+}
+.half-screen{
+  margin-top: auto;
+  padding-left: 15px; 
+  padding-right: 15px; 
+  margin-bottom: 20px;
 }
 
 .table {
