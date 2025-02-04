@@ -1,0 +1,10 @@
+<div class="financial-summary">
+    <h3>Resumo Financeiro</h3>
+    <div class="summary-info">
+      <p><strong>Total de Despesas:</strong> R$ {{ totalExpenses | number:'1.2-2' }}</p>
+      <p [class.negative]="availableBalance < 0">
+        <strong>Saldo Disponível:</strong> R$ {{ availableBalance | number:'1.2-2' }}
+      </p>
+    </div>
+  </div>
+  

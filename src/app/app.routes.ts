@@ -5,12 +5,13 @@ import { HomeComponent } from './home/home.component';
 import { ApplicationConfig, NgModule } from '@angular/core';
 import { ExpenseCardComponent } from './core/components/dashboard/expense-card/expense-card.component';
 import { CadastroDespesaComponent } from './cadastro-despesa/cadastro-despesa.component';
+import { FinancialSummaryComponent } from './core/components/entity-creation/financial-sumary/financial-summary/financial-summary.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'cadastro-despesas', component: CadastroDespesaComponent,  data: { title: 'Cadastrar Despesas'  }},
     { path: 'login', component: LoginComponent },
-    { path: 'home', component: HomeComponent },
+    { path: 'home', component:  ExpenseCardComponent},
 ];
 export const appConfig: ApplicationConfig = {
     providers: [provideRouter(routes, withDebugTracing())]

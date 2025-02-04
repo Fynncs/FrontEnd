@@ -1,0 +1,28 @@
+.financial-summary {
+    background: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+  
+    .summary-info {
+      font-size: 1rem;
+      
+      p {
+        margin: 8px 0;
+      }
+  
+      .negative {
+        color: red;
+        font-weight: bold;
+      }
+    }
+  }
+  
