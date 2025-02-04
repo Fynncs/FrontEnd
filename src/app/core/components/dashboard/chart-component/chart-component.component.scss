@@ -9,10 +9,8 @@
 }
 
 #meuGrafico {
-    display: flex;
-    object-fit: contain;
-    flex-shrink: 0;
-    flex-grow: 0;
+    max-width: 100%;
+    max-height: 400px;
 }
 .container-types {
     display: flex;
