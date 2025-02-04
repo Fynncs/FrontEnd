@@ -1,26 +1,32 @@
-.main-container {
+.containers {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 99%;
-  gap: 20px;
-  margin: 7px;
-}
-.ghapic {
-  text-align: center;
-  //flex: 1;
-  max-width: 60%;
-  border-radius: 8px;
-  width: 50%;
-  max-width: 100%;
+  flex-direction: column;
+  height: 100%;
 }
 
-app-table {
-  flex: 1;
-  //max-width: 40%;
+.main-container {
+  display: flex;
+  margin-top: auto;
+  width: 100%;
+  gap: 20px;
+  box-sizing: border-box;
+  position: relative;
+  align-items: flex-end;
 }
+
+.table {
+  flex: 1;
+}
+
 .app-time {
-  justify-self: end; 
-  align-self: end; 
+  
+  justify-self: end;
+  align-self: end;
   padding: 5px;
+}
+
+.ghapic {
+  text-align: center;
+  flex: 1;
+  border-radius: 8px;
 }
