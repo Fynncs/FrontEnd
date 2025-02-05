@@ -25,17 +25,24 @@
 .filters {
     display: flex;
     gap: 16px;
+    
     padding-right: 5px;
     align-items: center;
     flex-wrap: wrap;
 }
 
 .filters label {
+    
     font-size: 14px;
     font-weight: 500;
     color: #333;
 }
-
+#horas{
+    background: linear-gradient(135deg, #f1f1f1, #dcdcdc, #e0e0e0);
+}
+#categoria{
+    background: linear-gradient(135deg, #f1f1f1, #dcdcdc, #a3a2a2);
+}
 .filters select {
     padding: 8px 32px 8px 16px;
     border-radius: 9999px;
@@ -43,6 +50,7 @@
     background-color: transparent;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: #000;
+    
     font-size: 14px;
     cursor: pointer;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -50,9 +58,6 @@
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23000"><path d="M7 10l5 5 5-5H7z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 12px center;
     /* Ajusta a posição da seta */
     background-size: 16px;
 }

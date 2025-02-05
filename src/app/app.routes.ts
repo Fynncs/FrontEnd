@@ -10,7 +10,7 @@ export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'cadastro-despesas', component: CadastroDespesaComponent,  data: { title: 'Cadastrar Despesas'  }},
     { path: 'login', component: LoginComponent },
-    { path: 'home', component:  FinancialSummaryComponent},
+    { path: 'home', component:  ExpenseCardComponent},
 ];
 export const appConfig: ApplicationConfig = {
     providers: [provideRouter(routes, withDebugTracing())]

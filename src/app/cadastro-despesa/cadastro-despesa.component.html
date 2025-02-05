@@ -4,18 +4,18 @@
     </div>
     <div class="half-screen">
         <div class="container-summary">
-            <div class="financial-summary">
-                <app-financial-summary></app-financial-summary>
-            </div>
-          </div>
-            <!-- <app-expense-card></app-expense-card> -->
+            <app-financial-summary></app-financial-summary>
         </div>
-        <div class="main-container">
-            <div class="table">
-                <app-table></app-table>
-            </div>
-            <div class="ghapic">
-                <app-chart-component [User]="userData" [Type]="'line'"></app-chart-component>
-            </div>
+        <div class="expense">
+            <app-expense-card></app-expense-card>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="table">
+            <app-table></app-table>
+        </div>
+        <div class="ghapic">
+            <app-chart-component [User]="userData" [Type]="'line'"></app-chart-component>
+        </div>
     </div>
 </div>
