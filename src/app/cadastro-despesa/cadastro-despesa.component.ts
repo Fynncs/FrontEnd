@@ -33,6 +33,24 @@ export class CadastroDespesaComponent {
   constructor() {
     this.selectedDate = new Date();
   } 
+  currentIndex = 0;
+  itemsPerPage = 3;
+
+  get pagedExpenses() {
+    return this.expenses.slice(this.currentIndex, this.currentIndex + this.itemsPerPage);
+  }
+
+  next() {
+    if (this.currentIndex + this.itemsPerPage < this.expenses.length) {
+      this.currentIndex += this.itemsPerPage;
+    }
+  }
+
+  prev() {
+    if (this.currentIndex - this.itemsPerPage >= 0) {
+      this.currentIndex -= this.itemsPerPage;
+    }
+  }
 
   user: IUser | undefined;
   expenses: Expense[] = [
@@ -109,19 +127,5 @@ export class CadastroDespesaComponent {
     this.userData.paymentStatus.push(this.fakePaymentStatusData);
     this.userData.financial.push(this.fakeFinancialData);
     console.log(this.userData)
-  }
-  currentIndex = 0;
-  itemsPerMove = 3; // Move 3 itens por vez
-
-  moveCarousel(direction: number) {
-    const totalItems = 6; // Número total de itens
-    const newIndex = this.currentIndex + direction * this.itemsPerMove;
-
-    if (newIndex >= 0 && newIndex <= totalItems - this.itemsPerMove) {
-      this.currentIndex = newIndex;
-    }
-
-    const carousel = document.querySelector('.carousel') as HTMLElement;
-    carousel.style.transform = `translateX(-${this.currentIndex * 33.33}%)`;
   }
 }

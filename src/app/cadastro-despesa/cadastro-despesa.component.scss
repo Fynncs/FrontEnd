@@ -29,9 +29,53 @@
 
 .expense {
   display: flex;
-  height: 108%;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
 }
 
+
+.btn {
+  padding: 10px 20px;
+  background-color: #6D7FBE; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  width: auto;
+}
+
+.btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #EB5C81; /* Rosa claro */
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(105, 127, 190, 0.8); 
+}
+
+
+app-expense-card {
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s;
+}
+
+app-expense-card:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
 .table {
   flex: 1;
   //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -54,21 +98,12 @@
 .main-card:hover,
 .ghapic:hover,
 .table:hover {
+  //transform: scale(1.05);
   box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
 }
-.expense-carousel {
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-}
 
-swiper {
-  width: 100%;
-  height: auto;
-}
-
-swiper-slide {
+.button-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
 }

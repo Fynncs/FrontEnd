@@ -6,13 +6,19 @@
         <div class="container-summary">
             <app-financial-summary></app-financial-summary>
         </div>
-        <ngb-carousel [interval]="3000">
-            <ng-template ngbSlide *ngFor="let exp of expenses">
-              <app-expense-card [category]="exp"></app-expense-card>
-            </ng-template>
-          </ngb-carousel>
-          
+        <div class="expense">
+            <button (click)="prev()" [disabled]="currentIndex === 0" class="btn">
+                Anterior
+            </button>
+            <div class="cards" *ngFor="let exp of pagedExpenses">
+                <app-expense-card [category]="exp"></app-expense-card>
+            </div>
+            <button (click)="next()" [disabled]="currentIndex + itemsPerPage >= expenses.length" class="btn">
+                Próximo
+            </button>
+        </div>
     </div>
+
     <div class="main-container">
         <div class="table">
             <app-table></app-table>
