@@ -10,7 +10,6 @@ import { WalletTrackerComponent } from 'app/core/components/entity-creation/wall
 import { Bill } from 'app/core/models/bill.mode';
 import { IBill } from 'app/core/models/i-bill.model';
 import { PaymentStatus } from 'app/core/models/payment-status.model';
-import { register } from 'swiper/element/bundle';
 export class Expense {
   value: number;
   category: string;
@@ -34,9 +33,6 @@ export class CadastroDespesaComponent {
   constructor() {
     this.selectedDate = new Date();
   } 
-  ngAfterViewInit(): void {
-    register();
-  }
 
   user: IUser | undefined;
   expenses: Expense[] = [
