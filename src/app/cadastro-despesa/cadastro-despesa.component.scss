@@ -31,7 +31,14 @@
   align-self: end;
   padding: 5px;
 }
+.container-summary {
+  width: 100%;
+  height: 100%;
+}
 
+.financial-summary{
+  width: 50%;
+}
 .ghapic {
   text-align: center;
   flex: 1;

@@ -20,34 +20,45 @@ export class FinancialSummaryComponent implements OnInit {
   }
 
   createChart(): void {
+    
     var ctx = document.getElementById('myChart') as HTMLCanvasElement;
+    ctx.height = 100;
+    ctx.width = 500;
     new Chart(ctx, {
       type: 'line', 
       data: {
-        labels: this.Months, // Corrigido aqui para usar diretamente o array `Months`
+        labels: this.Months, 
         datasets: [{
-          label: 'Vendas',
-          data: [12, 19, 3], // Dados para o gráfico
-          borderColor: 'rgb(75, 192, 192)', // Cor da linha
+          label: 'Gasto',
+          data: [6, 84, 1, 26, 1, 52, 62, 33, 82, 82, 12, 100. ], 
+          borderColor: ['#ff66b2'], 
           borderWidth: 1
         }]
       },
       options: {
         plugins: {
           legend: {
-            display: false // Isso desativa a legenda
+            display: false 
           }
         },
         scales: {
           y: {
             beginAtZero: true,
+            display: false,
             grid: {
-              display: false // Isso desativa a grade (grid) de fundo no eixo Y
+              display: false 
+            },
+            ticks: {
+              stepSize: 1, // Garante que o gráfico mostre apenas números inteiros
+              callback: function(value) {
+                return Number(value).toFixed(0); // Formata o valor como inteiro
+              }
             }
           },
           x: {
+            display: 'auto',
             grid: {
-              display: false // Isso desativa a grade (grid) de fundo no eixo X
+              display: false 
             }
           }
         }
