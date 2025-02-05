@@ -54,6 +54,21 @@
 .main-card:hover,
 .ghapic:hover,
 .table:hover {
-  //transform: scale(1.05);
   box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
+}
+.expense-carousel {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+swiper {
+  width: 100%;
+  height: auto;
+}
+
+swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

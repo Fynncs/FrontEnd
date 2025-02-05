@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FinancialData, IFinancialData, IUser, User } from '@fynnc.models';
 import { ChartComponentComponent } from 'app/core/components/dashboard/chart-component/chart-component.component';
 import { ExpenseCardComponent } from 'app/core/components/dashboard/expense-card/expense-card.component';
@@ -9,20 +10,48 @@ import { WalletTrackerComponent } from 'app/core/components/entity-creation/wall
 import { Bill } from 'app/core/models/bill.mode';
 import { IBill } from 'app/core/models/i-bill.model';
 import { PaymentStatus } from 'app/core/models/payment-status.model';
+import { register } from 'swiper/element/bundle';
+export class Expense {
+  value: number;
+  category: string;
 
-
+  constructor(data: { value: number; category: string }) {
+    this.value = data.value;
+    this.category = data.category;
+  }
+}
 @Component({
   selector: 'app-cadastro-despesa',
-  imports: [ChartComponentComponent, ExpenseCardComponent, TableComponent, TimeComponent, ExpenseCardComponent, WalletTrackerComponent, FinancialSummaryComponent],
+  standalone: true,
+  imports: [CommonModule, ChartComponentComponent, ExpenseCardComponent, TableComponent, TimeComponent, ExpenseCardComponent, WalletTrackerComponent, FinancialSummaryComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  
   templateUrl: './cadastro-despesa.component.html',
   styleUrl: './cadastro-despesa.component.scss'
 })
 export class CadastroDespesaComponent {
+  
   constructor() {
-    // Inicia a data selecionada, caso necessário
     this.selectedDate = new Date();
+  } 
+  ngAfterViewInit(): void {
+    register();
   }
+
   user: IUser | undefined;
+  expenses: Expense[] = [
+    new Expense({ value: 100, category: 'Alimentação' }),
+    new Expense({ value: 50, category: 'Transporte' }),
+    new Expense({ value: 200, category: 'Lazer' }),
+    new Expense({ value: 300, category: 'Saúde' }),
+    new Expense({ value: 120, category: 'Educação' }),
+    new Expense({ value: 80, category: 'Moradia' }),
+    new Expense({ value: 150, category: 'Vestuário' }),
+    new Expense({ value: 90, category: 'Assinaturas' }),
+    new Expense({ value: 220, category: 'Viagem' }),
+    new Expense({ value: 130, category: 'Entretenimento' }),
+  ];
+  
   fakeFinancialData: FinancialData = new FinancialData({
     balance: 1500.75,
     budget: 2000,
@@ -42,7 +71,6 @@ export class CadastroDespesaComponent {
     dueDate: "2024-08-15",
     status: "Pendente"
   } as IBill);
-  
 
   fakePaymentStatusData: PaymentStatus = new PaymentStatus();
   userData: User = new User({
@@ -66,6 +94,7 @@ export class CadastroDespesaComponent {
     console.log('Data selecionada:', this.selectedDate);
   }
   ngOnInit(): void {
+    
     if (!this.fakePaymentStatusData.paidBills) {
       this.fakePaymentStatusData.paidBills = [];
     }

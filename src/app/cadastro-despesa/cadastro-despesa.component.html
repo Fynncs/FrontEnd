@@ -6,9 +6,12 @@
         <div class="container-summary">
             <app-financial-summary></app-financial-summary>
         </div>
-        <div class="expense">
-            <app-expense-card></app-expense-card>
-        </div>
+        <ngb-carousel [interval]="3000">
+            <ng-template ngbSlide *ngFor="let exp of expenses">
+              <app-expense-card [category]="exp"></app-expense-card>
+            </ng-template>
+          </ngb-carousel>
+          
     </div>
     <div class="main-container">
         <div class="table">
