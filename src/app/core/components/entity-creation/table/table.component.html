@@ -1,6 +1,21 @@
 <div class="table-container">
   <div class="header">
-    <h3 class="title">Gastos Mensais</h3>
+    <h1 class="title">Registro de Despesas</h1>
+    <div class="filters">
+      <select id="horas" title="Selecione o período do dia">
+          <option value="">Manha</option>
+          <option value="manhã">Manhã</option>
+          <option value="tarde">Tarde</option>
+          <option value="noite">Noite</option>
+      </select>
+      <select id="categoria" title="Selecione a categoria">
+          <option value="">Alimentação</option>
+          <option value="alimentacao">Alimentação</option>
+          <option value="transporte">Transporte</option>
+          <option value="lazer">Lazer</option>
+          <option value="outros">Outros</option>
+      </select>
+  </div>
   </div>
   <table>
     <thead>
@@ -32,7 +47,7 @@
           {{ gasto?.status }}
         </td>
         <td>
-          <mat-icon class="editar-icon">edit</mat-icon>
+          <mat-icon class="editar-icon">more_vert</mat-icon>
         </td>
       </tr>
     </tbody>

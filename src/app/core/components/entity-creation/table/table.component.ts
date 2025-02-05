@@ -10,28 +10,28 @@ import { MatSelectModule } from '@angular/material/select';
   styleUrl: './table.component.scss'
 })
 export class TableComponent {
-  gastos: { categoria: string | undefined; dataVencimento: string | undefined; valor: number | undefined ; status: string | undefined }[] = [];
-  // gastos = [
-  //   {
-  //     categoria: 'Transporte',
-  //     dataVencimento: '20/02/2025',
-  //     valor: 75.50,
-  //     status: 'Pago'
-  //   },
-  //   {
-  //     categoria: 'Saúde',
-  //     dataVencimento: '10/03/2025',
-  //     valor: 230.00,
-  //     status: 'Aguardando'
-  //   },
-  //   {
-  //     categoria: 'Educação',
-  //     dataVencimento: '05/04/2025',
-  //     valor: 450.90,
-  //     status: 'Vencido'
-  //   }
+  //gastos: { categoria: string | undefined; dataVencimento: string | undefined; valor: number | undefined ; status: string | undefined }[] = [];
+  gastos = [
+    {
+      categoria: 'Transporte',
+      dataVencimento: '20/02/2025',
+      valor: 75.50,
+      status: 'Pago'
+    },
+    {
+      categoria: 'Saúde',
+      dataVencimento: '10/03/2025',
+      valor: 230.00,
+      status: 'Aguardando'
+    },
+    {
+      categoria: 'Educação',
+      dataVencimento: '05/04/2025',
+      valor: 450.90,
+      status: 'Vencido'
+    }
     
-  // ];
+  ];
   calcularTempoRestante(dataVencimento: string): string {
     const hoje = new Date();
     const vencimento = new Date(dataVencimento.split("/").reverse().join("-"));

@@ -20,7 +20,7 @@
 
 .table {
   flex: 1;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
 
@@ -36,4 +36,9 @@
   text-align: center;
   flex: 1;
   border-radius: 8px;
+}
+
+.main-card:hover, .ghapic:hover,  .table:hover{
+  //transform: scale(1.05);
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
 }

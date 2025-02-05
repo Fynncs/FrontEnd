@@ -288,7 +288,7 @@ export class ChartComponentComponent implements AfterViewInit {
       '#A76FAC', // Novembro
       '#9276B4'  // Dezembro
     ];
-    return [colors[month], '#ff66b2']; 
+    return [colors[month], '#ffffff']; 
   }
   mudarTipoGrafico(type: string) {
     if (type && ['bar', 'radar', 'pie', 'line', 'doughnut'].includes(type)) {

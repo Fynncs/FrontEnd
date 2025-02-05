@@ -3,15 +3,16 @@
             <app-time></app-time>
         </div>
         <div class="half-screen">
+
             <app-financial-summary></app-financial-summary>
             <!-- <app-expense-card></app-expense-card> -->
         </div>
         <div class="main-container">
-            <div class="ghapic">
-                <app-chart-component [User]="userData" [Type]="'line'"></app-chart-component>
-            </div>
             <div class="table">
                 <app-table></app-table>
+            </div>
+            <div class="ghapic">
+                <app-chart-component [User]="userData" [Type]="'line'"></app-chart-component>
             </div>
     </div>
 </div>
