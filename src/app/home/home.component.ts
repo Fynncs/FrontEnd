@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PaymentStatus } from 'app/core/models/payment-status.model';
+import { FinancialSummaryComponent } from 'app/core/components/entity-creation/financial-sumary/financial-summary/financial-summary.component';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ import { PaymentStatus } from 'app/core/models/payment-status.model';
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    FinancialSummaryComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
