@@ -1,0 +1,55 @@
+<div class="table-container">
+  <div class="header">
+    <h1 class="title">Registro de Despesas</h1>
+    <div class="filters">
+      <select id="horas" title="Selecione o período do dia">
+          <option value="">Manha</option>
+          <option value="manhã">Manhã</option>
+          <option value="tarde">Tarde</option>
+          <option value="noite">Noite</option>
+      </select>
+      <select id="categoria" title="Selecione a categoria">
+          <option value="">Alimentação</option>
+          <option value="alimentacao">Alimentação</option>
+          <option value="transporte">Transporte</option>
+          <option value="lazer">Lazer</option>
+          <option value="outros">Outros</option>
+      </select>
+  </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Categoria</th>
+        <th>Data Vencimento</th>
+        <th>Valor</th>
+        <th>Status</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="!gastos || gastos.length === 0">
+        <td class="no-data" colspan="5">Nenhum gasto encontrado</td>
+      </tr>
+      <tr *ngFor="let gasto of gastos" class="itens">
+        <td class="categoria">{{ gasto?.categoria }}</td>
+        <td>
+          {{ gasto?.dataVencimento }}
+          <small class="tempo-restante">({{ calcularTempoRestante(gasto.dataVencimento || '') }})</small>
+        </td>
+        <td>{{ gasto?.valor | currency }}</td>
+        <td>
+          <span class="status-circle" [ngClass]="{
+            'status-pago': gasto?.status === 'Pago',
+            'status-vencido': gasto?.status === 'Vencido',
+            'status-pendente': gasto?.status !== 'Pago' && gasto?.status !== 'Vencido'
+          }"></span>
+          {{ gasto?.status }}
+        </td>
+        <td>
+          <mat-icon class="editar-icon">more_vert</mat-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

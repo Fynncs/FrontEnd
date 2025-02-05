@@ -1,0 +1,37 @@
+.flex-container {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .button-light {
+    background: linear-gradient(to right, var(--cor-rosa-claro-transparente), #ff66b2);
+    color: #000000;
+  }
+  
+  
+  .button-light:hover {
+    background-color: var(--cor-azul)
+  }
+  .button input {
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 9999px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+
+  

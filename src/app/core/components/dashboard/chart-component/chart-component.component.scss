@@ -1,15 +1,49 @@
-#meuGrafico {
-    background-color: #25282b;
-    height: 100% !important;
-    border: 1px solid #515355;
+.grafico-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
     border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-#meuGrafico p {
-    color: #ecf0f1;
-    font-size: 16px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+#meuGrafico {
+    max-width: 100%;
+    max-height: 281px;
+}
+.container-types {
+    display: flex;
+    width: 100%;
+}
+
+.grafico-tipos {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding-top: 15px;
+    list-style-type: none;
     margin: 0;
+    justify-content: center;
+}
+
+.grafico-tipos li {
+    cursor: pointer;
+    background-color: var(--cor-preto-azulado);
+    border-radius: 5px;
+    color: var(--cor-branco);
+    transition: background-color 0.3s;
+    font-size: clamp(12px, 2vw, 16px);
+    flex-grow: 1;
+    flex-basis: clamp(80px, 15%, 120px);
+    text-align: center;
+    height: clamp(30px, 4vw, 40px); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grafico-tipos li:hover,
+.grafico-tipos li.selected {
+    background-color: #D86894;
 }

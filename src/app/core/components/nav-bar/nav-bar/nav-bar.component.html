@@ -15,14 +15,27 @@
           matTooltipShowDelay="1000">home</mat-icon>
         <span *ngIf="!sidenavOpened"><mat-icon>home</mat-icon>Início</span>
       </a>
-      <a class="nav-item" routerLink="/about">
+      <a class="nav-item" routerLink="/cadastro-despesas" routerLinkActive="active" ariaCurrentWhenActive="page">
         <mat-icon 
           *ngIf="sidenavOpened"
-          matTooltip="Cadastro e Categorização de Despesas e Receitas" 
-          matTooltipShowDelay="1000">receipt_long</mat-icon>
-        <span *ngIf="!sidenavOpened"><mat-icon>receipt_long</mat-icon>Cadastro</span>
+          matTooltip="Cadastro de Despesas" 
+          matTooltipShowDelay="1000">money_off</mat-icon>
+        <span *ngIf="!sidenavOpened"><mat-icon>money_off</mat-icon>Cadastro de Despesas</span>
       </a>
-      <a class="nav-item" routerLink="/contact" >
+      <a class="nav-item" routerLink="/cadastro-receitas" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <mat-icon 
+          *ngIf="sidenavOpened"
+          matTooltip="Cadastro de Receitas" 
+          matTooltipShowDelay="1000">
+          attach_money
+        </mat-icon>
+        <span *ngIf="!sidenavOpened">
+          <mat-icon>attach_money</mat-icon>Cadastro de Receitas
+        </span>
+      </a>
+      
+      
+      <a class="nav-item" routerLink="/login" >
         <mat-icon 
           *ngIf="sidenavOpened"
           matTooltip="Compartilhamento de Finanças Familiares ou de Parceria"
