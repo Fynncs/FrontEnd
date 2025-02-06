@@ -30,21 +30,20 @@ import {
 })
 export class FinancialSummaryComponent implements AfterViewInit  {
   chart!: Chart;
-  // @Input() User?: IUser;
-  // @Input() Type?: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut';
   @Input() Month?: Date;
-  // @Input() paymentStatus?: PaymentStatus;
   Months: string[] = [];
-  // chartType: 'bar' | 'radar' | 'pie' | 'line' | 'doughnut' = 'bar';
-  // selectedType: string = 'bar';
 
   ngOnInit() {
+    if (typeof window !== 'undefined') {
     this.Month = this.Month ?? new Date();
     this.generateNext12Months();
+    }
   }
 
   ngAfterViewInit() {
+    if (typeof window !== 'undefined') {
     this.initialChart();
+    }
   }
 
   async initialChart() {

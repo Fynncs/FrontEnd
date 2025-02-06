@@ -40,12 +40,16 @@ export class ChartComponentComponent implements AfterViewInit {
   selectedType: string = 'bar';
 
   ngOnInit() {
+    if (typeof window !== 'undefined') {
     this.Month = this.Month ?? new Date();
     this.generateNext12Months();
+    }
   }
 
   ngAfterViewInit() {
+    if (typeof window !== 'undefined') {
     this.initialChart()
+    }
   }
   async initialChart() {
     if (this.chart) {

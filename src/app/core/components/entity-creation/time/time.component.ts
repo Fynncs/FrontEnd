@@ -1,10 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import flatpickr from 'flatpickr';
-import { ChartComponentComponent } from 'app/core/components/dashboard/chart-component/chart-component.component';
-import { ExpenseCardComponent } from 'app/core/components/dashboard/expense-card/expense-card.component';
-import { TableComponent } from 'app/core/components/entity-creation/table/table.component';
 import { CommonModule } from '@angular/common';
-import { MatIcon, MatIconModule } from '@angular/material/icon';
+import {MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +10,7 @@ import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
 
 @Component({
   selector: 'app-time',
-   imports: [ChartComponentComponent, ExpenseCardComponent, MatListModule, MatFormFieldModule, TableComponent, FormsModule, CommonModule, MatListModule, MatMenuModule, MatIconModule],
+   imports: [ MatListModule, MatFormFieldModule, FormsModule, CommonModule, MatListModule, MatMenuModule, MatIconModule],
   templateUrl: './time.component.html',
   styleUrl: './time.component.scss'
 })
