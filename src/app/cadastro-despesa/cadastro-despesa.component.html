@@ -7,22 +7,16 @@
             <app-financial-summary></app-financial-summary>
         </div>
         <div class="expense">
-            <!-- Ícone de "Anterior" -->
-            <!-- Ícone de "Anterior" -->
             <button (click)="prev()" [disabled]="currentIndex === 0" class="btn">
                 <mat-icon>chevron_left</mat-icon>
             </button>
 
-            <div class="cards" *ngFor="let exp of pagedExpenses">
-                <app-expense-card [category]="exp"></app-expense-card>
+            <div class="cards" *ngFor="let exp of pagedExpenses" (click)="selectExpense(exp)">
+                <app-expense-card [category]="exp"  [class.selected]="selectedExpense === exp"></app-expense-card>
             </div>
-
-            <!-- Ícone de "Próximo" -->
             <button (click)="next()" [disabled]="currentIndex + itemsPerPage >= expenses.length" class="btn">
                 <mat-icon>chevron_right</mat-icon>
             </button>
-
-
         </div>
     </div>
 

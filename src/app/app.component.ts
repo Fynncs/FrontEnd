@@ -55,7 +55,7 @@ export class AppComponent {
   title = 'FYNNC';
   
   exibirNavbar: boolean = false;
-  navbarFechada: boolean = false;
+  navbarFechada: boolean = true;
   constructor(
     private router: Router,
     private cdr: ChangeDetectorRef

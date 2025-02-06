@@ -8,6 +8,7 @@ $cores: (
     rosa-médio: #D86894,
     roxo-claro: #A76FAC,
     roxo-médio: #9276B4,
+    roxo-escuro: #F231A5,
     rosa-choque: #ff66b2,
     azul: #6D7FBE,
     preto-azulado: #181F3F,
@@ -19,6 +20,7 @@ $cores: (
     --cor-rosa-médio: #{map-get($cores, rosa-médio)};
     --cor-roxo-claro: #{map-get($cores, roxo-claro)};
     --cor-roxo-médio: #{map-get($cores, roxo-médio)};
+    --cor-roxo-escuro: #{map-get($cores, roxo-escuro)};
     --cor-azul: #{map-get($cores, azul)};
     --cor-preto-azulado: #{map-get($cores, preto-azulado)};
     --cor-preto: #{map-get($cores, preto)};

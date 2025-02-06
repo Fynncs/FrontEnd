@@ -1,6 +1,6 @@
 
 <div class="example-container">
-  <div class="sidenav" [class.opened]="true">
+  <div class="sidenav" [class.opened]= sidenavOpened>
     <div class="navbar" (click)="toggleNavbar()" [ngStyle]="{ 'justify-content': sidenavOpened ? 'center' : 'end' }">
         <mat-icon matTooltip="Menu" matTooltipShowDelay="1000">
           {{ sidenavOpened ? 'menu' : 'arrow_back' }}

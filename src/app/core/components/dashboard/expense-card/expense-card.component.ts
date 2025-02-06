@@ -5,10 +5,12 @@ import { MatMenuModule } from '@angular/material/menu';
 export class Expense {
   value: number;
   category: string;
+  icon: string;
 
-  constructor(data: { value: number; category: string }) {
+  constructor(data: { value: number; category: string; icon: string }) {
     this.value = data.value;
     this.category = data.category;
+    this.icon = data.icon;
   }
 }
 @Component({

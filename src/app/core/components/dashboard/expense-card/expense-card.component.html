@@ -1,11 +1,15 @@
 <div class="expense-card">
   <div class="category">
-    <mat-icon>attach_money</mat-icon> {{ category?.category }}
+    {{ category?.category }} <mat-icon class="editar-icon">more_vert</mat-icon>
+  </div>
+  <div class="icon-container">
+    <mat-icon class="middle-icon">{{ category?.icon }}</mat-icon> 
   </div>
   <div class="expense-body">
     <div class="chart">
       <div class="bar" *ngFor="let value of barHeights" [ngStyle]="{'height': value + '%'}"></div>
     </div>
     <div class="amount">${{ category?.value }}</div>
+  
   </div>
 </div>
