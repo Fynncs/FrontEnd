@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
@@ -8,16 +8,23 @@ Chart.register(...registerables);
   templateUrl: './financial-summary.component.html',
   styleUrls: ['./financial-summary.component.scss']
 })
-export class FinancialSummaryComponent implements AfterViewInit  {
-  @ViewChild('myChart', { static: false }) chartRef!: ElementRef<HTMLCanvasElement>;
+export class FinancialSummaryComponent implements OnInit {
+  @ViewChild('chartCanvas', { static: true }) chartCanvas!: ElementRef<HTMLCanvasElement>;
+
+  Month: Date = new Date();
+  Months: string[] = [];
+
   constructor() {}
 
-  Months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  ngOnInit(): void {
+    this.generateNext12Months();
+    this.createChart();
+  }
 
-  ngAfterViewInit() {
-    const ctx = this.chartRef.nativeElement;
-    ctx.height = 100;
-    ctx.width = 500;
+  createChart(): void {
+    const ctx = this.chartCanvas.nativeElement.getContext('2d');
+
+    if (!ctx) return;
 
     new Chart(ctx, {
       type: 'line',
@@ -27,32 +34,50 @@ export class FinancialSummaryComponent implements AfterViewInit  {
           {
             label: 'Gasto',
             data: [6, 84, 1, 26, 1, 52, 62, 33, 82, 82, 12, 100],
-            borderColor: ['#ffff'],
-            borderWidth: 1,
-          },
-        ],
+            borderColor: '#ffffff', // Corrigido
+            borderWidth: 1
+          }
+        ]
       },
       options: {
         plugins: {
-          legend: { display: false },
+          legend: {
+            display: false
+          }
         },
         scales: {
           y: {
             beginAtZero: true,
             display: false,
-            grid: { display: false },
+            grid: {
+              display: false
+            },
             ticks: {
               stepSize: 1,
-              callback: (value) => Number(value).toFixed(0),
-            },
+              callback: function (value) {
+                return Number(value).toFixed(0);
+              }
+            }
           },
           x: {
-            display: 'auto',
-            grid: { display: false },
-            ticks: { color: '#ffff' },
-          },
-        },
-      },
+            display: true, // 'auto' não é válido
+            grid: {
+              display: false
+            },
+            ticks: {
+              color: '#ffffff' // Corrigido
+            }
+          }
+        }
+      }
+    });
+  }
+
+  generateNext12Months(): void {
+    this.Months = Array.from({ length: 12 }, (_, i) => {
+      const nextMonth = new Date(this.Month);
+      nextMonth.setMonth(this.Month.getMonth() + i);
+      return nextMonth.toLocaleString('pt-BR', { month: 'long' }).replace(/^./, (str) => str.toUpperCase());
     });
   }
 }
