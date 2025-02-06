@@ -31,7 +31,7 @@ export class FinancialSummaryComponent implements OnInit {
         datasets: [{
           label: 'Gasto',
           data: [6, 84, 1, 26, 1, 52, 62, 33, 82, 82, 12, 100. ], 
-          borderColor: ['#ff66b2'], 
+          borderColor: ['#ffff'], 
           borderWidth: 1
         }]
       },
@@ -49,9 +49,9 @@ export class FinancialSummaryComponent implements OnInit {
               display: false 
             },
             ticks: {
-              stepSize: 1, // Garante que o gráfico mostre apenas números inteiros
+              stepSize: 1, 
               callback: function(value) {
-                return Number(value).toFixed(0); // Formata o valor como inteiro
+                return Number(value).toFixed(0);
               }
             }
           },
@@ -59,6 +59,9 @@ export class FinancialSummaryComponent implements OnInit {
             display: 'auto',
             grid: {
               display: false 
+            },
+            ticks: {
+              color: '#ffff' // Cor das labels no eixo X
             }
           }
         }
