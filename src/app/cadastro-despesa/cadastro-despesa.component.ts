@@ -8,7 +8,6 @@ import { FinancialSummaryComponent } from 'app/core/components/dashboard/financi
 
 import { TableComponent } from 'app/core/components/entity-creation/table/table.component';
 import { TimeComponent } from 'app/core/components/entity-creation/time/time.component';
-import { WalletTrackerComponent } from 'app/core/components/entity-creation/wallet-tracker/wallet-tracker/wallet-tracker.component';
 import { Bill } from 'app/core/models/bill.mode';
 import { IBill } from 'app/core/models/i-bill.model';
 import { PaymentStatus } from 'app/core/models/payment-status.model';
@@ -27,7 +26,7 @@ export class Expense {
 @Component({
   selector: 'app-cadastro-despesa',
   standalone: true,
-  imports: [MatIconModule, CommonModule, ChartComponentComponent, ExpenseCardComponent, TableComponent, TimeComponent, ExpenseCardComponent, WalletTrackerComponent, FinancialSummaryComponent],
+  imports: [MatIconModule, CommonModule, ChartComponentComponent, ExpenseCardComponent, TableComponent, TimeComponent, ExpenseCardComponent, FinancialSummaryComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
   templateUrl: './cadastro-despesa.component.html',
