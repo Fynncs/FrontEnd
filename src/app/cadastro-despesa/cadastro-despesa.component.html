@@ -11,8 +11,8 @@
                 <mat-icon>chevron_left</mat-icon>
             </button>
 
-            <div class="cards" *ngFor="let exp of pagedExpenses">
-                <app-expense-card [category]="exp"></app-expense-card>
+            <div class="cards" *ngFor="let exp of pagedExpenses" (click)="selectExpense(exp)">
+                <app-expense-card [category]="exp"  [class.selected]="selectedExpense === exp"></app-expense-card>
             </div>
             <button (click)="next()" [disabled]="currentIndex + itemsPerPage >= expenses.length" class="btn">
                 <mat-icon>chevron_right</mat-icon>

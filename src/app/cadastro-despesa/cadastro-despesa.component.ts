@@ -12,13 +12,16 @@ import { WalletTrackerComponent } from 'app/core/components/entity-creation/wall
 import { Bill } from 'app/core/models/bill.mode';
 import { IBill } from 'app/core/models/i-bill.model';
 import { PaymentStatus } from 'app/core/models/payment-status.model';
+import { ListIcons } from 'assets/icon/mat-icon';
 export class Expense {
   value: number;
   category: string;
+  icon: string;
 
-  constructor(data: { value: number; category: string }) {
+  constructor(data: { value: number; category: string; icon: string }) {
     this.value = data.value;
     this.category = data.category;
+    this.icon = data.icon
   }
 }
 @Component({
@@ -26,15 +29,15 @@ export class Expense {
   standalone: true,
   imports: [MatIconModule, CommonModule, ChartComponentComponent, ExpenseCardComponent, TableComponent, TimeComponent, ExpenseCardComponent, WalletTrackerComponent, FinancialSummaryComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  
+
   templateUrl: './cadastro-despesa.component.html',
   styleUrl: './cadastro-despesa.component.scss'
 })
 export class CadastroDespesaComponent {
-  
+  iconsList = ListIcons;
   constructor() {
     this.selectedDate = new Date();
-  } 
+  }
   currentIndex = 0;
   itemsPerPage = 3;
 
@@ -56,18 +59,18 @@ export class CadastroDespesaComponent {
 
   user: IUser | undefined;
   expenses: Expense[] = [
-    new Expense({ value: 100, category: 'Alimentação' }),
-    new Expense({ value: 50, category: 'Transporte' }),
-    new Expense({ value: 200, category: 'Lazer' }),
-    new Expense({ value: 300, category: 'Saúde' }),
-    new Expense({ value: 120, category: 'Educação' }),
-    new Expense({ value: 80, category: 'Moradia' }),
-    new Expense({ value: 150, category: 'Vestuário' }),
-    new Expense({ value: 90, category: 'Assinaturas' }),
-    new Expense({ value: 220, category: 'Viagem' }),
-    new Expense({ value: 130, category: 'Entretenimento' }),
+    new Expense({ value: 100, category: 'Alimentação', icon: 'fastfood' }),
+    new Expense({ value: 50, category: 'Transporte', icon: 'directions_car' }),
+    new Expense({ value: 200, category: 'Lazer', icon: 'pool' }),
+    new Expense({ value: 300, category: 'Saúde', icon: 'local_hospital' }),
+    new Expense({ value: 120, category: 'Educação', icon: 'school' }),
+    new Expense({ value: 80, category: 'Moradia', icon: 'home' }),
+    new Expense({ value: 150, category: 'Vestuário', icon: 'checkroom' }),
+    new Expense({ value: 90, category: 'Assinaturas', icon: 'subscriptions' }),
+    new Expense({ value: 220, category: 'Viagem', icon: 'flight' }),
+    new Expense({ value: 130, category: 'Entretenimento', icon: 'theater_comedy' }),
   ];
-  
+
   fakeFinancialData: FinancialData = new FinancialData({
     balance: 1500.75,
     budget: 2000,
@@ -105,12 +108,13 @@ export class CadastroDespesaComponent {
     password: 'password123',
   } as IUser);
   selectedDate: Date | undefined;
-  onDateChange(event: any) {
-    this.selectedDate = event.value;
-    console.log('Data selecionada:', this.selectedDate);
+  selectedExpense: any = null;
+
+  selectExpense(expense: any) {
+    this.selectedExpense = expense; 
   }
   ngOnInit(): void {
-    
+
     if (!this.fakePaymentStatusData.paidBills) {
       this.fakePaymentStatusData.paidBills = [];
     }

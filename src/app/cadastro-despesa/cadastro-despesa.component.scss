@@ -12,6 +12,7 @@
   padding-left: 15px;
   padding-right: 15px;
 }
+
 .half-screen {
   flex-direction: row;
   display: flex;
@@ -61,17 +62,18 @@
 }
 
 
-.cards{
+.cards {
   display: flex;
   height: 100%;
   text-align: center;
   justify-content: center;
   width: 100%;
 }
+
 app-expense-card {
   display: flex;
   width: 90%;
-  text-align: center; 
+  text-align: center;
   justify-content: center;
 }
 
@@ -83,9 +85,10 @@ app-expense-card {
 
 .app-time {
   display: flex;
-  justify-self: end;
-  align-self: end;
+  justify-self: start;
+  align-self: start;
   padding: 5px;
+  padding-left: 15px;
 }
 
 .ghapic {
@@ -94,15 +97,28 @@ app-expense-card {
   border-radius: 8px;
 }
 
-.main-card:hover,
+.container-summary,
 .ghapic:hover,
 .table:hover {
-  //transform: scale(1.05);
   box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  transition: transform 0.3s ease;
 }
+.cards:hover {
+  transform: translateY(-15px);
+  transition: transform 0.3s ease;
+}
+
 
 .button-container {
   display: flex;
   gap: 10px;
   margin-top: 20px;
+}
+app-expense-card.selected {
+  transform: translateY(-20px);
+  background-color: transparent;
+  border-radius: 15px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9); 
+  overflow: hidden; 
 }

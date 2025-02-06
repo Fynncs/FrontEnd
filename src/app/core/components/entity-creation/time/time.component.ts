@@ -9,6 +9,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
 
 @Component({
   selector: 'app-time',
@@ -42,11 +43,12 @@ export class TimeComponent {
     setTimeout(() => {
       flatpickr(this.datePickerButton.nativeElement, {
         mode: 'range',
-        dateFormat: 'M d',
+        dateFormat: 'd/m/Y',
+        locale: Portuguese, // Aplica a localização em português
         onClose: (selectedDates, dateStr) => {
           if (selectedDates.length === 2) {
-            const startDate = selectedDates[0].toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-            const endDate = selectedDates[1].toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            const startDate = selectedDates[0].toLocaleDateString('pt-BR', { day: 'numeric', month: 'numeric', year: 'numeric' });
+            const endDate = selectedDates[1].toLocaleDateString('pt-BR', { day: 'numeric', month: 'numeric', year: 'numeric' });
             this.selectedDateRange = `${startDate} - ${endDate}`;
           }
         }
