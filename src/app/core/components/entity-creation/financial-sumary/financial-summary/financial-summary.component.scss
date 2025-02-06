@@ -11,19 +11,8 @@
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
-    animation: shadowPulse 5s infinite;
   }
-  @keyframes shadowPulse {
-    0% {
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    50% {
-      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    }
-    100% {
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-  }
+
   .header {
     font-size: 24px;
     font-weight: bold;
@@ -56,7 +45,7 @@
     z-index: -1; 
   }
   .wave-1{
-    animation: moveWave 10s ease-in-out infinite ;
+    animation: moveWave 20s ease-in-out infinite ;
     opacity: 0.9;
     transform-origin: right;
   }
