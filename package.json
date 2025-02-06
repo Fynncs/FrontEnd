@@ -32,8 +32,6 @@
     "chart.js": "^4.4.7",
     "express": "^4.18.2",
     "flatpickr": "^4.6.13",
-    "minimatch": "^10.0.1",
-    "path-scurry": "^2.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
