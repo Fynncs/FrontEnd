@@ -101,13 +101,11 @@ export class ChartComponentComponent implements AfterViewInit {
           paidBills += element.amount;
         }
       });
-
       this.paymentStatus.unpaidBills?.forEach((element) => {
         if (element.amount) {
           unpaidBills += element.amount;
         }
       });
-
       commonData = this.createCommonData(['Pago', 'Não Pago'], [paidBills, unpaidBills], 'Controle Financeiro');
       commonData.datasets[0].onClick = (event: any, elements: any[]) => {
         if (elements.length > 0) {
@@ -120,7 +118,6 @@ export class ChartComponentComponent implements AfterViewInit {
         }
       };
     }
-
     const commonOptions = {
       responsive: true,
       plugins: {
@@ -156,7 +153,6 @@ export class ChartComponentComponent implements AfterViewInit {
         }
       }
     };
-
     switch (this.chartType) {
       case 'bar':
         return {
@@ -186,7 +182,6 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-
       case 'radar':
         return {
           type: 'radar',
@@ -207,7 +202,6 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-
       case 'pie':
       case 'doughnut':
         return {
@@ -222,7 +216,6 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-
       case 'line':
         return {
           type: 'line',
@@ -244,7 +237,6 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-
       default:
         throw new Error('Tipo de gráfico não suportado!');
     }
@@ -252,7 +244,6 @@ export class ChartComponentComponent implements AfterViewInit {
   handlePaidClick() {
     console.log('Pago foi clicado!');
   }
-
   handleUnpaidClick() {
     console.log('Não Pago foi clicado!');
   }
