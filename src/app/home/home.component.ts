@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FinancialData, IFinancialData, IUser, User } from '@fynnc.models';
-//import { ChartComponentComponent } from 'app/core/components/dashboard/chart-component/chart-component.component';
+import { ChartComponentComponent } from 'app/core/components/dashboard/chart-component/chart-component.component';
 import { Bill } from 'app/core/models/bill.mode';
 import { IBill } from 'app/core/models/i-bill.model';
 import { MatDatepickerModule } from '@angular/material/datepicker';
