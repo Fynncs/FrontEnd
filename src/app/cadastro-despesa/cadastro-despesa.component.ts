@@ -4,7 +4,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { FinancialData, IFinancialData, IUser, User } from '@fynnc.models';
 import { ChartComponentComponent } from 'app/core/components/dashboard/chart-component/chart-component.component';
 import { ExpenseCardComponent } from 'app/core/components/dashboard/expense-card/expense-card.component';
-import { FinancialSummaryComponent } from 'app/core/components/entity-creation/financial-sumary/financial-summary/financial-summary.component';
+import { FinancialSummaryComponent } from 'app/core/components/dashboard/financial-summary/financial-summary.component';
+
 import { TableComponent } from 'app/core/components/entity-creation/table/table.component';
 import { TimeComponent } from 'app/core/components/entity-creation/time/time.component';
 import { WalletTrackerComponent } from 'app/core/components/entity-creation/wallet-tracker/wallet-tracker/wallet-tracker.component';

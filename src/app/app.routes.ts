@@ -4,7 +4,6 @@ import { ApplicationConfig, NgModule } from '@angular/core';
 import { ExpenseCardComponent } from './core/components/dashboard/expense-card/expense-card.component';
 import { CadastroDespesaComponent } from './cadastro-despesa/cadastro-despesa.component';
 import { HomeComponent } from './home/home.component';
-import { FinancialSummaryComponent } from './core/components/entity-creation/financial-sumary/financial-summary/financial-summary.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
