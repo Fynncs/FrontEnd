@@ -1,45 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
 /* Reset básico para garantir que não haja margens ou preenchimentos indesejados */
 @import 'flatpickr/dist/flatpickr.css';
-$cores: (
-    branco: #FFFFFF,
-    rosa-claro: #EB5C81,
-    rosa-médio: #D86894,
-    roxo-claro: #A76FAC,
-    roxo-médio: #9276B4,
-    azul: #6D7FBE,
-    preto-azulado: #181F3F,
-    preto: black
-);
-:root {
-    --cor-branco: #{map-get($cores, branco)};
-    --cor-rosa-claro: #{map-get($cores, rosa-claro)};
-    --cor-rosa-médio: #{map-get($cores, rosa-médio)};
-    --cor-roxo-claro: #{map-get($cores, roxo-claro)};
-    --cor-roxo-médio: #{map-get($cores, roxo-médio)};
-    --cor-azul: #{map-get($cores, azul)};
-    --cor-preto-azulado: #{map-get($cores, preto-azulado)};
-    --cor-preto: #{map-get($cores, preto)};
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
-    --cor-branco-transparente: rgba(255, 255, 255, 0.5); /* Branco com 50% de transparência */
-    --cor-rosa-claro-transparente: rgba(235, 92, 129, 0.5); /* Rosa claro com 50% de transparência */
-    --cor-rosa-médio-transparente: rgba(216, 104, 148, 0.5); /* Rosa médio com 50% de transparência */
-    --cor-roxo-claro-transparente: rgba(167, 111, 172, 0.5); /* Roxo claro com 50% de transparência */
-    --cor-roxo-médio-transparente: rgba(146, 118, 180, 0.5); /* Roxo médio com 50% de transparência */
-    --cor-azul-transparente: rgba(109, 127, 190, 0.5); /* Azul com 50% de transparência */
-    --cor-preto-azulado-transparente: rgba(24, 31, 63, 0.5); /* Preto azulado com 50% de transparência */
+:root {
+  --cor-branco: #FFFFFF;
+  --cor-rosa-claro: #EB5C81;
+  --cor-rosa-médio: #D86894;
+  --cor-roxo-claro: #A76FAC;
+  --cor-roxo-médio: #9276B4;
+  --cor-roxo-escuro: #F231A5;
+  --cor-azul: #6D7FBE;
+  --cor-preto-azulado: #181F3F;
+  --cor-preto: black;
+  --cor-rosa-choque: #ff66b2;
+
+  --cor-branco-transparente: rgba(255, 255, 255, 0.5);
+  --cor-rosa-claro-transparente: rgba(235, 92, 129, 0.5);
+  --cor-rosa-médio-transparente: rgba(216, 104, 148, 0.5);
+  --cor-roxo-claro-transparente: rgba(167, 111, 172, 0.5);
+  --cor-roxo-médio-transparente: rgba(146, 118, 180, 0.5);
+  --cor-azul-transparente: rgba(109, 127, 190, 0.5);
+  --cor-preto-azulado-transparente: rgba(24, 31, 63, 0.5);
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    height: 100%;
-    font-size: large;
-    font-family: 'Times New Roman', Times, serif
-  }
+
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  //height: 100%;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif
+}
 
 .custom-backdrop {
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(10px); /* Para o Safari */
+  -webkit-backdrop-filter: blur(10px);
+  /* Para o Safari */
 }

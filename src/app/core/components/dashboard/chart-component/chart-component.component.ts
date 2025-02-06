@@ -40,12 +40,16 @@ export class ChartComponentComponent implements AfterViewInit {
   selectedType: string = 'bar';
 
   ngOnInit() {
+    if (typeof window !== 'undefined') {
     this.Month = this.Month ?? new Date();
     this.generateNext12Months();
+    }
   }
 
   ngAfterViewInit() {
+    if (typeof window !== 'undefined') {
     this.initialChart()
+    }
   }
   async initialChart() {
     if (this.chart) {
@@ -101,13 +105,11 @@ export class ChartComponentComponent implements AfterViewInit {
           paidBills += element.amount;
         }
       });
-
       this.paymentStatus.unpaidBills?.forEach((element) => {
         if (element.amount) {
           unpaidBills += element.amount;
         }
       });
-
       commonData = this.createCommonData(['Pago', 'Não Pago'], [paidBills, unpaidBills], 'Controle Financeiro');
       commonData.datasets[0].onClick = (event: any, elements: any[]) => {
         if (elements.length > 0) {
@@ -120,7 +122,6 @@ export class ChartComponentComponent implements AfterViewInit {
         }
       };
     }
-
     const commonOptions = {
       responsive: true,
       plugins: {
@@ -156,7 +157,6 @@ export class ChartComponentComponent implements AfterViewInit {
         }
       }
     };
-
     switch (this.chartType) {
       case 'bar':
         return {
@@ -186,7 +186,6 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-
       case 'radar':
         return {
           type: 'radar',
@@ -207,7 +206,6 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-
       case 'pie':
       case 'doughnut':
         return {
@@ -222,7 +220,6 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-
       case 'line':
         return {
           type: 'line',
@@ -244,7 +241,6 @@ export class ChartComponentComponent implements AfterViewInit {
             }
           }
         };
-
       default:
         throw new Error('Tipo de gráfico não suportado!');
     }
@@ -252,7 +248,6 @@ export class ChartComponentComponent implements AfterViewInit {
   handlePaidClick() {
     console.log('Pago foi clicado!');
   }
-
   handleUnpaidClick() {
     console.log('Não Pago foi clicado!');
   }
@@ -288,7 +283,7 @@ export class ChartComponentComponent implements AfterViewInit {
       '#A76FAC', // Novembro
       '#9276B4'  // Dezembro
     ];
-    return [colors[month], '#FFFFFF']; 
+    return [colors[month], '#ffffff']; 
   }
   mudarTipoGrafico(type: string) {
     if (type && ['bar', 'radar', 'pie', 'line', 'doughnut'].includes(type)) {

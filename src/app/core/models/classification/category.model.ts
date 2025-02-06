@@ -3,6 +3,7 @@ import { ICategory } from "./i-category.model";
 
 export class Category extends ModelState<ICategory> implements ICategory {
   private _name?: string;
+  private _icon?: string;
   private _color?: string;
   private _userId?: string;
   private _status?: string;
@@ -13,6 +14,7 @@ export class Category extends ModelState<ICategory> implements ICategory {
     super(category);
     this._name = category.name;
     this._color = category.color;
+    this._icon = category.icon;
     this._userId = category.userId;
     this._status = category.status;
     this._id = category.id;
@@ -64,6 +66,13 @@ export class Category extends ModelState<ICategory> implements ICategory {
 
   set status(value: string | undefined) {
     this._status = value;
+  }
+  get icon(): string | undefined {
+    return this._icon;
+  }
+
+  set icon(value: string | undefined) {
+    this._icon = value;
   }
 
   toJSON(): Partial<ICategory> {  // Corrigido para ICategory

@@ -1,8 +1,31 @@
-<div class="main-container">
- 
+<div class="containers">
+    <div class="app-time">
+        <app-time></app-time>
+    </div>
+    <div class="half-screen">
+        <div class="container-summary">
+            <app-financial-summary></app-financial-summary>
+        </div>
+        <div class="expense">
+            <button (click)="prev()" [disabled]="currentIndex === 0" class="btn">
+                <mat-icon>chevron_left</mat-icon>
+            </button>
+
+            <div class="cards" *ngFor="let exp of pagedExpenses" (click)="selectExpense(exp)">
+                <app-expense-card [category]="exp"  [class.selected]="selectedExpense === exp"></app-expense-card>
+            </div>
+            <button (click)="next()" [disabled]="currentIndex + itemsPerPage >= expenses.length" class="btn">
+                <mat-icon>chevron_right</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="table">
+            <app-table></app-table>
+        </div>
         <div class="ghapic">
             <app-chart-component [User]="userData" [Type]="'line'"></app-chart-component>
         </div>
-
-    <app-table class="table"></app-table>
+    </div>
 </div>
