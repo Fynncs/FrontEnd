@@ -67,14 +67,13 @@ export class AppComponent {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
   ngAfterViewInit(): void {
-     this.exibirNavbar = window.location.pathname !== '/login';
-  //   this.router.events
-  //     .pipe(filter(event => event instanceof NavigationEnd))
-  //     .subscribe((event: NavigationEnd) => {
-  //       this.exibirNavbar = event.url === '/login' ? this.exibirNavbar = false 
-  //       : this.exibirNavbar = true;
-  //       this.exibirNavbar
-  //       this.cdr.detectChanges();
-  //     });
-   }
+    setTimeout(() => {
+      this.router.events
+        .pipe(filter(event => event instanceof NavigationEnd))
+        .subscribe((event: NavigationEnd) => {
+          this.exibirNavbar = event.url === '/login' ? false : true;
+          this.cdr.detectChanges();
+        });
+    }, 1000);
+  }
 }
