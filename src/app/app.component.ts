@@ -67,6 +67,7 @@ export class AppComponent {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
   ngOnInit(): void {
+    
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {

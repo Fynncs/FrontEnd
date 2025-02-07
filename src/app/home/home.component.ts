@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PaymentStatus } from 'app/core/models/payment-status.model';
+import { environment } from 'environments/environment';
 
 
 @Component({
@@ -23,6 +24,7 @@ import { PaymentStatus } from 'app/core/models/payment-status.model';
 })
 
 export class HomeComponent {
+  isDevelopment = environment.isDevelopment;
   constructor() {
   }
 }
