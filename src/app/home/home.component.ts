@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PaymentStatus } from 'app/core/models/payment-status.model';
 import { environment } from 'environments/environment';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -17,6 +18,7 @@ import { environment } from 'environments/environment';
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
+    CommonModule,
     MatNativeDateModule,
   ],
   templateUrl: './home.component.html',
