@@ -1,6 +1,7 @@
 [build]
   command = "ng build --configuration=production"
   publish = "dist/fynnc/browser"
+  node_version = "20"
 
 [[redirects]]
   from = "/*"
