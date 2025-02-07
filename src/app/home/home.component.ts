@@ -8,6 +8,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PaymentStatus } from 'app/core/models/payment-status.model';
+import { environment } from 'environments/environment';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -16,6 +18,7 @@ import { PaymentStatus } from 'app/core/models/payment-status.model';
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
+    CommonModule,
     MatNativeDateModule,
   ],
   templateUrl: './home.component.html',
@@ -23,6 +26,7 @@ import { PaymentStatus } from 'app/core/models/payment-status.model';
 })
 
 export class HomeComponent {
+  isDevelopment = environment.isDevelopment;
   constructor() {
   }
 }
