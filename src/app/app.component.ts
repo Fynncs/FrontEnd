@@ -67,7 +67,7 @@ export class AppComponent {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
   ngAfterViewInit(): void {
-  //   this.exibirNavbar = window.location.pathname !== '/login';
+     this.exibirNavbar = window.location.pathname !== '/login';
   //   this.router.events
   //     .pipe(filter(event => event instanceof NavigationEnd))
   //     .subscribe((event: NavigationEnd) => {
