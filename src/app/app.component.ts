@@ -74,7 +74,7 @@ export class AppComponent {
           setTimeout(() => {
             this.exibirNavbar = false;
             this.cdr.detectChanges();
-          }, 100);  
+          }, 0);  
         } else {
           this.exibirNavbar = true;
           this.cdr.detectChanges();
