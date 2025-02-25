@@ -67,20 +67,22 @@ export class AppComponent {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
   ngOnInit() {
-    // Inicialize exibirNavbar baseado na URL atual
+    console.log('URL inicial:', this.router.url); // Verifique a URL atual
+  
     if (this.router.url === '/login') {
       this.exibirNavbar = false;
     } else {
       this.exibirNavbar = true;
     }
   
-    // Inscreva-se nos eventos de navegação para atualizações subsequentes
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
+        console.log('URL após navegação:', event.url); // Verifique após a navegação
         this.exibirNavbar = event.url !== '/login';
         this.cdr.detectChanges(); // Garantir que as mudanças sejam detectadas
       });
   }
+  
   
 }
