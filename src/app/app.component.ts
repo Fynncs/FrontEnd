@@ -54,7 +54,7 @@ import { ContactSupportComponent } from './core/components/support/contact-suppo
 })
 export class AppComponent {
   title = 'FYNNC';
-  
+
   exibirNavbar: boolean = false;
   navbarFechada: boolean = true;
   constructor(
@@ -68,13 +68,12 @@ export class AppComponent {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.router.events
-        .pipe(filter(event => event instanceof NavigationEnd))
-        .subscribe((event: NavigationEnd) => {
-          this.exibirNavbar = event.url === '/login' ? false : true;
-          this.cdr.detectChanges();
-        });
-    }, 1000);
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.exibirNavbar = event.url === '/login' ? false : true;
+        this.cdr.detectChanges();
+      });
+
   }
 }
