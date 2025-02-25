@@ -2,10 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { ComumModule } from '@fynnc.module';
+
 
 @Component({
   selector: 'app-table',
-  imports: [CommonModule, MatIconModule, MatSelectModule ],
+  imports: [ComumModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })

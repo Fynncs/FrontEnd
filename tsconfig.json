@@ -6,7 +6,8 @@
     "outDir": "./dist/out-tsc",
     "baseUrl": "./src", 
     "paths": {
-      "@fynnc.models": ["app/core/models"]
+      "@fynnc.models": ["app/core/models"],
+      "@fynnc.module": ["app/core/modules"],
     },
     "strict": true,
     "noImplicitOverride": true,

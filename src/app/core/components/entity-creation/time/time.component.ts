@@ -1,16 +1,11 @@
 import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import flatpickr from 'flatpickr';
-import { CommonModule } from '@angular/common';
-import {MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatMenuModule } from '@angular/material/menu';
-import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
+import { ComumModule } from '@fynnc.module';
 
 @Component({
   selector: 'app-time',
-   imports: [ MatListModule, MatFormFieldModule, FormsModule, CommonModule, MatListModule, MatMenuModule, MatIconModule],
+   imports: [ComumModule],
   templateUrl: './time.component.html',
   styleUrl: './time.component.scss'
 })
