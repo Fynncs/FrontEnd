@@ -5,6 +5,9 @@
 
 <!-- Estrutura Principal da Página -->
 <div class="app-container">
+  <div *ngIf="mensagemErro" class="mensagem-erro">
+    {{ mensagemErro }}
+  </div>
   <!-- Navbar Condicional -->
   <ng-container *ngIf="exibirNavbar">
     <app-nav-bar 

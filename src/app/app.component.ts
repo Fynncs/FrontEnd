@@ -53,7 +53,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'FYNNC';
-
+  mensagemErro: string = '';
   exibirNavbar: boolean = false;
   navbarFechada: boolean = true;
   constructor(
@@ -70,7 +70,10 @@ export class AppComponent {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        console.log('URL após navegação:', event.url); 
+        if (event.url === '/' || event.url === '/ ') {
+          this.mensagemErro = 'Algo errado';
+        }
+        console.log('URL após navegação:', event.url);
         this.exibirNavbar = event.url !== '/login';
       });
   }
