@@ -53,8 +53,8 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'FYNNC';
-  
-  exibirNavbar: boolean = true;
+
+  exibirNavbar: boolean = false;
   navbarFechada: boolean = true;
   constructor(
     private router: Router,
@@ -67,12 +67,13 @@ export class AppComponent {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
   ngOnInit() {
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        this.exibirNavbar = event.url !== '/login';
-        this.cdr.detectChanges();
-      });
+
+      this.router.events
+        .pipe(filter(event => event instanceof NavigationEnd))
+        .subscribe((event: NavigationEnd) => {
+          this.exibirNavbar = event.url !== '/login';
+          this.cdr.detectChanges();
+        });
+
   }
-  
 }
