@@ -5,11 +5,12 @@ import { Router, NavigationEnd } from '@angular/router';
 import { trigger, state, style, transition, animate, query, group } from '@angular/animations';
 import { filter } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { ContactSupportComponent } from './core/components/support/contact-support/contact-support.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavBarComponent, CommonModule],
+  imports: [RouterOutlet, NavBarComponent, CommonModule, ContactSupportComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: [
