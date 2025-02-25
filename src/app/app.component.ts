@@ -70,7 +70,6 @@ export class AppComponent {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        console.log('URL após navegação:', event.url); 
         this.exibirNavbar = event.url !== '/login';
       });
   }
