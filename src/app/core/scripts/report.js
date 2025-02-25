@@ -4,18 +4,17 @@ const glob = require('glob');
 
 // Função para listar os componentes
 function listarComponentes() {
-  // Utilizando o caminho genérico baseado na variável de ambiente USERPROFILE (Windows)
   const diretorio = path.join(process.env.USERPROFILE || process.env.HOME, 'Documents', 'FrontEnd', 'src', 'app', 'core', 'components');  
-  
-  console.log("Diretório sendo buscado:", diretorio);  // Verifique o caminho
+
+  console.log("Diretório sendo buscado:", diretorio);
 
   const arquivos = glob.sync(`${diretorio}/**/*.ts`);
-  console.log("Arquivos encontrados:", arquivos);  // Exibe os arquivos encontrados
+  console.log("Arquivos encontrados:", arquivos); 
   
   let componentes = [];
 
   arquivos.forEach((arquivo) => {
-    console.log(`Lendo arquivo: ${arquivo}`);  // Para ver quais arquivos estão sendo lidos
+    console.log(`Lendo arquivo: ${arquivo}`);  
     const conteudo = fs.readFileSync(arquivo, 'utf8');
     
     if (conteudo.includes('@Component')) {
@@ -27,7 +26,7 @@ function listarComponentes() {
   });
 
   const jsonFilePath = 'relatorio_componentes.json';
-  console.log("Salvando relatório:", jsonFilePath);  // Verificando o caminho do arquivo JSON
+  console.log("Salvando relatório:", jsonFilePath);
   fs.writeFileSync(jsonFilePath, JSON.stringify(componentes, null, 2));
   console.log('Relatório gerado com sucesso!');
 
@@ -35,17 +34,19 @@ function listarComponentes() {
 }
 
 function gerarSnippet(componentes) {
-  const snippet = {
-    "Sugestões de Componentes": {
-      "prefix": "componente",
-      "body": componentes.map(comp => `"${comp.nome}": "${comp.caminho}"`).join(",\n"),
-      "description": "Sugestões de Componentes baseadas no arquivo JSON"
-    }
-  };
+  const snippets = {};
 
-  const snippetPath = path.join(__dirname, 'componentes.code-snippets');
-  console.log("Salvando snippet:", snippetPath);  // Verificando o caminho do snippet
-  fs.writeFileSync(snippetPath, JSON.stringify(snippet, null, 2));
+  componentes.forEach(comp => {
+    snippets[comp.nome] = {
+      "prefix": comp.nome.replace('.ts', ''),
+      "body": `"${comp.caminho}"`,
+      "description": `Caminho do componente ${comp.nome}`
+    };
+  });
+
+  const snippetPath = path.join(process.env.USERPROFILE || process.env.HOME, 'Documents', 'FrontEnd', '.vscode', 'component.code-snippets');
+  console.log("Salvando snippet:", snippetPath); 
+  fs.writeFileSync(snippetPath, JSON.stringify(snippets, null, 2));
   console.log('Arquivo de snippet gerado com sucesso!');
 }
 
