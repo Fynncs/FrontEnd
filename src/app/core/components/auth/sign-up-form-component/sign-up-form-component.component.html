@@ -24,9 +24,9 @@
             title="Senha" />
         <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
             [attr.aria-label]="'Toggle password visibility'" [attr.aria-pressed]="hidePassword"
-            class="toggle-password-button">
-            style="margin-right: 8px; display: flex; align-items: center; font-size: 20px; padding: 0; height: 36px;
+            class="toggle-password-button" style="margin-right: 8px; display: flex; align-items: center; font-size: 20px; padding: 0; height: 36px;
             width: 36px;">
+
             <mat-icon class="icon-style">
                 {{ hidePassword ? 'visibility_off' : 'visibility' }}
             </mat-icon>
@@ -40,7 +40,8 @@
             placeholder="Confirme sua senha" />
         <button mat-icon-button matSuffix type="button" (click)="hideConfirmPassword = !hideConfirmPassword"
             [attr.aria-label]="'Toggle confirm password visibility'" [attr.aria-pressed]="hideConfirmPassword"
-            class="toggle-confirm-password-button">
+            class="toggle-confirm-password-button" style="margin-right: 8px; display: flex; align-items: center; font-size: 20px; padding: 0; height: 36px;
+            width: 36px;">
             <mat-icon class="icon-style">
                 {{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}
             </mat-icon>
