@@ -67,21 +67,11 @@ export class AppComponent {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
   ngOnInit() {
-    // Verifique a URL diretamente na rota ativa
-    const currentUrl = this.router.url;
-    console.log('URL atual:', currentUrl);
-    if (currentUrl === '/login' || '/') {
-      this.exibirNavbar = false;
-    } else {
-      this.exibirNavbar = true;
-    }
-  
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
+        console.log('URL após navegação:', event.url); 
         this.exibirNavbar = event.url !== '/login';
-        this.cdr.detectChanges();
       });
   }
-  
 }
