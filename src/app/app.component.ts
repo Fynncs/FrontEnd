@@ -70,7 +70,7 @@ export class AppComponent {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        if (event.url === '/' || event.url === '/ ') {
+        if (event.url === '/login') {
           this.mensagemErro = 'Algo errado';
         }
         console.log('URL após navegação:', event.url);
