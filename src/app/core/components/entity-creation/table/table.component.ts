@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
-import { ComumModule } from '@fynnc.module';
+import { ComumModule } from '@fynnc/module';
 
 
 @Component({

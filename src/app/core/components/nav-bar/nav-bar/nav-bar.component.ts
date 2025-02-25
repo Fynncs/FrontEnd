@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { ComumModule } from '@fynnc.module';
+import { ComumModule } from '@fynnc/module';
 
 
 @Component({

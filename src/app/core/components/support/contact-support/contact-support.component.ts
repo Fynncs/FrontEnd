@@ -1,6 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ComumModule } from '@fynnc.module';
+import { MatDialog } from '@angular/material/dialog';
+import { ComumModule } from '@fynnc/module';
+import { IMessage, Message } from '@fynnc/message';
 import html2canvas from 'html2canvas';
+import { RelatarBugComponent } from '../relatar-bug/relatar-bug.component';
 
 @Component({
   selector: 'app-contact-support',
@@ -9,30 +12,33 @@ import html2canvas from 'html2canvas';
   styleUrl: './contact-support.component.scss'
 })
 export class ContactSupportComponent {
+  imagemBase64: string | null = null;
+  constructor(private dialog: MatDialog) { }
 
   async tirarPrint() {
     const elemento = document.body;
 
     const elementosComColor = document.querySelectorAll('*');
     const estilosOriginais: { elem: Element; color: string | null }[] = [];
-  
+
     elementosComColor.forEach((elem) => {
       const computedStyle = window.getComputedStyle(elem);
       if (computedStyle.backgroundColor.includes('color(')) {
         estilosOriginais.push({ elem, color: elem.getAttribute('style') });
-        (elem as HTMLElement).style.backgroundColor = 'white'; 
+        (elem as HTMLElement).style.backgroundColor = 'white';
       }
     });
+
     try {
       const canvas = await html2canvas(elemento, { scale: 2 });
-      const imagem = canvas.toDataURL('image/png');
-  
+      this.imagemBase64 = canvas.toDataURL('image/png');
+
       const link = document.createElement('a');
-      link.href = imagem;
+      link.href = this.imagemBase64;
       link.download = 'screenshot.png';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      //document.body.appendChild(link);
+      //link.click();
+      //document.body.removeChild(link);
     } catch (erro) {
       console.error('Erro ao capturar a tela:', erro);
     } finally {
@@ -46,8 +52,13 @@ export class ContactSupportComponent {
     }
   }
   abrirDialogo() {
+    const data = new Message({
+      state: 'NEW',
+      image: this.imagemBase64
+    } as IMessage)
     this.dialog.open(RelatarBugComponent, {
-      width: '400px',
+      width: '4000px',
+      data: data
     });
   }
 }

@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import flatpickr from 'flatpickr';
 import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
-import { ComumModule } from '@fynnc.module';
+import { ComumModule } from '@fynnc/module';
 
 @Component({
   selector: 'app-time',

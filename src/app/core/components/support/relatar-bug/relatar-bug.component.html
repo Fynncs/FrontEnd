@@ -1,1 +1,20 @@
-<p>relatar-bug works!</p>
+<form [formGroup]="form">
+    <div class="form-group">
+      <div class="form-row">
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Descrição do Problema</mat-label>
+          <textarea matInput id="content" formControlName="content" placeholder="Descrição do Problema"></textarea>
+          <mat-error *ngIf="form.get('content')?.invalid && form.get('content')?.touched">
+            Content é obrigatório.
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="button-group">
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" (click)="manter()">Enviar</button>
+        <button mat-raised-button color="accent" type="button" (click)="onCancel()">Cancelar</button>
+      </div>
+    </div>
+  </form>
+  
