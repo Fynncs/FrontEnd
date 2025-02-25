@@ -56,13 +56,12 @@ export class AppComponent {
   title = 'FYNNC';
 
   exibirNavbar: boolean = false;
-  navbarFechada: boolean = true;
   constructor(
     private router: Router,
     private cdr: ChangeDetectorRef
   ) { }
   toggleNavbar() {
-    this.navbarFechada = !this.navbarFechada;
+    this.exibirNavbar = !this.exibirNavbar;
   }
   prepareRoute(outlet: any): boolean {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
