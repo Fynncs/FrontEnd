@@ -66,21 +66,21 @@ export class AppComponent {
   prepareRoute(outlet: any): boolean {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
-  ngAfterViewInit() {
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        if (event.url === '/login') {
-          // Atraso para garantir que a navegação e a renderização foram concluídas
-          setTimeout(() => {
-            this.exibirNavbar = false;
-            this.cdr.detectChanges();  // Garantir que as mudanças sejam detectadas
-          }, 100);
-        } else {
-          this.exibirNavbar = true;
-          this.cdr.detectChanges();  // Garantir que as mudanças sejam detectadas
-        }
-      });
-  }
+  // ngAfterViewInit() {
+  //   this.router.events
+  //     .pipe(filter(event => event instanceof NavigationEnd))
+  //     .subscribe((event: NavigationEnd) => {
+  //       if (event.url === '/login') {
+  //         // Atraso para garantir que a navegação e a renderização foram concluídas
+  //         setTimeout(() => {
+  //           this.exibirNavbar = false;
+  //           this.cdr.detectChanges();  // Garantir que as mudanças sejam detectadas
+  //         }, 100);
+  //       } else {
+  //         this.exibirNavbar = true;
+  //         this.cdr.detectChanges();  // Garantir que as mudanças sejam detectadas
+  //       }
+  //     });
+  // }
   
 }
