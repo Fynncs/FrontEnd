@@ -67,13 +67,19 @@ export class AppComponent {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
   ngOnInit() {
-
-      this.router.events
-        .pipe(filter(event => event instanceof NavigationEnd))
-        .subscribe((event: NavigationEnd) => {
-          this.exibirNavbar = event.url !== '/login';
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        if (event.url === '/login') {
+          setTimeout(() => {
+            this.exibirNavbar = false;
+            this.cdr.detectChanges();
+          }, 100);  
+        } else {
+          this.exibirNavbar = true;
           this.cdr.detectChanges();
-        });
-
+        }
+      });
   }
+  
 }
