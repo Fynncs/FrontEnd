@@ -1,5 +1,4 @@
 {
-  // For more information, visit: https://go.microsoft.com/fwlink/?LinkId=733558
   "version": "2.0.0",
   "tasks": [
     {
@@ -19,6 +18,19 @@
           }
         }
       }
+    },
+    {
+      "label": "Gerar Relatório de Componentes",
+      "type": "shell",
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/generateReport.js"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
     },
     {
       "type": "npm",
