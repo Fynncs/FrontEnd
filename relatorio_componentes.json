@@ -1,0 +1,66 @@
+[
+  {
+    "nome": "relatar-bug.component.ts",
+    "caminho": "src\\app\\core\\components\\support\\relatar-bug\\relatar-bug.component.ts"
+  },
+  {
+    "nome": "contact-support.component.ts",
+    "caminho": "src\\app\\core\\components\\support\\contact-support\\contact-support.component.ts"
+  },
+  {
+    "nome": "nav-bar.component.ts",
+    "caminho": "src\\app\\core\\components\\nav-bar\\nav-bar\\nav-bar.component.ts"
+  },
+  {
+    "nome": "wallet-tracker.component.ts",
+    "caminho": "src\\app\\core\\components\\entity-creation\\wallet-tracker\\wallet-tracker\\wallet-tracker.component.ts"
+  },
+  {
+    "nome": "time.component.ts",
+    "caminho": "src\\app\\core\\components\\entity-creation\\time\\time.component.ts"
+  },
+  {
+    "nome": "table.component.ts",
+    "caminho": "src\\app\\core\\components\\entity-creation\\table\\table.component.ts"
+  },
+  {
+    "nome": "financial-summary.component.ts",
+    "caminho": "src\\app\\core\\components\\entity-creation\\financial-sumary\\financial-summary\\financial-summary.component.ts"
+  },
+  {
+    "nome": "category-creation.component.ts",
+    "caminho": "src\\app\\core\\components\\entity-creation\\category-creation\\category-creation\\category-creation.component.ts"
+  },
+  {
+    "nome": "financial-summary.component.ts",
+    "caminho": "src\\app\\core\\components\\dashboard\\financial-summary\\financial-summary.component.ts"
+  },
+  {
+    "nome": "expense-card.component.ts",
+    "caminho": "src\\app\\core\\components\\dashboard\\expense-card\\expense-card.component.ts"
+  },
+  {
+    "nome": "chart-component.component.ts",
+    "caminho": "src\\app\\core\\components\\dashboard\\chart-component\\chart-component.component.ts"
+  },
+  {
+    "nome": "sign-up-form-component.component.ts",
+    "caminho": "src\\app\\core\\components\\auth\\sign-up-form-component\\sign-up-form-component.component.ts"
+  },
+  {
+    "nome": "sign-in-form-component.component.ts",
+    "caminho": "src\\app\\core\\components\\auth\\sign-in-form-component\\sign-in-form-component.component.ts"
+  },
+  {
+    "nome": "reset-password.component.ts",
+    "caminho": "src\\app\\core\\components\\auth\\reset-password\\reset-password.component.ts"
+  },
+  {
+    "nome": "new-password.component.ts",
+    "caminho": "src\\app\\core\\components\\auth\\new-password\\new-password.component.ts"
+  },
+  {
+    "nome": "code-password.component.ts",
+    "caminho": "src\\app\\core\\components\\auth\\code-password\\code-password.component.ts"
+  }
+]

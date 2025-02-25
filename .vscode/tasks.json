@@ -24,7 +24,7 @@
       "type": "shell",
       "command": "node",
       "args": [
-        "${workspaceFolder}/generateReport.js"
+        "${workspaceFolder}/src/app/core/scripts/report.js"
       ],
       "group": {
         "kind": "build",
