@@ -1,17 +1,24 @@
-
+<!-- Links de pré-conexão e fontes -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+
+<!-- Estrutura Principal da Página -->
 <div class="app-container">
-  <ng-container *ngIf="exibirNavbar">    
+  <div *ngIf="mensagemErro" class="mensagem-erro">
+    {{ mensagemErro }}
+  </div>
+  <!-- Navbar Condicional -->
+  <ng-container *ngIf="exibirNavbar">
     <app-nav-bar 
-      [@toggleNav]="exibirNavbar ? 'closed' : 'open'" 
+      [@toggleNav]="navbarFechada ? 'closed' : 'open'" 
       (toggle)="toggleNavbar()"
-      [situationNavBar]="exibirNavbar">
+      [situationNavBar]="navbarFechada">
     </app-nav-bar>
-    <app-contact-support></app-contact-support>
   </ng-container>
-  <div class="main-content" [class.expanded]="exibirNavbar">
+
+  <!-- Conteúdo Principal -->
+  <div class="main-content" [class.expanded]="navbarFechada">
     <router-outlet></router-outlet>
   </div>
 </div>

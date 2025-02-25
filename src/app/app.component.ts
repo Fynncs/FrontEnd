@@ -5,12 +5,11 @@ import { Router, NavigationEnd } from '@angular/router';
 import { trigger, state, style, transition, animate, query, group } from '@angular/animations';
 import { filter } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { ContactSupportComponent } from './core/components/support/contact-support/contact-support.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavBarComponent, CommonModule, ContactSupportComponent],
+  imports: [RouterOutlet, NavBarComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: [
@@ -54,25 +53,27 @@ import { ContactSupportComponent } from './core/components/support/contact-suppo
 })
 export class AppComponent {
   title = 'FYNNC';
-
+  mensagemErro: string = '';
   exibirNavbar: boolean = false;
+  navbarFechada: boolean = true;
   constructor(
     private router: Router,
     private cdr: ChangeDetectorRef
   ) { }
   toggleNavbar() {
-    this.exibirNavbar = !this.exibirNavbar;
+    this.navbarFechada = !this.navbarFechada;
   }
   prepareRoute(outlet: any): boolean {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
-  ngAfterViewInit(): void {
+  ngOnInit() {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        this.exibirNavbar = event.url === '/login' ? false : true;
-        this.cdr.detectChanges();
+        if (event.url === '/' || event.url === '/ ') {
+          return;
+        }
+        this.exibirNavbar = event.url !== '/login';
       });
-
   }
 }
