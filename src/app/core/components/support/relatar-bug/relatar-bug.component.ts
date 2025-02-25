@@ -32,12 +32,9 @@ export class RelatarBugComponent {
   }
   manter(): void {
     this.data
-    if (this.form?.valid) {
-      const formValue = this.form.value;
-      console.log('Mensagem enviada:', formValue);
-      this.dialogRef.close(formValue); 
-    } else {
-      console.log('Formulário inválido');
+    if(this.form.invalid){
+      this.form.markAllAsTouched();
+      return;
     }
   }
 

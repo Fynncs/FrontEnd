@@ -5,9 +5,6 @@
         <mat-form-field appearance="outline">
           <mat-label>Descrição do Problema</mat-label>
           <textarea matInput id="content" formControlName="content" placeholder="Descrição do Problema"></textarea>
-          <mat-error *ngIf="form.get('content')?.invalid && form.get('content')?.touched">
-            Content é obrigatório.
-          </mat-error>
         </mat-form-field>
       </div>
   
