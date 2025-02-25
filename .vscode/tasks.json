@@ -22,16 +22,17 @@
     {
       "label": "Gerar Relatório de Componentes",
       "type": "shell",
-      "command": "node",
+      "command": "npm",
       "args": [
-        "${workspaceFolder}/src/app/core/scripts/report.js"
+        "run",
+        "relatorio"
       ],
       "group": {
         "kind": "build",
         "isDefault": true
       },
       "problemMatcher": []
-    },
+    },    
     {
       "type": "npm",
       "script": "test",
