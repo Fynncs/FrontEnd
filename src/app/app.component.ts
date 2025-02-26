@@ -58,7 +58,6 @@ export class AppComponent {
   navbarFechada: boolean = true;
   constructor(
     private router: Router,
-    private cdr: ChangeDetectorRef
   ) { }
   toggleNavbar() {
     this.navbarFechada = !this.navbarFechada;

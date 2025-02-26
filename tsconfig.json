@@ -7,7 +7,8 @@
     "baseUrl": "./src", 
     "paths": {
       "@fynnc.models": ["app/core/models"],
-      "@fynnc.module": ["app/core/modules"],
+      "@fynnc/message": ["app/core/models/message"],
+      "@fynnc/module": ["app/core/modules"],
     },
     "strict": true,
     "noImplicitOverride": true,

@@ -6,19 +6,19 @@
             <span>Quase lá! Complete seu cadastro.</span>
         </div>
 
-        <mat-form-field appearance="outline" class="custom-input">
+        <mat-form-field appearance="fill" class="custom-input">
             <mat-label>Nome Completo</mat-label>
             <input matInput id="fullName" formControlName="fullName" type="text" required
                 placeholder="Digite seu nome completo" />
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="custom-input">
+        <mat-form-field appearance="fill" class="custom-input">
             <mat-label>Email</mat-label>
             <input matInput id="email" formControlName="email" type="email" required title="Email" placeholder="Digite seu email" />
         </mat-form-field>
 
     </div>
-    <mat-form-field appearance="outline" class="custom-input custom-input-relative">
+    <mat-form-field appearance="fill" class="custom-input custom-input-relative">
         <mat-label>Senha</mat-label>
         <input matInput id="password" formControlName="password" [type]="hidePassword ? 'password' : 'text'" required
             title="Senha" />
@@ -33,7 +33,7 @@
         </button>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="custom-input custom-input-relative">
+    <mat-form-field appearance="fill" class="custom-input custom-input-relative">
         <mat-label>Confirmar Senha</mat-label>
         <input matInput id="confirmPassword" formControlName="confirmPassword"
             [type]="hideConfirmPassword ? 'password' : 'text'" required title="Confirmar Senha"

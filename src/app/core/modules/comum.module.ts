@@ -4,13 +4,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
     imports: [
@@ -26,6 +27,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         MatSidenavModule,
         FormsModule,
         MatFormFieldModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        
     ],
     exports: [
         RouterModule,
@@ -39,7 +43,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         MatSelectModule,
         MatSidenavModule,
         FormsModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        ReactiveFormsModule ,
+        MatInputModule
     ]
 })
 export class ComumModule { }
